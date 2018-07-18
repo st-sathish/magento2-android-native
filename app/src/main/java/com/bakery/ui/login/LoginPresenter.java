@@ -4,9 +4,8 @@ import com.androidnetworking.error.ANError;
 import com.bakery.R;
 import com.bakery.data.network.ApiEndpoints;
 import com.bakery.presenter.BasePresenter;
+import com.bakery.utils.ValidationUtils;
 import com.rx2androidnetworking.Rx2AndroidNetworking;
-
-import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -24,10 +23,15 @@ public class LoginPresenter <V extends LoginMvpView> extends BasePresenter<V> im
             getMvpView().onError(R.string.empty_email);
             return;
         }
+        if(!ValidationUtils.isEmailValid(email)) {
+            getMvpView().onError(R.string.invalid_email);
+            return;
+        }
         if (password == null || password.isEmpty()) {
             getMvpView().onError(R.string.empty_password);
             return;
         }
+        getMvpView().showLoading();
         Map<String, String> body = new HashMap<>();
         body.put("username", email);
         body.put("password", password);
@@ -46,7 +50,8 @@ public class LoginPresenter <V extends LoginMvpView> extends BasePresenter<V> im
 
                     @Override
                     public void onNext(String accessToken) {
-                        getMvpView().openMainActivity();
+                        getMvpView().hideLoading();
+                        getMvpView().openLandingPageActivity();
                     }
 
                     @Override

@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Noaction">
-        <activity android:name=".MainActivity"
+        <activity android:name=".ui.splashscreen.SplashScreenActivity"
             android:theme="@style/Noaction">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,7 +25,7 @@
         <activity android:name=".ui.forgotpassword.ForgetPasswordActivity"/>
         <activity android:name=".ui.otp.received.OtpReceiveActivity"/>
         <activity android:name=".ui.otp.verify.OtpVerifyActivity"/>
-        <activity android:name=".NavicationActivity"/>
+        <activity android:name=".ui.landingpage.NavicationActivity"/>
     </application>
 
 </manifest>

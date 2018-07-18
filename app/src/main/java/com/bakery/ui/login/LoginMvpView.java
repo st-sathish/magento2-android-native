@@ -6,7 +6,7 @@ import com.bakery.presenter.MvpView;
 
 public interface LoginMvpView extends MvpView {
 
-    void openMainActivity();
+    void openLandingPageActivity();
 
     void onForgotPasswordClick(View v);
 

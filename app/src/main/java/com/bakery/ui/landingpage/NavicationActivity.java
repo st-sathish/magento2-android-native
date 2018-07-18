@@ -1,4 +1,4 @@
-package com.bakery;
+package com.bakery.ui.landingpage;
 
 
 import android.annotation.SuppressLint;
@@ -29,6 +29,7 @@ import com.bakery.Fragment.Fragment_Item_List;
 import com.bakery.Fragment.Fragment_Main;
 import com.bakery.Fragment.MyAccountFragment;
 import com.bakery.Fragment.RamConstants;
+import com.bakery.R;
 import com.bakery.Source.WebService;
 
 import java.util.ArrayList;

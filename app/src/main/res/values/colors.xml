@@ -31,4 +31,5 @@
     <color name="foreground_material_light">#4fc04b</color>
 
     <color name="navigationBarColor">#000000</color>
+    <color name="black_effective">#2a2a2a</color>
 </resources>

@@ -8,7 +8,6 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bakery.NavicationActivity;
 import com.bakery.Bean.Navigation_Item_Bean;
 import com.bakery.R;
 

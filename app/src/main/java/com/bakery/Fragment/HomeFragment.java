@@ -1,7 +1,6 @@
 package com.bakery.Fragment;
 
 import android.app.Fragment;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.NestedScrollView;
@@ -12,9 +11,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
-import com.bakery.NavicationActivity;
 import com.bakery.R;
 import com.github.siyamed.shapeimageview.RoundedImageView;
 
@@ -75,17 +72,17 @@ public class HomeFragment  extends Fragment implements View.OnClickListener {
 
           /*  case R.id.button01:
                 //Move to Fragment 01
-                ((MainActivity) getActivity()).showFragment(new FragmentExample1());
+                ((SplashScreenActivity) getActivity()).showFragment(new FragmentExample1());
                 break;
 
             case R.id.button02:
                 //Move to Fragment 02
-                ((MainActivity) getActivity()).showFragment(new FragmentExample2());
+                ((SplashScreenActivity) getActivity()).showFragment(new FragmentExample2());
                 break;
 
             case R.id.button03:
                 //Move to Fragment 03
-                ((MainActivity) getActivity()).showFragment(new FragmentExample3());
+                ((SplashScreenActivity) getActivity()).showFragment(new FragmentExample3());
                 break;
 */
         }

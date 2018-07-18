@@ -1,6 +1,7 @@
 package com.bakery.ui;
 
 import android.annotation.TargetApi;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Build;
@@ -14,22 +15,27 @@ import android.widget.Toast;
 
 import com.bakery.R;
 import com.bakery.presenter.MvpView;
+import com.bakery.utils.ComponentUtils;
 import com.bakery.utils.NetworkUtils;
 
 import butterknife.Unbinder;
 
 public abstract class BaseAppCompatActivity extends AppCompatActivity implements MvpView {
 
+    private ProgressDialog mProgressDialog;
     private Unbinder mUnBinder;
 
     @Override
     public void showLoading() {
-
+        hideLoading();
+        mProgressDialog = ComponentUtils.showLoadingDialog(this);
     }
 
     @Override
     public void hideLoading() {
-
+        if (mProgressDialog != null && mProgressDialog.isShowing()) {
+            mProgressDialog.cancel();
+        }
     }
 
     @Override

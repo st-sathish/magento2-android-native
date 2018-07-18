@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.EditText;
 
+import com.bakery.ui.landingpage.NavicationActivity;
 import com.bakery.ui.forgotpassword.ForgetPasswordActivity;
 import com.bakery.ui.signup.NewAccountActivity;
 import com.bakery.R;
@@ -36,14 +37,16 @@ public class LoginActivity extends BaseAppCompatActivity implements LoginMvpView
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         setUnBinder(ButterKnife.bind(this));
+        mEmailEditText.setText("sathish.2009btech@gmail.com");
+        mPasswordEditText.setText("Sathish123$");
         mPresenter.onAttach(LoginActivity.this);
     }
 
     @Override
-    public void openMainActivity() {
-        /*Intent intent = new Intent(LoginActivity.this, NewAccountActivity.class);
+    public void openLandingPageActivity() {
+        Intent intent = new Intent(LoginActivity.this, NavicationActivity.class);
         startActivity(intent);
-        finish();*/
+        finish();
     }
 
     @OnClick(R.id.button_login)
