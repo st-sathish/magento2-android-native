@@ -37,8 +37,6 @@ public class LoginActivity extends BaseAppCompatActivity implements LoginMvpView
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         setUnBinder(ButterKnife.bind(this));
-        mEmailEditText.setText("sathish.2009btech@gmail.com");
-        mPasswordEditText.setText("Sathish123$");
         mPresenter.onAttach(LoginActivity.this);
     }
 
