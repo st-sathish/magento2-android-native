@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:layout_gravity="center"
+        android:gravity="center">
+        <ImageView
+            android:layout_width="220dp"
+            android:layout_height="150dp"
+            android:background="@mipmap/logo_icon"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:gravity="center|top">
+        <ImageView
+            android:id="@+id/image_progress"
+            android:layout_width="100dp"
+            android:background="@drawable/rotate_image3"
+            android:layout_height="100dp" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:text="Please wait..."
+            android:textColor="@android:color/black"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.95"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:gravity="center|top">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:text="We are trying to auto verify your number with"
+            android:textColor="@color/DarkGray"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:text=" an SMS send to +919988776655"
+            android:textColor="@color/DarkGray"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp"/>
+        <TextView
+            android:id="@+id/button_manual"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:textSize="15dp"
+            android:gravity="center"
+            android:text="Enter Code Manually"
+            android:textColor="@color/DarkGreen"/>
+    </LinearLayout>
+</LinearLayout>

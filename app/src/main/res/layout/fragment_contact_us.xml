@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@android:color/white">
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@android:color/white"
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center|left">
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@mipmap/home_icon_image"/>
+                    <View
+                        android:layout_width="10dp"
+                        android:layout_height="match_parent"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Gandhipuram, Coimbatore"
+                        android:textColor="@color/DarkGray"
+                        android:textSize="15dp"/>
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/LiteGray"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@android:color/white"
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center|left">
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@mipmap/contact_icon"/>
+                    <View
+                        android:layout_width="10dp"
+                        android:layout_height="match_parent"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Phone: +91-9791347655"
+                        android:textColor="@color/DarkGray"
+                        android:textSize="15dp"/>
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/LiteGray"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@android:color/white"
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center|left">
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@mipmap/email_icon"/>
+                    <View
+                        android:layout_width="10dp"
+                        android:layout_height="match_parent"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Email: info@ramveltraders.com"
+                        android:textColor="@color/DarkGray"
+                        android:textSize="15dp"/>
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/LiteGray"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@android:color/white"
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center|left">
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@mipmap/help_center_icon"/>
+                    <View
+                        android:layout_width="10dp"
+                        android:layout_height="match_parent"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Support 24/7"
+                        android:textColor="@color/DarkGray"
+                        android:textSize="15dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:background="@android:color/white"
+                    android:orientation="vertical"
+                    android:gravity="center">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Add new address"
+                        android:fontFamily="serif"
+                        android:textColor="@android:color/white"
+                        android:textSize="20dp"/>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/LiteGray"
+            android:orientation="vertical">
+            <LinearLayout
+                android:id="@+id/new_address_button"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_margin="10dp"
+                android:background="@android:color/white">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" + Add new address"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="15dp"/>
+            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1 SAVED ADDRESS"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/DarkGray"
+                android:textSize="12dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:orientation="vertical"
+                android:gravity="top"
+                android:layout_margin="10dp"
+                android:background="@android:color/white">
+                <ImageView
+                    android:layout_width="20dp"
+                    android:background="@mipmap/notification_white"
+                    android:layout_gravity="top|end"
+                    android:layout_height="20dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="M Sathees Kumar"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="15dp"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="20/16 RVM Complex,Parathiyar street,Main road,"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="14dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Manapuram(Post),Coimbatore Dist,"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="14dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tamil Nadu - 611300"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="14dp"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="9988775566"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="14dp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</LinearLayout>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.github.siyamed.shapeimageview.RoundedImageView
+        android:id="@+id/list_image"
+        android:layout_width="300dp"
+        android:layout_height="130dp"
+        android:layout_margin="10dp"
+        android:src="@drawable/image1"
+        app:siRadius="5dp"
+        app:siSquare="false"/>
+</LinearLayout>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorGreen">#36b84e</color>
+    <color name="colorLiteGreen">#FF3CC755</color>
+    <color name="colorGreenNav">#FF37D253</color>
+    <color name="colorLiteOrange">#fadca2</color>
+    <color name="colorLiteYellow">#fff3d9</color>
+    <color name="colorLiteBlue">#FF4E5FC7</color>
+    <color name="Blue">#FF7382DC</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="orange">#FF6600</color>
+    <color name="light_blue">#CCFF</color>
+    <color name="red">#ff00</color>
+    <color name="LiteGray">#e6e6e6</color>
+    <color name="grey">#9b9696</color>
+    <color name="DarkGray">#FF737070</color>
+    <color name="light_pink">#FFCC</color>
+    <color name="liteBlue">#FFC5E6E2</color>
+    <color name="liteGreen">#FFA1DE9C</color>
+    <color name="purple">#DDAACC</color>
+    <color name="DarkBlue">#FF08187C</color>
+    <color name="DarkGreen">#FF0C7108</color>
+    <color name="colorCement">#e9eae9</color>
+    <!-- Colors for material designing -->
+    <color name="textColorPrimary">#FFFFFF</color>
+    <color name="windowBackground">#FFFFFF</color>
+    <color name="foreground_material_light">#4fc04b</color>
+
+    <color name="navigationBarColor">#000000</color>
+</resources>

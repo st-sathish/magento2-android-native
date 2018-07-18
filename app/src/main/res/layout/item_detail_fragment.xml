@@ -1,0 +1,640 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@android:color/white"
+    android:layout_height="match_parent">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center">
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:orientation="horizontal"
+                android:gravity="center">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center|top"
+                    android:layout_marginTop="15dp"
+                    android:layout_weight="1">
+                    <LinearLayout
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:gravity="center">
+                        <ImageView
+                            android:id="@+id/image_purchase"
+                            android:layout_width="17dp"
+                            android:layout_height="16dp"
+                            android:visibility="gone"
+                            android:background="@mipmap/purchase_red_image"/>
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:gravity="center">
+                    <ImageView
+                        android:id="@+id/image_zoom"
+                        android:layout_width="180dp"
+                        android:layout_height="180dp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center|top"
+                    android:layout_marginTop="15dp"
+                    android:layout_weight="1">
+                    <LinearLayout
+                        android:id="@+id/image_favorite"
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:gravity="center">
+                        <com.like.LikeButton
+                            app:icon_type="heart"
+                            app:icon_size="15dp"
+                            android:id="@+id/star_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:id="@+id/small_layout1"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:gravity="center"
+                    android:background="@drawable/layout_style">
+                    <ImageView
+                        android:id="@+id/image_in1"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent"/>
+                <LinearLayout
+                    android:id="@+id/small_layout2"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:gravity="center"
+                    android:background="@drawable/layout_style2">
+                    <ImageView
+                        android:id="@+id/image_in2"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp" />
+                </LinearLayout>
+                <View
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent"/>
+                <LinearLayout
+                    android:id="@+id/small_layout3"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:gravity="center"
+                    android:background="@drawable/layout_style2">
+                    <ImageView
+                        android:id="@+id/image_in3"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp" />
+                </LinearLayout>
+                <View
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent"/>
+                <LinearLayout
+                    android:id="@+id/small_layout4"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:gravity="center"
+                    android:background="@drawable/layout_style2">
+                    <ImageView
+                        android:id="@+id/image_in4"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp" />
+                </LinearLayout>
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/grey"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:orientation="horizontal"
+                android:gravity="center">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.2"></LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_weight="0.1">
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="25dp">
+                        <TextView
+                            android:id="@+id/text_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Badam mixer"
+                            android:textColor="@android:color/black"
+                            android:textSize="16dp"/>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="5dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="IN STOCK"
+                        android:textColor="@color/DarkGreen"
+                        android:textSize="14dp"/>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="5dp"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="QTY"
+                            android:textColor="@android:color/black"
+                            android:textSize="15dp"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" 1"
+                            android:textColor="@android:color/black"
+                            android:textSize="18dp"/>
+                        <View
+                            android:layout_width="30dp"
+                            android:layout_height="10dp"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="₹ "
+                            android:textColor="@android:color/black"
+                            android:textSize="18dp"/>
+                        <TextView
+                            android:id="@+id/item_price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="100"
+                            android:textColor="@android:color/black"
+                            android:textSize="18dp"/>
+
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="5dp"/>
+                    <LinearLayout
+                        android:layout_width="155dp"
+                        android:layout_height="40dp"
+                        android:background="@color/colorGreen"
+                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="5dp"
+                            android:background="@android:color/white">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal"
+                                android:gravity="center"
+                                android:layout_gravity="center">
+                                <LinearLayout
+                                    android:id="@+id/pluse"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:background="@color/LiteGray"
+                                    android:layout_gravity="center"
+                                    android:layout_weight="1">
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textSize="18dp"
+                                        android:textColor="@android:color/black"
+                                        android:text="+"/>
+                                </LinearLayout>
+                                <View
+                                    android:layout_width="1dp"
+                                    android:layout_height="match_parent"
+                                    android:background="@color/DarkGreen"/>
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:layout_gravity="center"
+                                    android:layout_weight="0.8">
+                                    <TextView
+                                        android:id="@+id/count"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textSize="18dp"
+                                        android:text="0"/>
+                                </LinearLayout>
+                                <View
+                                    android:layout_width="1dp"
+                                    android:layout_height="match_parent"
+                                    android:background="@color/DarkGreen"/>
+                                <LinearLayout
+                                    android:id="@+id/minus"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:background="@color/LiteGray"
+                                    android:layout_gravity="center"
+                                    android:layout_weight="1">
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textSize="18dp"
+                                        android:textColor="@android:color/black"
+                                        android:text="-"/>
+                                </LinearLayout>
+
+                            </LinearLayout>
+                        </LinearLayout></LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="5dp"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Purchase : "
+                            android:textColor="@color/DarkGreen"
+                            android:textSize="16dp"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="QTY "
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="15dp"/>
+                        <TextView
+                            android:id="@+id/quantity"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="16dp"/>
+                        <View
+                            android:layout_width="30dp"
+                            android:layout_height="10dp"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="₹ "
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="17dp"/>
+                        <TextView
+                            android:id="@+id/price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="16dp"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.2"></LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="top|start"
+                    android:layout_weight="0.1">
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp"/>
+                   <LinearLayout
+                       android:layout_width="250dp"
+                       android:layout_height="40dp"
+                       android:gravity="center"
+                       android:background="@drawable/layout_style2">
+                       <TextView
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:text="Product detail"
+                           android:textSize="18dp"
+                           android:textColor="@color/DarkGreen"/>
+                   </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="25dp"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/text_description"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15dp"
+                            android:text="Energy (Kcal)"/>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="10dp"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/grey"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.2"></LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5">
+
+                    <ImageView
+                        android:layout_width="200dp"
+                        android:layout_height="match_parent"
+                        android:background="@mipmap/free_delivery_image" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"></LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.2"></LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:gravity="center|start"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="25dp"
+                            android:background="@mipmap/money_icon_image" />
+
+                        <View
+                            android:layout_width="18dp"
+                            android:layout_height="match_parent" />+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Value for your money"
+                            android:textSize="16dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:gravity="center|start"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:background="@mipmap/green_tick_image" />
+
+                        <View
+                            android:layout_width="22dp"
+                            android:layout_height="match_parent" />+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Ships items quickly"
+                            android:textSize="16dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:gravity="center|start"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="35dp"
+                            android:background="@mipmap/truck_image" />
+
+                        <View
+                            android:layout_width="10dp"
+                            android:layout_height="match_parent" />+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Same-day delivery"
+                            android:textSize="16dp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"></LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:background="@color/colorGreen">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@android:color/white"
+                            android:textSize="16dp"
+                            android:textStyle="bold"
+                            android:text="ABOUT US"/>
+                    </LinearLayout>
+                    <View
+                        android:layout_width="10dp"
+                        android:layout_height="match_parent"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center">
+                    </LinearLayout>
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:background="@color/colorGreen">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@android:color/white"
+                            android:textSize="16dp"
+                            android:textStyle="bold"
+                            android:text="CONTACT US"/>
+                    </LinearLayout>
+                    <View
+                        android:layout_width="10dp"
+                        android:layout_height="match_parent"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:background="@color/colorGreen">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@android:color/white"
+                            android:textSize="16dp"
+                            android:textStyle="bold"
+                            android:text="09791347655"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"/>
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:gravity="center"
+        android:layout_gravity="bottom"
+        android:background="@android:color/white"
+        android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:gravity="center"
+        android:layout_gravity="bottom"
+        android:layout_margin="10dp"
+        android:background="@android:color/white"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:id="@+id/button_add_cart"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:background="@color/colorGreen">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    android:text="ADD TO CART"/>
+            </LinearLayout>
+            <View
+                android:layout_width="10dp"
+                android:layout_height="match_parent"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:background="@color/colorGreen">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    android:text="BUY NOW"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout></LinearLayout>
+</FrameLayout>
+</LinearLayout>
+</LinearLayout>

@@ -1,0 +1,2397 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/red"
+    android:gravity="center"
+    android:orientation="vertical">
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/colorGreen"
+                app:layout_scrollFlags="scroll|enterAlways"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+                <ImageView
+                    android:id="@+id/preview_drawer"
+                    android:layout_width="25dp"
+                    android:background="@mipmap/toolbar"
+                    android:layout_height="25dp"/>
+                <View
+                    android:layout_width="30dp"
+                    android:layout_height="10dp"/>
+                <ImageView
+                    android:layout_width="60dp"
+                    android:background="@mipmap/logo_white_icon"
+                    android:layout_height="40dp"/>
+                <View
+                    android:layout_width="100dp"
+                    android:layout_height="10dp"/>
+                <ImageView
+                    android:layout_width="20dp"
+                    android:background="@mipmap/notification_white"
+                    android:layout_height="20dp" />
+                <View
+                    android:layout_width="40dp"
+                    android:layout_height="10dp"/>
+                <ImageView
+                    android:layout_width="25dp"
+                    android:background="@mipmap/purchase"
+                    android:layout_height="22dp" />
+
+            </android.support.v7.widget.Toolbar>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@color/colorGreen"
+                app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:id="@+id/search_bar"
+                    android:layout_width="match_parent"
+                    android:layout_margin="10dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center|start"
+                    android:background="@drawable/search_view_selector">
+                    <View
+                        android:layout_width="10dp"
+                        android:layout_height="match_parent"/>
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@mipmap/search_icon"/>
+                    <View
+                        android:layout_width="20dp"
+                        android:layout_height="match_parent"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/grey"
+                        android:textSize="15dp"
+                        android:text="Search for Products, Brands and More"/>
+                </LinearLayout></LinearLayout>
+        </android.support.design.widget.AppBarLayout>
+        <android.support.v4.widget.NestedScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:orientation="vertical"
+                    android:background="@color/colorGreen">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:gravity="center|start"
+                        android:orientation="horizontal">
+                        <HorizontalScrollView
+                            android:layout_width="wrap_content"
+                            android:scrollbars="none"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal">
+                                <LinearLayout
+                                    android:layout_width="70dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+                                    <ImageView
+                                        android:layout_width="35dp"
+                                        android:layout_height="35dp"
+                                        android:background="@mipmap/food_icon"/>
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textColor="@color/white"
+                                        android:text="Foods"/>
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="70dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+                                    <ImageView
+                                        android:layout_width="35dp"
+                                        android:layout_height="35dp"
+                                        android:background="@mipmap/fruits_icon"/>
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textColor="@color/white"
+                                        android:text="Fruits"/>
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="70dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+                                    <ImageView
+                                        android:layout_width="35dp"
+                                        android:layout_height="35dp"
+                                        android:background="@mipmap/vegetables_icon"/>
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textColor="@color/white"
+                                        android:text="Vegetable"/>
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="70dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+                                    <ImageView
+                                        android:layout_width="35dp"
+                                        android:layout_height="35dp"
+                                        android:background="@mipmap/juice_icon"/>
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textColor="@color/white"
+                                        android:text="Juices"/>
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="70dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+                                    <ImageView
+                                        android:layout_width="35dp"
+                                        android:layout_height="35dp"
+                                        android:background="@mipmap/food_icon"/>
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textColor="@color/white"
+                                        android:text="Foods"/>
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="70dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+                                    <ImageView
+                                        android:layout_width="35dp"
+                                        android:layout_height="35dp"
+                                        android:background="@mipmap/fruits_icon"/>
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textColor="@color/white"
+                                        android:text="Fruits"/>
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="70dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+                                    <ImageView
+                                        android:layout_width="35dp"
+                                        android:layout_height="35dp"
+                                        android:background="@mipmap/vegetables_icon"/>
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textColor="@color/white"
+                                        android:text="Vegetable"/>
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="70dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+                                    <ImageView
+                                        android:layout_width="35dp"
+                                        android:layout_height="35dp"
+                                        android:background="@mipmap/juice_icon"/>
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textColor="@color/white"
+                                        android:text="Juices"/>
+                                </LinearLayout>
+                            </LinearLayout>
+                        </HorizontalScrollView>
+                        <LinearLayout
+                            android:layout_width="70dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:orientation="vertical">
+                            <ImageView
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:background="@mipmap/option_icon"/>
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="5dp"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/white"
+                                android:text="More"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="170dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <HorizontalScrollView
+                            android:layout_width="match_parent"
+                            android:scrollbars="none"
+                            android:layout_height="match_parent">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:background="@color/colorCement"
+                                android:orientation="horizontal">
+                                <com.github.siyamed.shapeimageview.RoundedImageView
+                                    android:id="@+id/image1"
+                                    android:layout_width="300dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_margin="10dp"
+                                    android:src="@drawable/slide1"
+                                    app:siRadius="5dp"
+                                    app:siBorderWidth="1dp"
+                                    app:siBorderColor="@color/colorCement"
+                                    app:siSquare="false"/>
+                                <com.github.siyamed.shapeimageview.RoundedImageView
+                                    android:id="@+id/image2"
+                                    android:layout_width="300dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_margin="10dp"
+                                    android:src="@drawable/slide2"
+                                    app:siRadius="5dp"
+                                    app:siBorderWidth="1dp"
+                                    app:siBorderColor="@color/colorCement"
+                                    app:siSquare="false"/>
+                                <com.github.siyamed.shapeimageview.RoundedImageView
+                                    android:layout_width="300dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_margin="10dp"
+                                    android:src="@drawable/slide3"
+                                    app:siRadius="5dp"
+                                    app:siBorderWidth="1dp"
+                                    app:siBorderColor="@color/colorCement"
+                                    app:siSquare="false"/>
+                                <com.github.siyamed.shapeimageview.RoundedImageView
+                                    android:layout_width="300dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_margin="10dp"
+                                    android:src="@drawable/slide4"
+                                    app:siRadius="5dp"
+                                    app:siBorderWidth="1dp"
+                                    app:siBorderColor="@color/colorCement"
+                                    app:siSquare="false"/>
+                                <com.github.siyamed.shapeimageview.RoundedImageView
+                                    android:layout_width="300dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_margin="10dp"
+                                    android:src="@drawable/slide5"
+                                    app:siRadius="5dp"
+                                    app:siBorderWidth="1dp"
+                                    app:siBorderColor="@color/colorCement"
+                                    app:siSquare="false"/>
+
+                                <com.github.siyamed.shapeimageview.RoundedImageView
+                                    android:layout_width="300dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_margin="10dp"
+                                    android:src="@drawable/slide6"
+                                    app:siRadius="5dp"
+                                    app:siBorderWidth="1dp"
+                                    app:siBorderColor="@color/colorCement"
+                                    app:siSquare="false"/>
+
+                                <com.github.siyamed.shapeimageview.RoundedImageView
+                                    android:layout_width="300dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_margin="10dp"
+                                    android:src="@drawable/slide2"
+                                    app:siRadius="5dp"
+                                    app:siBorderWidth="1dp"
+                                    app:siBorderColor="@color/colorCement"
+                                    app:siSquare="false"/>
+                                <com.github.siyamed.shapeimageview.RoundedImageView
+                                    android:layout_width="300dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_margin="10dp"
+                                    android:src="@drawable/slide3"
+                                    app:siRadius="5dp"
+                                    app:siBorderWidth="1dp"
+                                    app:siBorderColor="@color/colorCement"
+                                    app:siSquare="false"/>
+                            </LinearLayout>
+                        </HorizontalScrollView>
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="500dp"
+                    android:gravity="center|bottom"
+                    android:orientation="vertical"
+                    android:background="@drawable/background1">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="20dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:textStyle="bold"
+                            android:textColor="@android:color/white"
+                            android:text="Healthy Products"/>
+                        <View
+                            android:layout_width="90dp"
+                            android:layout_height="1dp"/>
+                        <Button
+                            android:id="@+id/view_item"
+                            android:layout_width="80dp"
+                            android:layout_height="30dp"
+                            android:textSize="15dp"
+                            android:text="View All"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                            android:textColor="@android:color/black"
+                            android:background="@drawable/button_style2"/>
+                    </LinearLayout>
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_gravity="bottom"
+                            android:gravity="center|bottom"
+                            android:background="@color/colorCement"></LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="410dp"
+                            android:layout_margin="10dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/shadow">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                android:layout_marginBottom="5dp"
+                                android:layout_marginRight="5dp"
+                                android:background="@drawable/search_view_style"
+                                android:gravity="center">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="center"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <ImageView
+                                            android:layout_width="100dp"
+                                            android:layout_height="100dp"
+                                            android:background="@mipmap/badam_mix" />
+
+                                        <View
+                                            android:layout_width="match_parent"
+                                            android:layout_height="10dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Milk powder"
+                                            android:textColor="@color/DarkBlue"
+                                            android:textSize="15dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Just 100/- Rs"
+                                            android:textColor="@color/DarkGreen"
+                                            android:textSize="15dp" />
+                                    </LinearLayout>
+
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:background="@color/LiteGray" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="center"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <ImageView
+                                            android:layout_width="100dp"
+                                            android:layout_height="100dp"
+                                            android:background="@mipmap/milk_powder" />
+
+                                        <View
+                                            android:layout_width="match_parent"
+                                            android:layout_height="10dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Milk powder"
+                                            android:textColor="@color/DarkBlue"
+                                            android:textSize="15dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Just 100/- Rs"
+                                            android:textColor="@color/DarkGreen"
+                                            android:textSize="15dp" />
+                                    </LinearLayout>
+                                </LinearLayout>
+
+                                <View
+                                    android:layout_width="1dp"
+                                    android:layout_height="match_parent"
+                                    android:background="@color/LiteGray" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="center"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <ImageView
+                                            android:layout_width="100dp"
+                                            android:layout_height="100dp"
+                                            android:background="@mipmap/badam_mix" />
+
+                                        <View
+                                            android:layout_width="match_parent"
+                                            android:layout_height="10dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Milk powder"
+                                            android:textColor="@color/DarkBlue"
+                                            android:textSize="15dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Just 100/- Rs"
+                                            android:textColor="@color/DarkGreen"
+                                            android:textSize="15dp" />
+                                    </LinearLayout>
+
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:background="@color/LiteGray" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="center"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <ImageView
+                                            android:layout_width="100dp"
+                                            android:layout_height="100dp"
+                                            android:background="@mipmap/milk_powder" />
+
+                                        <View
+                                            android:layout_width="match_parent"
+                                            android:layout_height="10dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Milk powder"
+                                            android:textColor="@color/DarkBlue"
+                                            android:textSize="15dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Just 100/- Rs"
+                                            android:textColor="@color/DarkGreen"
+                                            android:textSize="15dp" />
+                                    </LinearLayout>
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </FrameLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="500dp"
+                    android:gravity="center|bottom"
+                    android:orientation="vertical"
+                    android:background="@drawable/background2">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="20dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:textStyle="bold"
+                            android:textColor="@android:color/white"
+                            android:text="Ice Cream Products"/>
+                        <View
+                            android:layout_width="60dp"
+                            android:layout_height="1dp"/>
+                        <Button
+                            android:layout_width="80dp"
+                            android:layout_height="30dp"
+                            android:textSize="15dp"
+                            android:text="View All"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                            android:textColor="@android:color/black"
+                            android:background="@drawable/button_style2"/>
+                    </LinearLayout>
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_gravity="bottom"
+                            android:gravity="center|bottom"
+                            android:background="@color/colorCement"></LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="410dp"
+                            android:layout_margin="10dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/shadow">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                android:layout_marginBottom="5dp"
+                                android:layout_marginRight="5dp"
+                                android:background="@drawable/search_view_style"
+                                android:gravity="center">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="center"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <ImageView
+                                        android:layout_width="150dp"
+                                        android:layout_height="150dp"
+                                        android:background="@mipmap/badam_mix" />
+
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="10dp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Milk powder"
+                                        android:textColor="@color/DarkBlue"
+                                        android:textSize="15dp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Just 100/- Rs"
+                                        android:textColor="@color/DarkGreen"
+                                        android:textSize="15dp" />
+                                </LinearLayout>
+
+                                <View
+                                    android:layout_width="1dp"
+                                    android:layout_height="match_parent"
+                                    android:background="@color/LiteGray" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1.2"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="center"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <ImageView
+                                            android:layout_width="100dp"
+                                            android:layout_height="100dp"
+                                            android:background="@mipmap/badam_mix" />
+
+                                        <View
+                                            android:layout_width="match_parent"
+                                            android:layout_height="10dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Milk powder"
+                                            android:textColor="@color/DarkBlue"
+                                            android:textSize="15dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Just 100/- Rs"
+                                            android:textColor="@color/DarkGreen"
+                                            android:textSize="15dp" />
+                                    </LinearLayout>
+
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:background="@color/LiteGray" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="center"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <ImageView
+                                            android:layout_width="100dp"
+                                            android:layout_height="100dp"
+                                            android:background="@mipmap/milk_powder" />
+
+                                        <View
+                                            android:layout_width="match_parent"
+                                            android:layout_height="10dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Milk powder"
+                                            android:textColor="@color/DarkBlue"
+                                            android:textSize="15dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Just 100/- Rs"
+                                            android:textColor="@color/DarkGreen"
+                                            android:textSize="15dp" />
+                                    </LinearLayout>
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </FrameLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="280dp"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:orientation="vertical"
+                    android:background="@drawable/background4">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.85"
+                        android:gravity="center|start"
+                        android:layout_gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="20dp"
+                            android:layout_marginLeft="10dp"
+                            android:textStyle="bold"
+                            android:textColor="@android:color/white"
+                            android:text="Bakery Products"/>
+                        <View
+                            android:layout_width="60dp"
+                            android:layout_height="1dp"/>
+                        <Button
+                            android:layout_width="80dp"
+                            android:layout_height="25dp"
+                            android:textSize="15dp"
+                            android:text="View All"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                            android:textColor="@android:color/black"
+                            android:background="@drawable/button_style2"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.23"
+                        android:layout_margin="10dp"
+                        android:orientation="horizontal">
+
+                        <com.github.siyamed.shapeimageview.RoundedImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/image1"
+                            app:siRadius="8dp"
+                            app:siBorderWidth="0dp"
+                            app:siBorderColor="@android:color/transparent"
+                            app:siSquare="false"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.98"
+                        android:orientation="horizontal"
+                        android:background="@android:color/white">
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="500dp"
+                    android:gravity="center|bottom"
+                    android:orientation="vertical"
+                    android:background="@color/colorLiteOrange">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="20dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:textStyle="bold"
+                            android:textColor="@color/colorPrimary"
+                            android:text="Healthy Products"/>
+                        <View
+                            android:layout_width="60dp"
+                            android:layout_height="1dp"/>
+                        <Button
+                            android:layout_width="80dp"
+                            android:layout_height="30dp"
+                            android:textSize="15dp"
+                            android:text="View All"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                            android:textColor="@android:color/black"
+                            android:background="@drawable/button_style2"/>
+                    </LinearLayout>
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_gravity="bottom"
+                            android:gravity="center|bottom"
+                            android:background="@color/colorCement"></LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="410dp"
+                            android:layout_margin="10dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/shadow">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                android:layout_marginBottom="5dp"
+                                android:layout_marginRight="5dp"
+                                android:background="@drawable/search_view_style"
+                                android:gravity="center">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="center"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <ImageView
+                                            android:layout_width="100dp"
+                                            android:layout_height="100dp"
+                                            android:background="@mipmap/badam_mix" />
+
+                                        <View
+                                            android:layout_width="match_parent"
+                                            android:layout_height="10dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Milk powder"
+                                            android:textColor="@color/DarkBlue"
+                                            android:textSize="15dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Just 100/- Rs"
+                                            android:textColor="@color/DarkGreen"
+                                            android:textSize="15dp" />
+                                    </LinearLayout>
+
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:background="@color/LiteGray" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="center"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <ImageView
+                                            android:layout_width="100dp"
+                                            android:layout_height="100dp"
+                                            android:background="@mipmap/milk_powder" />
+
+                                        <View
+                                            android:layout_width="match_parent"
+                                            android:layout_height="10dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Milk powder"
+                                            android:textColor="@color/DarkBlue"
+                                            android:textSize="15dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Just 100/- Rs"
+                                            android:textColor="@color/DarkGreen"
+                                            android:textSize="15dp" />
+                                    </LinearLayout>
+                                </LinearLayout>
+
+                                <View
+                                    android:layout_width="1dp"
+                                    android:layout_height="match_parent"
+                                    android:background="@color/LiteGray" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="center"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <ImageView
+                                            android:layout_width="100dp"
+                                            android:layout_height="100dp"
+                                            android:background="@mipmap/badam_mix" />
+
+                                        <View
+                                            android:layout_width="match_parent"
+                                            android:layout_height="10dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Milk powder"
+                                            android:textColor="@color/DarkBlue"
+                                            android:textSize="15dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Just 100/- Rs"
+                                            android:textColor="@color/DarkGreen"
+                                            android:textSize="15dp" />
+                                    </LinearLayout>
+
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:background="@color/LiteGray" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="center"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <ImageView
+                                            android:layout_width="100dp"
+                                            android:layout_height="100dp"
+                                            android:background="@mipmap/milk_powder" />
+
+                                        <View
+                                            android:layout_width="match_parent"
+                                            android:layout_height="10dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Milk powder"
+                                            android:textColor="@color/DarkBlue"
+                                            android:textSize="15dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Just 100/- Rs"
+                                            android:textColor="@color/DarkGreen"
+                                            android:textSize="15dp" />
+                                    </LinearLayout>
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </FrameLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="500dp"
+                    android:gravity="center|bottom"
+                    android:orientation="vertical"
+                    android:background="@drawable/background6">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="20dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:textStyle="bold"
+                            android:textColor="@android:color/white"
+                            android:text="Beverages Products"/>
+                        <View
+                            android:layout_width="60dp"
+                            android:layout_height="1dp"/>
+                        <Button
+                            android:layout_width="80dp"
+                            android:layout_height="30dp"
+                            android:textSize="15dp"
+                            android:text="View All"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                            android:textColor="@android:color/black"
+                            android:background="@drawable/button_style2"/>
+                    </LinearLayout>
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_gravity="bottom"
+                            android:gravity="center|bottom"
+                            android:background="@color/colorCement"></LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="410dp"
+                            android:layout_margin="10dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/shadow">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                android:layout_marginBottom="5dp"
+                                android:layout_marginRight="5dp"
+                                android:background="@drawable/search_view_style"
+                                android:gravity="center">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="center"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <ImageView
+                                            android:layout_width="100dp"
+                                            android:layout_height="100dp"
+                                            android:background="@mipmap/badam_mix" />
+
+                                        <View
+                                            android:layout_width="match_parent"
+                                            android:layout_height="10dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Milk powder"
+                                            android:textColor="@color/DarkBlue"
+                                            android:textSize="15dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Just 100/- Rs"
+                                            android:textColor="@color/DarkGreen"
+                                            android:textSize="15dp" />
+                                    </LinearLayout>
+
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:background="@color/LiteGray" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="center"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <ImageView
+                                            android:layout_width="100dp"
+                                            android:layout_height="100dp"
+                                            android:background="@mipmap/milk_powder" />
+
+                                        <View
+                                            android:layout_width="match_parent"
+                                            android:layout_height="10dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Milk powder"
+                                            android:textColor="@color/DarkBlue"
+                                            android:textSize="15dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Just 100/- Rs"
+                                            android:textColor="@color/DarkGreen"
+                                            android:textSize="15dp" />
+                                    </LinearLayout>
+                                </LinearLayout>
+
+                                <View
+                                    android:layout_width="1dp"
+                                    android:layout_height="match_parent"
+                                    android:background="@color/LiteGray" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="center"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <ImageView
+                                            android:layout_width="100dp"
+                                            android:layout_height="100dp"
+                                            android:background="@mipmap/badam_mix" />
+
+                                        <View
+                                            android:layout_width="match_parent"
+                                            android:layout_height="10dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Milk powder"
+                                            android:textColor="@color/DarkBlue"
+                                            android:textSize="15dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Just 100/- Rs"
+                                            android:textColor="@color/DarkGreen"
+                                            android:textSize="15dp" />
+                                    </LinearLayout>
+
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:background="@color/LiteGray" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="center"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <ImageView
+                                            android:layout_width="100dp"
+                                            android:layout_height="100dp"
+                                            android:background="@mipmap/milk_powder" />
+
+                                        <View
+                                            android:layout_width="match_parent"
+                                            android:layout_height="10dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Milk powder"
+                                            android:textColor="@color/DarkBlue"
+                                            android:textSize="15dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Just 100/- Rs"
+                                            android:textColor="@color/DarkGreen"
+                                            android:textSize="15dp" />
+                                    </LinearLayout>
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </FrameLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="170dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <HorizontalScrollView
+                            android:layout_width="match_parent"
+                            android:scrollbars="none"
+                            android:layout_height="match_parent">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:background="@color/colorCement"
+                                android:orientation="horizontal">
+                                <com.github.siyamed.shapeimageview.RoundedImageView
+                                    android:layout_width="300dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_margin="10dp"
+                                    android:src="@drawable/slide1"
+                                    app:siRadius="5dp"
+                                    app:siBorderWidth="1dp"
+                                    app:siBorderColor="@color/colorCement"
+                                    app:siSquare="false"/>
+                                <com.github.siyamed.shapeimageview.RoundedImageView
+                                    android:layout_width="300dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_margin="10dp"
+                                    android:src="@drawable/slide2"
+                                    app:siRadius="5dp"
+                                    app:siBorderWidth="1dp"
+                                    app:siBorderColor="@color/colorCement"
+                                    app:siSquare="false"/>
+                                <com.github.siyamed.shapeimageview.RoundedImageView
+                                    android:layout_width="300dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_margin="10dp"
+                                    android:src="@drawable/slide3"
+                                    app:siRadius="5dp"
+                                    app:siBorderWidth="1dp"
+                                    app:siBorderColor="@color/colorCement"
+                                    app:siSquare="false"/>
+
+                                <com.github.siyamed.shapeimageview.RoundedImageView
+                                    android:layout_width="300dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_margin="10dp"
+                                    android:src="@drawable/slide4"
+                                    app:siRadius="5dp"
+                                    app:siBorderWidth="1dp"
+                                    app:siBorderColor="@color/colorCement"
+                                    app:siSquare="false"/>
+
+                                <com.github.siyamed.shapeimageview.RoundedImageView
+                                    android:layout_width="300dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_margin="10dp"
+                                    android:src="@drawable/slide5"
+                                    app:siRadius="5dp"
+                                    app:siBorderWidth="1dp"
+                                    app:siBorderColor="@color/colorCement"
+                                    app:siSquare="false"/>
+
+                                <com.github.siyamed.shapeimageview.RoundedImageView
+                                    android:layout_width="300dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_margin="10dp"
+                                    android:src="@drawable/slide6"
+                                    app:siRadius="5dp"
+                                    app:siBorderWidth="1dp"
+                                    app:siBorderColor="@color/colorCement"
+                                    app:siSquare="false"/>
+                                <com.github.siyamed.shapeimageview.RoundedImageView
+                                    android:layout_width="300dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_margin="10dp"
+                                    android:src="@drawable/slide2"
+                                    app:siRadius="5dp"
+                                    app:siBorderWidth="1dp"
+                                    app:siBorderColor="@color/colorCement"
+                                    app:siSquare="false"/>
+                            </LinearLayout>
+                        </HorizontalScrollView>
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="500dp"
+                    android:gravity="center|bottom"
+                    android:orientation="vertical"
+                    android:background="@drawable/background5">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="20dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:textStyle="bold"
+                            android:textColor="@color/white"
+                            android:text="Healthy Products"/>
+                        <View
+                            android:layout_width="60dp"
+                            android:layout_height="1dp"/>
+                        <Button
+                            android:layout_width="80dp"
+                            android:layout_height="30dp"
+                            android:textSize="15dp"
+                            android:text="View All"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                            android:textColor="@android:color/black"
+                            android:background="@drawable/button_style2"/>
+                    </LinearLayout>
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_gravity="bottom"
+                            android:gravity="center|bottom"
+                            android:background="@color/colorCement"></LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="410dp"
+                            android:layout_margin="10dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/shadow">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                android:layout_marginBottom="5dp"
+                                android:layout_marginRight="5dp"
+                                android:background="@drawable/search_view_style"
+                                android:gravity="center">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="center"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <ImageView
+                                            android:layout_width="100dp"
+                                            android:layout_height="100dp"
+                                            android:background="@mipmap/badam_mix" />
+
+                                        <View
+                                            android:layout_width="match_parent"
+                                            android:layout_height="10dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Milk powder"
+                                            android:textColor="@color/DarkBlue"
+                                            android:textSize="15dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Just 100/- Rs"
+                                            android:textColor="@color/DarkGreen"
+                                            android:textSize="15dp" />
+                                    </LinearLayout>
+
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:background="@color/LiteGray" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="center"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <ImageView
+                                            android:layout_width="100dp"
+                                            android:layout_height="100dp"
+                                            android:background="@mipmap/milk_powder" />
+
+                                        <View
+                                            android:layout_width="match_parent"
+                                            android:layout_height="10dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Milk powder"
+                                            android:textColor="@color/DarkBlue"
+                                            android:textSize="15dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Just 100/- Rs"
+                                            android:textColor="@color/DarkGreen"
+                                            android:textSize="15dp" />
+                                    </LinearLayout>
+                                </LinearLayout>
+                                <View
+                                    android:layout_width="1dp"
+                                    android:layout_height="match_parent"
+                                    android:background="@color/LiteGray" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="center"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <ImageView
+                                            android:layout_width="100dp"
+                                            android:layout_height="100dp"
+                                            android:background="@mipmap/badam_mix" />
+
+                                        <View
+                                            android:layout_width="match_parent"
+                                            android:layout_height="10dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Milk powder"
+                                            android:textColor="@color/DarkBlue"
+                                            android:textSize="15dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Just 100/- Rs"
+                                            android:textColor="@color/DarkGreen"
+                                            android:textSize="15dp" />
+                                    </LinearLayout>
+
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:background="@color/LiteGray" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="center"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <ImageView
+                                            android:layout_width="100dp"
+                                            android:layout_height="100dp"
+                                            android:background="@mipmap/milk_powder" />
+
+                                        <View
+                                            android:layout_width="match_parent"
+                                            android:layout_height="10dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Milk powder"
+                                            android:textColor="@color/DarkBlue"
+                                            android:textSize="15dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Just 100/- Rs"
+                                            android:textColor="@color/DarkGreen"
+                                            android:textSize="15dp" />
+                                    </LinearLayout>
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </FrameLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="500dp"
+                    android:gravity="center|bottom"
+                    android:orientation="vertical"
+                    android:background="@drawable/background7">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="20dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:textStyle="bold"
+                            android:textColor="@android:color/white"
+                            android:text="Healthy Products"/>
+                        <View
+                            android:layout_width="60dp"
+                            android:layout_height="1dp"/>
+                        <Button
+                            android:layout_width="80dp"
+                            android:layout_height="30dp"
+                            android:textSize="15dp"
+                            android:text="View All"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                            android:textColor="@android:color/black"
+                            android:background="@drawable/button_style2"/>
+                    </LinearLayout>
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_gravity="bottom"
+                            android:gravity="center|bottom"
+                            android:background="@color/colorCement"></LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="410dp"
+                            android:layout_margin="10dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/shadow">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                android:layout_marginBottom="5dp"
+                                android:layout_marginRight="5dp"
+                                android:background="@drawable/search_view_style"
+                                android:gravity="center">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="center"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <ImageView
+                                        android:layout_width="150dp"
+                                        android:layout_height="150dp"
+                                        android:background="@mipmap/badam_mix" />
+
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="10dp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Milk powder"
+                                        android:textColor="@color/DarkBlue"
+                                        android:textSize="15dp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Just 100/- Rs"
+                                        android:textColor="@color/DarkGreen"
+                                        android:textSize="15dp" />
+                                </LinearLayout>
+
+                                <View
+                                    android:layout_width="1dp"
+                                    android:layout_height="match_parent"
+                                    android:background="@color/LiteGray" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1.2"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="center"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <ImageView
+                                            android:layout_width="100dp"
+                                            android:layout_height="100dp"
+                                            android:background="@mipmap/badam_mix" />
+
+                                        <View
+                                            android:layout_width="match_parent"
+                                            android:layout_height="10dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Milk powder"
+                                            android:textColor="@color/DarkBlue"
+                                            android:textSize="15dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Just 100/- Rs"
+                                            android:textColor="@color/DarkGreen"
+                                            android:textSize="15dp" />
+                                    </LinearLayout>
+
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:background="@color/LiteGray" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="center"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <ImageView
+                                            android:layout_width="100dp"
+                                            android:layout_height="100dp"
+                                            android:background="@mipmap/milk_powder" />
+
+                                        <View
+                                            android:layout_width="match_parent"
+                                            android:layout_height="10dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Milk powder"
+                                            android:textColor="@color/DarkBlue"
+                                            android:textSize="15dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Just 100/- Rs"
+                                            android:textColor="@color/DarkGreen"
+                                            android:textSize="15dp" />
+                                    </LinearLayout>
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </FrameLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="280dp"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:orientation="vertical"
+                    android:background="@drawable/background2">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.85"
+                        android:gravity="center|start"
+                        android:layout_gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="20dp"
+                            android:layout_marginLeft="10dp"
+                            android:textStyle="bold"
+                            android:textColor="@android:color/white"
+                            android:text="Healthy Products"/>
+                        <View
+                            android:layout_width="60dp"
+                            android:layout_height="1dp"/>
+                        <Button
+                            android:layout_width="80dp"
+                            android:layout_height="25dp"
+                            android:textSize="15dp"
+                            android:text="View All"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                            android:textColor="@android:color/black"
+                            android:background="@drawable/button_style2"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.23"
+                        android:layout_margin="10dp"
+                        android:orientation="horizontal">
+
+                        <com.github.siyamed.shapeimageview.RoundedImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/image2"
+                            app:siRadius="8dp"
+                            app:siBorderWidth="0dp"
+                            app:siBorderColor="@android:color/transparent"
+                            app:siSquare="false"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.98"
+                        android:orientation="horizontal"
+                        android:background="@android:color/white">
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="500dp"
+                    android:gravity="center|bottom"
+                    android:orientation="vertical"
+                    android:background="@color/light_pink">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="20dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:textStyle="bold"
+                            android:textColor="@color/colorPrimary"
+                            android:text="Healthy Products"/>
+                        <View
+                            android:layout_width="60dp"
+                            android:layout_height="1dp"/>
+                        <Button
+                            android:layout_width="80dp"
+                            android:layout_height="30dp"
+                            android:textSize="15dp"
+                            android:text="View All"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                            android:textColor="@android:color/black"
+                            android:background="@drawable/button_style2"/>
+                    </LinearLayout>
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_gravity="bottom"
+                            android:gravity="center|bottom"
+                            android:background="@color/colorCement"></LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="410dp"
+                            android:layout_margin="10dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/shadow">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                android:layout_marginBottom="5dp"
+                                android:layout_marginRight="5dp"
+                                android:background="@drawable/search_view_style"
+                                android:gravity="center">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="center"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <ImageView
+                                            android:layout_width="100dp"
+                                            android:layout_height="100dp"
+                                            android:background="@mipmap/badam_mix" />
+
+                                        <View
+                                            android:layout_width="match_parent"
+                                            android:layout_height="10dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Milk powder"
+                                            android:textColor="@color/DarkBlue"
+                                            android:textSize="15dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Just 100/- Rs"
+                                            android:textColor="@color/DarkGreen"
+                                            android:textSize="15dp" />
+                                    </LinearLayout>
+
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:background="@color/LiteGray" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="center"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <ImageView
+                                            android:layout_width="100dp"
+                                            android:layout_height="100dp"
+                                            android:background="@mipmap/milk_powder" />
+
+                                        <View
+                                            android:layout_width="match_parent"
+                                            android:layout_height="10dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Milk powder"
+                                            android:textColor="@color/DarkBlue"
+                                            android:textSize="15dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Just 100/- Rs"
+                                            android:textColor="@color/DarkGreen"
+                                            android:textSize="15dp" />
+                                    </LinearLayout>
+                                </LinearLayout>
+                                <View
+                                    android:layout_width="1dp"
+                                    android:layout_height="match_parent"
+                                    android:background="@color/LiteGray" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="center"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <ImageView
+                                            android:layout_width="100dp"
+                                            android:layout_height="100dp"
+                                            android:background="@mipmap/badam_mix" />
+
+                                        <View
+                                            android:layout_width="match_parent"
+                                            android:layout_height="10dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Milk powder"
+                                            android:textColor="@color/DarkBlue"
+                                            android:textSize="15dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Just 100/- Rs"
+                                            android:textColor="@color/DarkGreen"
+                                            android:textSize="15dp" />
+                                    </LinearLayout>
+
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:background="@color/LiteGray" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="center"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <ImageView
+                                            android:layout_width="100dp"
+                                            android:layout_height="100dp"
+                                            android:background="@mipmap/milk_powder" />
+
+                                        <View
+                                            android:layout_width="match_parent"
+                                            android:layout_height="10dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Milk powder"
+                                            android:textColor="@color/DarkBlue"
+                                            android:textSize="15dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Just 100/- Rs"
+                                            android:textColor="@color/DarkGreen"
+                                            android:textSize="15dp" />
+                                    </LinearLayout>
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </FrameLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="500dp"
+                    android:gravity="center|bottom"
+                    android:orientation="vertical"
+                    android:background="@drawable/background1">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="20dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:textStyle="bold"
+                            android:textColor="@android:color/white"
+                            android:text="Healthy Products"/>
+                        <View
+                            android:layout_width="60dp"
+                            android:layout_height="1dp"/>
+                        <Button
+                            android:layout_width="80dp"
+                            android:layout_height="30dp"
+                            android:textSize="15dp"
+                            android:text="View All"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                            android:textColor="@android:color/black"
+                            android:background="@drawable/button_style2"/>
+                    </LinearLayout>
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_gravity="bottom"
+                            android:gravity="center|bottom"
+                            android:background="@color/colorCement"></LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="410dp"
+                            android:layout_margin="10dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/shadow">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                android:layout_marginBottom="5dp"
+                                android:layout_marginRight="5dp"
+                                android:background="@drawable/search_view_style"
+                                android:gravity="center">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="center"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <ImageView
+                                        android:layout_width="150dp"
+                                        android:layout_height="150dp"
+                                        android:background="@mipmap/badam_mix" />
+
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="10dp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Milk powder"
+                                        android:textColor="@color/DarkBlue"
+                                        android:textSize="15dp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Just 100/- Rs"
+                                        android:textColor="@color/DarkGreen"
+                                        android:textSize="15dp" />
+                                </LinearLayout>
+
+                                <View
+                                    android:layout_width="1dp"
+                                    android:layout_height="match_parent"
+                                    android:background="@color/LiteGray" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1.2"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="center"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <ImageView
+                                            android:layout_width="100dp"
+                                            android:layout_height="100dp"
+                                            android:background="@mipmap/badam_mix" />
+
+                                        <View
+                                            android:layout_width="match_parent"
+                                            android:layout_height="10dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Milk powder"
+                                            android:textColor="@color/DarkBlue"
+                                            android:textSize="15dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Just 100/- Rs"
+                                            android:textColor="@color/DarkGreen"
+                                            android:textSize="15dp" />
+                                    </LinearLayout>
+
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:background="@color/LiteGray" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="center"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <ImageView
+                                            android:layout_width="100dp"
+                                            android:layout_height="100dp"
+                                            android:background="@mipmap/milk_powder" />
+
+                                        <View
+                                            android:layout_width="match_parent"
+                                            android:layout_height="10dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Milk powder"
+                                            android:textColor="@color/DarkBlue"
+                                            android:textSize="15dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Just 100/- Rs"
+                                            android:textColor="@color/DarkGreen"
+                                            android:textSize="15dp" />
+                                    </LinearLayout>
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </FrameLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="500dp"
+                    android:gravity="center|bottom"
+                    android:orientation="vertical"
+                    android:background="@drawable/background10">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="20dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:textStyle="bold"
+                            android:textColor="@android:color/white"
+                            android:text="Child Products"/>
+                        <View
+                            android:layout_width="60dp"
+                            android:layout_height="1dp"/>
+                        <Button
+                            android:layout_width="80dp"
+                            android:layout_height="30dp"
+                            android:textSize="15dp"
+                            android:text="View All"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                            android:textColor="@android:color/black"
+                            android:background="@drawable/button_style2"/>
+                    </LinearLayout>
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_gravity="bottom"
+                            android:gravity="center|bottom"
+                            android:background="@color/colorCement"></LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="410dp"
+                            android:layout_margin="10dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/shadow">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                android:layout_marginBottom="5dp"
+                                android:layout_marginRight="5dp"
+                                android:background="@drawable/search_view_style"
+                                android:gravity="center">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="center"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <ImageView
+                                            android:layout_width="100dp"
+                                            android:layout_height="100dp"
+                                            android:background="@mipmap/badam_mix" />
+
+                                        <View
+                                            android:layout_width="match_parent"
+                                            android:layout_height="10dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Milk powder"
+                                            android:textColor="@color/DarkBlue"
+                                            android:textSize="15dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Just 100/- Rs"
+                                            android:textColor="@color/DarkGreen"
+                                            android:textSize="15dp" />
+                                    </LinearLayout>
+
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:background="@color/LiteGray" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="center"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <ImageView
+                                            android:layout_width="100dp"
+                                            android:layout_height="100dp"
+                                            android:background="@mipmap/milk_powder" />
+
+                                        <View
+                                            android:layout_width="match_parent"
+                                            android:layout_height="10dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Milk powder"
+                                            android:textColor="@color/DarkBlue"
+                                            android:textSize="15dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Just 100/- Rs"
+                                            android:textColor="@color/DarkGreen"
+                                            android:textSize="15dp" />
+                                    </LinearLayout>
+                                </LinearLayout>
+
+                                <View
+                                    android:layout_width="1dp"
+                                    android:layout_height="match_parent"
+                                    android:background="@color/LiteGray" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="center"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <ImageView
+                                            android:layout_width="100dp"
+                                            android:layout_height="100dp"
+                                            android:background="@mipmap/badam_mix" />
+
+                                        <View
+                                            android:layout_width="match_parent"
+                                            android:layout_height="10dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Milk powder"
+                                            android:textColor="@color/DarkBlue"
+                                            android:textSize="15dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Just 100/- Rs"
+                                            android:textColor="@color/DarkGreen"
+                                            android:textSize="15dp" />
+                                    </LinearLayout>
+
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:background="@color/LiteGray" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="center"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <ImageView
+                                            android:layout_width="100dp"
+                                            android:layout_height="100dp"
+                                            android:background="@mipmap/milk_powder" />
+
+                                        <View
+                                            android:layout_width="match_parent"
+                                            android:layout_height="10dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Milk powder"
+                                            android:textColor="@color/DarkBlue"
+                                            android:textSize="15dp" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Just 100/- Rs"
+                                            android:textColor="@color/DarkGreen"
+                                            android:textSize="15dp" />
+                                    </LinearLayout>
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </FrameLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
+    </android.support.design.widget.CoordinatorLayout>

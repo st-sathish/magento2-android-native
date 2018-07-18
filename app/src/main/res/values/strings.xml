@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">Ramvel Traders</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="home">Home</string>
+    <string name="messages">Messages</string>
+    <string name="user_account">User Account</string>
+    <string name="setting">Settings</string>
+    <string name="about_us">About Us</string>
+    <string name="icon_description">Navigation Drawer List Icons</string>
+    <string name="profile_image">User profile image</string>
+    <string name="user_name">Androhub</string>
+    <string name="email">androhub@gmail.com</string>
+    <string name="drawer_open">Drawer open</string>
+    <string name="drawer_close">Drawer close</string>
+    <string-array name="list_items_categories">
+        <item>Ice Cream Retail</item>
+        <item>Bakery Retail</item>
+        <item>Beverages Retail</item>
+        <item>Ice Cream Wholesale</item>
+        <item>Bakery Wholesale</item>
+        <item>Beverages Wholesale</item>
+    </string-array>
+    <string-array name="list_sub_item">
+        <item>Offer Zone</item>
+        <item>Notifications</item>
+    </string-array>
+    <string-array name="list_item_account">
+        <item>My Cart</item>
+        <item>My Wish List</item>
+        <item>My Orders</item>
+        <item>My Account</item>
+        <item>My Product Reviews</item>
+    </string-array>
+    <string-array name="list_item_help">
+        <item>Gift Card</item>
+        <item>Stores</item>
+        <item>Help Center</item>
+        <item>Terms of Service</item>
+    </string-array>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="empty_email">Email is empty</string>
+    <string name="empty_password">Password is empty</string>
+    <string name="general_error">Error Occurred</string>
+</resources>

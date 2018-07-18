@@ -1,0 +1,873 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/LiteGray"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center|left"
+                    android:orientation="horizontal"
+                    android:background="@android:color/white">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16dp"
+                        android:layout_marginLeft="10dp"
+                        android:textColor="@color/DarkGray"
+                        android:text="3 Items"/>
+                </LinearLayout>
+            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/DarkGray"
+                android:text="Item 1"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    android:gravity="center|start"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.2"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+                        <ImageView
+                            android:id="@+id/item_image"
+                            android:layout_width="100dp"
+                            android:layout_height="130dp"
+                            android:background="@mipmap/milk_powder"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center|start"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/item_name"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="top"
+                                android:text="Badam , Pista Slicer 1 Box (1 Nos)"
+                                android:textColor="@android:color/black"
+                                android:textSize="15dp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/item_kgs"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="bottom"
+                                android:layout_weight="1"
+                                android:text="PRICE"
+                                android:textColor="@color/DarkGreen"
+                                android:textSize="15dp" />
+
+
+                            <TextView
+                                android:id="@+id/item_price"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="bottom"
+                                android:layout_weight="1"
+                                android:text=": ₹2,200.00"
+                                android:textColor="@color/DarkGreen"
+                                android:textSize="15dp" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/item_kgs2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="bottom"
+                                android:text="QTY"
+                                android:layout_weight="1"
+                                android:textColor="@android:color/black"
+                                android:textSize="15dp" />
+
+                            <TextView
+
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="bottom"
+                                android:text=": 2"
+                                android:layout_weight="1"
+                                android:textColor="@android:color/black"
+                                android:textSize="15dp" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="bottom"
+                                android:text="SUBTOTAL"
+                                android:layout_weight="1"
+                                android:textColor="@android:color/black"
+                                android:textSize="15dp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="bottom"
+                                android:text=": ₹4,400.00"
+                                android:layout_weight="1"
+                                android:textColor="@color/DarkGreen"
+                                android:textSize="15dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:layout_weight="1.5"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:id="@+id/image_favorite"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:background="@mipmap/edit_gray_image"/>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"/>
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:background="@mipmap/delete_image_icon"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/DarkGray"
+                android:text="Item 2"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    android:gravity="center|start"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.2"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+                        <ImageView
+                            android:id="@+id/item_image2"
+                            android:layout_width="100dp"
+                            android:layout_height="130dp"
+                            android:background="@mipmap/badam_mix"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center|start"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/item_name2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="top"
+                                android:text="Milk Powder 1 Box (1 Nos)"
+                                android:textColor="@android:color/black"
+                                android:textSize="15dp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="bottom"
+                                android:layout_weight="1"
+                                android:text="PRICE"
+                                android:textColor="@color/DarkGreen"
+                                android:textSize="15dp" />
+
+
+                            <TextView
+                                android:id="@+id/item_price2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="bottom"
+                                android:layout_weight="1"
+                                android:text=": ₹2,000.00"
+                                android:textColor="@color/DarkGreen"
+                                android:textSize="15dp" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="bottom"
+                                android:text="QTY"
+                                android:layout_weight="1"
+                                android:textColor="@android:color/black"
+                                android:textSize="15dp" />
+
+                            <TextView
+
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="bottom"
+                                android:text=": 3"
+                                android:layout_weight="1"
+                                android:textColor="@android:color/black"
+                                android:textSize="15dp" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="bottom"
+                                android:text="SUBTOTAL"
+                                android:layout_weight="1"
+                                android:textColor="@android:color/black"
+                                android:textSize="15dp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="bottom"
+                                android:text=": ₹,6000.00"
+                                android:layout_weight="1"
+                                android:textColor="@color/DarkGreen"
+                                android:textSize="15dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:layout_weight="1.5"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:background="@mipmap/edit_gray_image"/>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"/>
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:background="@mipmap/delete_image_icon"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/DarkGray"
+                android:text="Item 3"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    android:gravity="center|start"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.2"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+                        <ImageView
+                            android:layout_width="100dp"
+                            android:layout_height="130dp"
+                            android:background="@mipmap/milk_powder"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center|start"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="top"
+                                android:text="Badam , Pista Slicer 1 Box (1 Nos)"
+                                android:textColor="@android:color/black"
+                                android:textSize="15dp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="bottom"
+                                android:layout_weight="1"
+                                android:text="PRICE"
+                                android:textColor="@color/DarkGreen"
+                                android:textSize="15dp" />
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="bottom"
+                                android:layout_weight="1"
+                                android:text=": ₹1,000.00"
+                                android:textColor="@color/DarkGreen"
+                                android:textSize="15dp" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="bottom"
+                                android:text="QTY"
+                                android:layout_weight="1"
+                                android:textColor="@android:color/black"
+                                android:textSize="15dp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="bottom"
+                                android:text=": 2"
+                                android:layout_weight="1"
+                                android:textColor="@android:color/black"
+                                android:textSize="15dp" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="bottom"
+                                android:text="SUBTOTAL"
+                                android:layout_weight="1"
+                                android:textColor="@android:color/black"
+                                android:textSize="15dp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="bottom"
+                                android:text=": ₹2,000.00"
+                                android:layout_weight="1"
+                                android:textColor="@color/DarkGreen"
+                                android:textSize="15dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:layout_weight="1.5"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:background="@mipmap/edit_gray_image"/>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"/>
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:background="@mipmap/delete_image_icon"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="20dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:background="@android:color/white"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:gravity="center"
+                    android:layout_gravity="bottom"
+                    android:layout_margin="10dp"
+                    android:background="@android:color/white"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.8"
+                            android:gravity="center"
+                            android:background="@color/colorGreen">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@android:color/white"
+                                android:textSize="16dp"
+                                android:textStyle="bold"
+                                android:text="CONTINUE SHOPPING"/>
+                        </LinearLayout>
+                        <View
+                            android:layout_width="10dp"
+                            android:layout_height="match_parent"/>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:background="@color/colorGreen">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@android:color/white"
+                                android:textSize="16dp"
+                                android:textStyle="bold"
+                                android:text="UPDATE CART"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout></LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:gravity="center"
+                android:layout_gravity="bottom"
+                android:background="@android:color/white"
+                android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginRight="10dp"
+                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:background="@color/colorGreen">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@android:color/white"
+                                android:textSize="16dp"
+                                android:textStyle="bold"
+                                android:text="CLEAR SHOPPING CART"/>
+                        </LinearLayout>
+                </LinearLayout></LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="20dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Estimate Shipping and Tax"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="10dp"
+                        android:textColor="@android:color/black"
+                        android:textSize="17dp"/>
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_weight="1.1"/>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:orientation="vertical"
+                android:background="@android:color/white">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="85dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15dp"
+                            android:layout_gravity="left"
+                            android:layout_marginLeft="10dp"
+                            android:textColor="@android:color/black"
+                            android:text="Country"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:layout_margin="10dp"
+                        android:orientation="horizontal"
+                        android:background="@drawable/edittext_style">
+                        <View
+                            android:layout_width="10dp"
+                            android:layout_height="match_parent"/>
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:ems="15"
+                            android:inputType="text"
+                            android:maxLength="15"
+                            android:textSize="15dp"
+                            android:text="India"
+                            android:textColorHint="@color/grey"
+                            android:layout_margin="5dp"
+                            android:textColor="@color/colorPrimary"
+                            android:background="@drawable/button_style2"/>
+                    </LinearLayout>
+                    </LinearLayout></LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="85dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15dp"
+                            android:layout_gravity="left"
+                            android:layout_marginLeft="10dp"
+                            android:textColor="@android:color/black"
+                            android:text="State/Province"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:layout_margin="10dp"
+                        android:orientation="horizontal"
+                        android:background="@drawable/edittext_style">
+                        <View
+                            android:layout_width="10dp"
+                            android:layout_height="match_parent"/>
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:ems="15"
+                            android:inputType="text"
+                            android:maxLength="15"
+                            android:textSize="15dp"
+                            android:text="Tamilnadu"
+                            android:textColorHint="@color/grey"
+                            android:layout_margin="5dp"
+                            android:textColor="@color/colorPrimary"
+                            android:background="@drawable/button_style2"/>
+                    </LinearLayout></LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="85dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15dp"
+                            android:layout_gravity="left"
+                            android:layout_marginLeft="10dp"
+                            android:textColor="@android:color/black"
+                            android:text="Zip/Postal Code"/>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:layout_margin="10dp"
+                            android:orientation="horizontal"
+                            android:background="@drawable/edittext_style">
+                            <View
+                                android:layout_width="10dp"
+                                android:layout_height="match_parent"/>
+                            <EditText
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:ems="15"
+                                android:inputType="number"
+                                android:maxLength="15"
+                                android:textSize="15dp"
+                                android:text="560029"
+                                android:textColorHint="@color/grey"
+                                android:layout_margin="5dp"
+                                android:textColor="@color/colorPrimary"
+                                android:background="@drawable/button_style2"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:gravity="center"
+                android:orientation="vertical">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@color/grey"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="SUBTOTAL"
+                            android:layout_weight="1"
+                            android:layout_marginLeft="10dp"
+                            android:textColor="@android:color/black"
+                            android:textSize="15dp"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text=": ₹12,400.00"
+                            android:layout_weight="1"
+                            android:textColor="@color/DarkGreen"
+                            android:textSize="15dp"/>
+                    </LinearLayout>
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="10dp"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="SHIPPING (FREE SHIPPING - FREE)"
+                            android:layout_weight="1"
+                            android:layout_marginLeft="10dp"
+                            android:textColor="@android:color/black"
+                            android:textSize="15dp"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text=": ₹0.00 "
+                            android:layout_weight="1"
+                            android:textColor="@color/DarkGreen"
+                            android:textSize="15dp"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:gravity="center"
+                android:orientation="vertical">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="ORDER TOTAL"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="10dp"
+                        android:textColor="@android:color/black"
+                        android:textSize="15dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text=": ₹12,400.00"
+                        android:layout_weight="1"
+                        android:textStyle="bold"
+                        android:textColor="@color/DarkGreen"
+                        android:textSize="16dp"/>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:gravity="center"
+                android:orientation="vertical">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@color/grey"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+                  <Button
+                      android:id="@+id/go_check_button"
+                      android:layout_width="200dp"
+                      android:layout_height="40dp"
+                      android:text="GO TO CHECKOUT"
+                      android:textSize="15dp"
+                      android:textColor="@android:color/white"
+                      android:background="@drawable/button_selecter"/>
+                </LinearLayout>
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
+            </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</LinearLayout>
