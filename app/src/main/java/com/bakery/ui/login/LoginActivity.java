@@ -7,9 +7,9 @@ import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.EditText;
 
-import com.bakery.ui.landingpage.NavicationActivity;
+import com.bakery.ui.landingpage.LandingPageActivity;
 import com.bakery.ui.forgotpassword.ForgetPasswordActivity;
-import com.bakery.ui.signup.NewAccountActivity;
+import com.bakery.ui.signup.SignUpActivity;
 import com.bakery.R;
 import com.bakery.ui.BaseAppCompatActivity;
 
@@ -42,7 +42,7 @@ public class LoginActivity extends BaseAppCompatActivity implements LoginMvpView
 
     @Override
     public void openLandingPageActivity() {
-        Intent intent = new Intent(LoginActivity.this, NavicationActivity.class);
+        Intent intent = new Intent(LoginActivity.this, LandingPageActivity.class);
         startActivity(intent);
         finish();
     }
@@ -64,7 +64,7 @@ public class LoginActivity extends BaseAppCompatActivity implements LoginMvpView
     @OnClick(R.id.new_account)
     @Override
     public void onNewAccountClick(View v) {
-        Intent intent = new Intent(LoginActivity.this, NewAccountActivity.class);
+        Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
         startActivity(intent);
         finish();
     }

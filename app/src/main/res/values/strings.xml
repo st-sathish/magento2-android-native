@@ -45,4 +45,6 @@
     <string name="empty_password">Password is empty</string>
     <string name="general_error">Error Occurred</string>
     <string name="invalid_email">Invalid Email</string>
+    <string name="empty_first_name">First Name is Empty</string>
+    <string name="empty_last_name">Last Name is empty</string>
 </resources>

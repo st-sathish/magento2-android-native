@@ -4,6 +4,7 @@ android:layout_width="match_parent"
 android:layout_height="match_parent"
 android:orientation="vertical"
 xmlns:app="http://schemas.android.com/apk/res-auto">
+
 <android.support.v4.widget.NestedScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -43,6 +44,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:ems="15"
+                    android:id="@+id/first_name"
                     android:inputType="text"
                     android:maxLength="15"
                     android:textSize="15dp"
@@ -73,6 +75,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
                     android:layout_height="match_parent"
                     android:ems="15"
                     android:inputType="text"
+                    android:id="@+id/last_name"
                     android:maxLength="15"
                     android:textSize="15dp"
                     android:hint=" Last Name"
@@ -103,6 +106,67 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
                     android:ems="15"
                     android:inputType="text"
                     android:maxLength="15"
+                    android:id="@+id/email"
+                    android:textSize="15dp"
+                    android:hint=" Email"
+                    android:textColorHint="@color/grey"
+                    android:layout_margin="5dp"
+                    android:textColor="@color/colorPrimary"
+                    android:background="@drawable/button_style2"/>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:gravity="center"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_margin="10dp"
+                android:orientation="horizontal"
+                android:background="@drawable/edittext_style">
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"/>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:ems="15"
+                    android:inputType="textPassword"
+                    android:maxLength="15"
+                    android:id="@+id/password"
+                    android:textSize="15dp"
+                    android:hint="Password"
+                    android:textColorHint="@color/grey"
+                    android:layout_margin="5dp"
+                    android:textColor="@color/colorPrimary"
+                    android:background="@drawable/button_style2"/>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:gravity="center"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_margin="10dp"
+                android:orientation="horizontal"
+                android:background="@drawable/edittext_style">
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"/>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:ems="15"
+                    android:id="@+id/company"
+                    android:inputType="text"
+                    android:maxLength="15"
                     android:textSize="15dp"
                     android:hint=" Company"
                     android:textColorHint="@color/grey"
@@ -130,6 +194,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:ems="15"
+                    android:id="@+id/phone_number"
                     android:inputType="number"
                     android:maxLength="15"
                     android:textSize="15dp"
@@ -159,6 +224,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:ems="15"
+                    android:id="@+id/fax"
                     android:inputType="text"
                     android:maxLength="15"
                     android:textSize="15dp"
@@ -188,6 +254,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:ems="15"
+                    android:id="@+id/street_address"
                     android:gravity="left|top"
                     android:inputType="text"
                     android:maxLength="15"
@@ -220,6 +287,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
                     android:ems="15"
                     android:inputType="text"
                     android:maxLength="15"
+                    android:id="@+id/city"
                     android:textSize="15dp"
                     android:hint=" City"
                     android:textColorHint="@color/grey"
@@ -247,6 +315,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:ems="15"
+                    android:id="@+id/state"
                     android:inputType="text"
                     android:maxLength="15"
                     android:textSize="15dp"
@@ -276,6 +345,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:ems="15"
+                    android:id="@+id/postal_code"
                     android:inputType="number"
                     android:maxLength="15"
                     android:textSize="15dp"
@@ -307,6 +377,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
                     android:ems="15"
                     android:inputType="text"
                     android:maxLength="15"
+                    android:id="@+id/country"
                     android:textSize="15dp"
                     android:hint=" Country"
                     android:textColorHint="@color/grey"

@@ -20,12 +20,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.login.LoginActivity"/>
-        <activity android:name=".ui.signup.NewAccountActivity"/>
+        <activity android:name=".ui.signup.SignUpActivity"/>
         <activity android:name=".PasswordActivity"/>
         <activity android:name=".ui.forgotpassword.ForgetPasswordActivity"/>
         <activity android:name=".ui.otp.received.OtpReceiveActivity"/>
         <activity android:name=".ui.otp.verify.OtpVerifyActivity"/>
-        <activity android:name=".ui.landingpage.NavicationActivity"/>
+        <activity android:name=".ui.landingpage.LandingPageActivity"/>
     </application>
 
 </manifest>
