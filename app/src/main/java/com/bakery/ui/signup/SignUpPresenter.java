@@ -22,7 +22,6 @@ public class SignUpPresenter<V extends SignUpMvpView> extends BasePresenter<V> i
                                    String password, String phone) {
         if (firstName == null || firstName.isEmpty()) {
             getMvpView().onError(R.string.empty_first_name);
-            getMvpView().openLandingPageActivity();
             return;
         }
         if (lastName == null || lastName.isEmpty()) {
@@ -56,7 +55,7 @@ public class SignUpPresenter<V extends SignUpMvpView> extends BasePresenter<V> i
             body.put("customer", customer);
             body.put("password", password);
             // make REST Call post request
-            // mkSignUpRequest(body);
+            mkSignUpRequest(body);
         } catch(Exception e) {
 
         }
@@ -66,6 +65,7 @@ public class SignUpPresenter<V extends SignUpMvpView> extends BasePresenter<V> i
         getMvpView().showLoading();
         Rx2AndroidNetworking
                 .post(ApiEndpoints.API_POST_CUSTOMER_SIGNUP)
+                .addHeaders("Content-Type", "application/json")
                 .addApplicationJsonBody(body)
                 .build()
                 .getJSONObjectObservable()

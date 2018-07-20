@@ -3,7 +3,7 @@ package com.bakery.presenter;
 import com.androidnetworking.common.ANConstants;
 import com.androidnetworking.error.ANError;
 import com.bakery.R;
-import com.bakery.data.network.ApiError;
+import com.bakery.data.network.models.ApiError;
 import com.bakery.utils.AppConstants;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
