@@ -9,6 +9,7 @@ import android.widget.EditText;
 import com.bakery.R;
 import com.bakery.ui.BaseAppCompatActivity;
 import com.bakery.ui.landingpage.LandingPageActivity;
+import com.bakery.ui.landingpage.NavicationActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

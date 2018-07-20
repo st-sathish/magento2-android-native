@@ -47,4 +47,15 @@
     <string name="invalid_email">Invalid Email</string>
     <string name="empty_first_name">First Name is Empty</string>
     <string name="empty_last_name">Last Name is empty</string>
+
+    <!--App Message-->
+    <string name="api_retry_error">Please retry!</string>
+    <string name="api_default_error">Something wrong happened!</string>
+    <string name="some_error">Some Error Occurred!</string>
+    <string name="connection_error">Internet connection lost!</string>
+
+    <!--empty state-->
+    <string name="empty_screen">We do not have anything\nhere right now.</string>
+    <string name="please_retry">Please Retry</string>
+    <string name="retry">Retry</string>
 </resources>
