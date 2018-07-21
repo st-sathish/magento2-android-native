@@ -1,5 +1,6 @@
 package com.bakery.data.network.models;
 
+import com.bakery.R;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -36,17 +37,17 @@ public class CategoryResponse {
     @SerializedName("product_count")
     private Integer productCount;
 
-    private int icon;
+    private int icon = R.drawable.notification;
 
     @Expose
     @SerializedName("children_data")
     private List<CategoryResponse> childrenData = new ArrayList<>();
 
-    public CategoryResponse(int id, String name, int icon) {
-        this.id = id;
-        this.name = name;
-        this.icon = icon;
-    }
+//    public CategoryResponse(int id, String name, int icon) {
+//        this.id = id;
+//        this.name = name;
+//        this.icon = icon;
+//    }
 
     public Integer getId() {
         return id;

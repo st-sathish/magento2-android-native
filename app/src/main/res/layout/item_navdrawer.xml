@@ -8,12 +8,16 @@
 
     <ImageView
         android:id="@+id/icon"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
         android:layout_marginStart="10dp"
-        android:layout_marginEnd="20dp" />
+        android:layout_marginLeft="10dp"
+        android:layout_marginEnd="20dp"
+        android:contentDescription="@string/about_us"
+        android:layout_marginRight="20dp"/>
 
     <TextView
         android:id="@+id/title"
@@ -21,8 +25,8 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_toEndOf="@+id/icon"
-        android:fontFamily="sans-serif"
-        android:textColor="#000"
-        android:textSize="14sp" />
+        android:layout_toRightOf="@+id/icon"
+        android:textColor="@color/colorPrimary"
+        android:textSize="13sp" />
 
 </RelativeLayout>

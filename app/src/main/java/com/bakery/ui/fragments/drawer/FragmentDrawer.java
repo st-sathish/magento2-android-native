@@ -18,8 +18,12 @@ import android.widget.TextView;
 
 import com.bakery.R;
 import com.bakery.data.network.models.CategoryResponse;
+import com.bakery.data.ui.NavListItem;
+import com.bakery.data.ui.models.GeneralItem;
 import com.bakery.ui.BaseFragment;
 import com.bakery.ui.adapters.NavItemDrawerAdapter;
+import com.bakery.ui.sections.CategorySection;
+import com.bakery.ui.sections.GeneralSection;
 import com.bakery.utils.extras.SimpleDividerItemDecoration;
 
 import java.util.ArrayList;
@@ -27,6 +31,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import io.github.luizgrp.sectionedrecyclerviewadapter.SectionedRecyclerViewAdapter;
 
 public class FragmentDrawer extends BaseFragment implements View.OnClickListener, FragmentDrawerMvpView {
 
@@ -34,14 +39,12 @@ public class FragmentDrawer extends BaseFragment implements View.OnClickListener
     private DrawerLayout mDrawerLayout;
     private View containerView;
     private FragmentDrawerListener drawerListener;
-    private NavItemDrawerAdapter adapter;
-
-    List<CategoryResponse> mNavItems = new ArrayList<>();
+    private SectionedRecyclerViewAdapter adapter;
 
     @BindView(R.id.recycler_view)
     RecyclerView recyclerView;
 
-    FragmentDrawerMvpPresenter<FragmentDrawerMvpView> mPresenter = new FragmentDrawerPresenter<>();
+    FragmentDrawerMvpPresenter<FragmentDrawerMvpView> mPresenter = null;
 
     public FragmentDrawer() {
         //must need default constructor
@@ -62,8 +65,7 @@ public class FragmentDrawer extends BaseFragment implements View.OnClickListener
         // Inflating view layout
         View view = inflater.inflate(R.layout.fr_navigation_drawer, container, false);
         setUnBinder(ButterKnife.bind(this, view));
-        adapter = new NavItemDrawerAdapter(getActivity(), mNavItems);
-        recyclerView.addItemDecoration(new SimpleDividerItemDecoration(getActivity()));
+        adapter = new SectionedRecyclerViewAdapter();
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.addOnItemTouchListener(new RecyclerTouchListener(
@@ -79,9 +81,17 @@ public class FragmentDrawer extends BaseFragment implements View.OnClickListener
 
             }
         }));
+        initializePresenter();
+        return view;
+    }
+
+    private void initializePresenter() {
+        String[] offers = getResources().getStringArray(R.array.list_sub_item);
+        String[] accounts = getResources().getStringArray(R.array.list_item_account);
+        String[] services = getResources().getStringArray(R.array.list_item_help);
+        mPresenter = new FragmentDrawerPresenter<>(offers, accounts, services);
         mPresenter.onAttach(FragmentDrawer.this);
         mPresenter.fetchCategories();
-        return view;
     }
 
     @Override
@@ -214,8 +224,13 @@ public class FragmentDrawer extends BaseFragment implements View.OnClickListener
     }
 
     @Override
-    public void setNavMenuItem(List<CategoryResponse> categoryResponses) {
-        adapter.refresh(categoryResponses);
+    public void setNavMenuItem(List<NavListItem> categoryItems, List<NavListItem> offerItems,
+                               List<NavListItem> accountItems, List<NavListItem> serviceItems) {
+        adapter.addSection("Category", new CategorySection("Category", categoryItems));
+        adapter.addSection("Offers", new GeneralSection("Offers", offerItems));
+        adapter.addSection("My Accounts", new GeneralSection("My Accounts", accountItems));
+        adapter.addSection("Terms & Conditions", new GeneralSection("Terms & Conditions", serviceItems));
+        adapter.notifyDataSetChanged();
     }
 
     @Override
