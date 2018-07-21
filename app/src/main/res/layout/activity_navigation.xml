@@ -54,7 +54,7 @@
                     android:layout_width="50dp"
                     android:layout_height="40dp"
                     android:layout_marginLeft="70dp"
-                    android:background="@mipmap/logo_white_icon"/>
+                    android:background="@drawable/logo_white_icon"/>
             </LinearLayout>
         </LinearLayout>
         <View

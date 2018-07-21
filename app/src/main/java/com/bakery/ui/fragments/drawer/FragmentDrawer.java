@@ -1,10 +1,9 @@
-package com.bakery.ui.fragments;
+package com.bakery.ui.fragments.drawer;
 
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -18,25 +17,31 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.bakery.R;
-import com.bakery.data.ui.models.NavItem;
+import com.bakery.data.network.models.CategoryResponse;
+import com.bakery.ui.BaseFragment;
 import com.bakery.ui.adapters.NavItemDrawerAdapter;
 import com.bakery.utils.extras.SimpleDividerItemDecoration;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class FragmentDrawer extends Fragment implements View.OnClickListener {
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
+public class FragmentDrawer extends BaseFragment implements View.OnClickListener, FragmentDrawerMvpView {
 
     private ActionBarDrawerToggle mDrawerToggle;
     private DrawerLayout mDrawerLayout;
     private View containerView;
     private FragmentDrawerListener drawerListener;
-
-    private RecyclerView recyclerView;
     private NavItemDrawerAdapter adapter;
-    private TextView tvName;
 
-    List<NavItem> mNavItems = new ArrayList<NavItem>();
+    List<CategoryResponse> mNavItems = new ArrayList<>();
+
+    @BindView(R.id.recycler_view)
+    RecyclerView recyclerView;
+
+    FragmentDrawerMvpPresenter<FragmentDrawerMvpView> mPresenter = new FragmentDrawerPresenter<>();
 
     public FragmentDrawer() {
         //must need default constructor
@@ -48,8 +53,6 @@ public class FragmentDrawer extends Fragment implements View.OnClickListener {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        mNavItems.add(new NavItem("Offer Zone", R.drawable.notification));
-        mNavItems.add(new NavItem("Notifications", R.drawable.notification));
         super.onCreate(savedInstanceState);
     }
 
@@ -57,9 +60,8 @@ public class FragmentDrawer extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflating view layout
-        View layout = inflater.inflate(R.layout.fr_navigation_drawer, container, false);
-        recyclerView = (RecyclerView) layout.findViewById(R.id.drawerList);
-        tvName = layout.findViewById(R.id.tv_name);
+        View view = inflater.inflate(R.layout.fr_navigation_drawer, container, false);
+        setUnBinder(ButterKnife.bind(this, view));
         adapter = new NavItemDrawerAdapter(getActivity(), mNavItems);
         recyclerView.addItemDecoration(new SimpleDividerItemDecoration(getActivity()));
         recyclerView.setAdapter(adapter);
@@ -77,7 +79,9 @@ public class FragmentDrawer extends Fragment implements View.OnClickListener {
 
             }
         }));
-        return layout;
+        mPresenter.onAttach(FragmentDrawer.this);
+        mPresenter.fetchCategories();
+        return view;
     }
 
     @Override
@@ -207,5 +211,16 @@ public class FragmentDrawer extends Fragment implements View.OnClickListener {
 
     public void toggleDrawer() {
         mDrawerLayout.openDrawer(containerView);
+    }
+
+    @Override
+    public void setNavMenuItem(List<CategoryResponse> categoryResponses) {
+        adapter.refresh(categoryResponses);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mPresenter.onDetach();
     }
 }

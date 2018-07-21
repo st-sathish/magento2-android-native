@@ -8,10 +8,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.bakery.R;
-import com.bakery.data.SessionStore;
 import com.bakery.ui.BaseAppCompatActivity;
-import com.bakery.ui.fragments.FragmentDrawer;
+import com.bakery.ui.fragments.drawer.FragmentDrawer;
 import com.bakery.ui.fragments.comingsoon.ComingSoonFragment;
+import com.bakery.ui.fragments.home.HomeFragment;
 
 public class LandingPageActivity extends BaseAppCompatActivity implements FragmentDrawer.FragmentDrawerListener {
 
@@ -32,7 +32,6 @@ public class LandingPageActivity extends BaseAppCompatActivity implements Fragme
 
         //load default
         displayView(FRAGMENT_HOME, "", false);
-        System.out.print(SessionStore.categoryResp);
     }
 
     @Override
@@ -45,6 +44,9 @@ public class LandingPageActivity extends BaseAppCompatActivity implements Fragme
         String title = null;
         switch (position) {
             case FRAGMENT_HOME:
+                title = "Home";
+                fragment = HomeFragment.newInstance(title);
+                break;
             case FRAGMENT_DEFAULT:
             default:
                 title = "Coming Soon";

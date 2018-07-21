@@ -16,36 +16,6 @@ public class SplashScreenPresenter extends BasePresenter implements SplashScreen
 
     @Override
     public void fetchCategories() {
-        Rx2AndroidNetworking
-                .get(ApiEndpoints.API_GET_CATEGORIES)
-                .addHeaders("Content-Type", "application/json")
-                .build()
-                .getObjectObservable(CategoryResponse.class)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<CategoryResponse>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
 
-                    }
-
-                    @Override
-                    public void onNext(CategoryResponse categoryResponse) {
-                        SessionStore.categoryResp = categoryResponse;
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        if (isViewAttached() && e instanceof ANError) {
-                            ANError anError = (ANError) e;
-                            handleApiError(anError);
-                        }
-                    }
-
-                    @Override
-                    public void onComplete() {
-
-                    }
-                });
     }
 }

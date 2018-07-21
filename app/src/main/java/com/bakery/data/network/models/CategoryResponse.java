@@ -36,9 +36,17 @@ public class CategoryResponse {
     @SerializedName("product_count")
     private Integer productCount;
 
+    private int icon;
+
     @Expose
     @SerializedName("children_data")
     private List<CategoryResponse> childrenData = new ArrayList<>();
+
+    public CategoryResponse(int id, String name, int icon) {
+        this.id = id;
+        this.name = name;
+        this.icon = icon;
+    }
 
     public Integer getId() {
         return id;
@@ -102,5 +110,13 @@ public class CategoryResponse {
 
     public void setChildrenData(List<CategoryResponse> childrenData) {
         this.childrenData = childrenData;
+    }
+
+    public int getIcon() {
+        return icon;
+    }
+
+    public void setIcon(int icon) {
+        this.icon = icon;
     }
 }

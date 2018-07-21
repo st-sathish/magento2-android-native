@@ -9,18 +9,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bakery.R;
-import com.bakery.data.ui.models.NavItem;
+import com.bakery.data.network.models.CategoryResponse;
 
-import java.util.Collections;
 import java.util.List;
 
 public class NavItemDrawerAdapter extends RecyclerView.Adapter<NavItemDrawerAdapter.MyViewHolder> {
 
-    Context mContext;
+    private Context mContext;
     private LayoutInflater inflater;
-    List<NavItem> mNavItems = Collections.emptyList();
+    private List<CategoryResponse> mNavItems;
 
-    public NavItemDrawerAdapter(Context context, List<NavItem> navItems) {
+    public NavItemDrawerAdapter(Context context, List<CategoryResponse> navItems) {
         mContext = context;
         inflater = LayoutInflater.from(context);
         mNavItems = navItems;
@@ -29,6 +28,11 @@ public class NavItemDrawerAdapter extends RecyclerView.Adapter<NavItemDrawerAdap
     public void delete(int position) {
         mNavItems.remove(position);
         notifyItemRemoved(position);
+    }
+
+    public void refresh(List<CategoryResponse> navItems) {
+        this.mNavItems = navItems;
+        notifyDataSetChanged();
     }
 
     @Override
@@ -40,8 +44,8 @@ public class NavItemDrawerAdapter extends RecyclerView.Adapter<NavItemDrawerAdap
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        NavItem current = mNavItems.get(position);
-        holder.title.setText(current.getItemName());
+        CategoryResponse current = mNavItems.get(position);
+        holder.title.setText(current.getName());
         holder.iconView.setImageResource(current.getIcon());
     }
 

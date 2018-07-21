@@ -20,7 +20,7 @@ import com.bakery.utils.NetworkUtils;
 
 import butterknife.Unbinder;
 
-public abstract class BaseAppCompatActivity extends AppCompatActivity implements MvpView {
+public abstract class BaseAppCompatActivity extends AppCompatActivity implements MvpView, BaseFragment.Callback {
 
     private ProgressDialog mProgressDialog;
     private Unbinder mUnBinder;
@@ -111,6 +111,16 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity implements
                 .findViewById(android.support.design.R.id.snackbar_text);
         textView.setTextColor(ContextCompat.getColor(this, R.color.white));
         snackbar.show();
+    }
+
+    @Override
+    public void onFragmentAttached() {
+
+    }
+
+    @Override
+    public void onFragmentDetached(String tag) {
+
     }
 
     @Override

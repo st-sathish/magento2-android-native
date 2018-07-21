@@ -8,6 +8,7 @@ import android.os.Bundle;
 import com.bakery.R;
 import com.bakery.ui.BaseAppCompatActivity;
 import com.bakery.ui.landingpage.LandingPageActivity;
+import com.bakery.ui.landingpage.NavicationActivity;
 import com.bakery.ui.login.LoginActivity;
 
 public class SplashScreenActivity extends BaseAppCompatActivity implements SplashScreenMvpView {
@@ -18,7 +19,6 @@ public class SplashScreenActivity extends BaseAppCompatActivity implements Splas
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mPresenter.fetchCategories();
         this.splash();
     }
 
