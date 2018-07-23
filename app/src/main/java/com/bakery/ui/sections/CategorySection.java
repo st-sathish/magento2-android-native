@@ -6,8 +6,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bakery.R;
+import com.bakery.data.SessionStore;
+import com.bakery.data.network.models.CategoryResponse;
 import com.bakery.data.ui.NavListItem;
 import com.bakery.data.ui.models.CategoryItem;
+import com.bakery.ui.BaseFragment;
+import com.bakery.ui.landingpage.LandingPageActivity;
 
 import java.util.List;
 
@@ -20,13 +24,16 @@ public class CategorySection extends StatelessSection implements View.OnClickLis
 
     private List<NavListItem> mNavItems;
 
-    public CategorySection(String title, List<NavListItem> list) {
+    private BaseFragment mBaseFragment;
+
+    public CategorySection(BaseFragment baseFragment, String title, List<NavListItem> list) {
         super(SectionParameters.builder()
                 .itemResourceId(R.layout.item_navdrawer)
                 .headerResourceId(R.layout.section_header)
                 .build());
         this.title = title;
         this.mNavItems = list;
+        this.mBaseFragment = baseFragment;
     }
 
     @Override
@@ -46,6 +53,7 @@ public class CategorySection extends StatelessSection implements View.OnClickLis
         itemHolder.title.setText(categoryItem.getCategoryResponse().getName());
         itemHolder.iconView.setImageResource(categoryItem.getCategoryResponse().getIcon());
         itemHolder.rootView.setOnClickListener(this);
+        itemHolder.rootView.setTag(position);
     }
 
     @Override
@@ -61,7 +69,12 @@ public class CategorySection extends StatelessSection implements View.OnClickLis
 
     @Override
     public void onClick(View v) {
-        System.out.print("Hello");
+        Integer position = (Integer) v.getTag();
+        CategoryItem categoryItem   = (CategoryItem) mNavItems.get(position);
+        CategoryResponse categoryResponse = categoryItem.getCategoryResponse();
+        String name = categoryResponse.getName();
+        SessionStore.sSelectedCategory = categoryResponse.getChildrenData();
+        mBaseFragment.switchFragment(LandingPageActivity.FRAGMENT_EXP_CATEGORY, name, true);
     }
 
     private class HeaderViewHolder extends RecyclerView.ViewHolder {

@@ -24,7 +24,7 @@
         <activity android:name=".ui.forgotpassword.ForgetPasswordActivity"/>
         <activity android:name=".ui.otp.received.OtpReceiveActivity"/>
         <activity android:name=".ui.otp.verify.OtpVerifyActivity"/>
-        <activity android:name=".ui.landingpage.LandingPageActivity"/>
+        <activity android:name=".ui.landingpage.NavicationActivity"/>
     </application>
 
 </manifest>

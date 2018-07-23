@@ -6,8 +6,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bakery.R;
+import com.bakery.data.network.models.CategoryResponse;
 import com.bakery.data.ui.NavListItem;
+import com.bakery.data.ui.models.CategoryItem;
 import com.bakery.data.ui.models.GeneralItem;
+import com.bakery.data.ui.models.NavItem;
 
 import java.util.List;
 
@@ -46,6 +49,7 @@ public class GeneralSection extends StatelessSection implements View.OnClickList
         itemHolder.title.setText(generalItem.getNavItem().getName());
         itemHolder.iconView.setImageResource(generalItem.getNavItem().getIcon());
         itemHolder.rootView.setOnClickListener(this);
+        itemHolder.rootView.setTag(position);
     }
 
     @Override
@@ -61,7 +65,9 @@ public class GeneralSection extends StatelessSection implements View.OnClickList
 
     @Override
     public void onClick(View v) {
-        System.out.print("Hello");
+        Integer position = (Integer) v.getTag();
+        GeneralItem generalItem   = (GeneralItem) mNavItems.get(position);
+        NavItem navItem = generalItem.getNavItem();
     }
 
     private class HeaderViewHolder extends RecyclerView.ViewHolder {

@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 
 import com.bakery.R;
 import com.bakery.presenter.MvpView;
+import com.bakery.ui.landingpage.LandingPageActivity;
 import com.bakery.utils.AppConstants;
 import com.bakery.utils.ComponentUtils;
 
@@ -152,5 +153,12 @@ public abstract class BaseFragment extends Fragment implements MvpView {
         void onFragmentAttached();
 
         void onFragmentDetached(String tag);
+    }
+
+    public void switchFragment(int fragment, String title, boolean addToBackStack) {
+        LandingPageActivity landingPageActivity = (LandingPageActivity) getActivity();
+        if(null != landingPageActivity) {
+            landingPageActivity.displayView(fragment, title, addToBackStack);
+        }
     }
 }

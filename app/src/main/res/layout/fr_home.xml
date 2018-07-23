@@ -60,7 +60,6 @@
                         android:scrollbars="none"
                         android:layout_weight="1"
                         android:layout_height="match_parent">
-
                         <LinearLayout
                             android:id="@+id/all_item"
                             android:layout_width="wrap_content"

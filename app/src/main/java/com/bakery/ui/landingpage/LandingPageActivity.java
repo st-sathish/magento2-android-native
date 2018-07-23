@@ -9,6 +9,7 @@ import android.view.View;
 
 import com.bakery.R;
 import com.bakery.ui.BaseAppCompatActivity;
+import com.bakery.ui.fragments.category.ExpCategoryFragment;
 import com.bakery.ui.fragments.drawer.FragmentDrawer;
 import com.bakery.ui.fragments.comingsoon.ComingSoonFragment;
 import com.bakery.ui.fragments.home.HomeFragment;
@@ -17,6 +18,8 @@ public class LandingPageActivity extends BaseAppCompatActivity implements Fragme
 
     public static final int FRAGMENT_DEFAULT = 1;
     public static final int FRAGMENT_HOME = 2;
+    public static final int FRAGMENT_EXP_CATEGORY = 3;
+
     private FragmentDrawer drawerFragment;
     private LandingPageMvpPresenter mPresenter = null;
 
@@ -46,6 +49,10 @@ public class LandingPageActivity extends BaseAppCompatActivity implements Fragme
             case FRAGMENT_HOME:
                 title = "Home";
                 fragment = HomeFragment.newInstance(title);
+                break;
+            case FRAGMENT_EXP_CATEGORY:
+                title = "";
+                fragment = ExpCategoryFragment.newInstance(title);
                 break;
             case FRAGMENT_DEFAULT:
             default:
