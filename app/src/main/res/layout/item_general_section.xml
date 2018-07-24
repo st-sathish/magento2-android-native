@@ -7,42 +7,33 @@
     android:clickable="true"
     android:focusable="true"
     android:orientation="horizontal"
-    android:baselineAligned="false"
     android:weightSum="2"
+    android:baselineAligned="false"
     android:background="?attr/selectableItemBackground">
 
     <LinearLayout
         android:layout_width="0dp"
-        android:layout_weight="1.7"
+        android:layout_weight="0.5"
         android:layout_height="match_parent">
         <ImageView
             android:id="@+id/icon"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginEnd="10dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginEnd="5dp"
             android:contentDescription="@string/about_us"
-            android:layout_marginRight="10dp"/>
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorPrimary"
-            android:textSize="13sp" />
+            android:layout_marginRight="5dp"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="0dp"
-        android:layout_weight="0.3"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:id="@+id/more_icon"
+        android:layout_weight="1.5"
         android:layout_height="match_parent">
-        <ImageView
-            android:layout_width="15dp"
-            android:layout_height="15dp"
-            android:layout_gravity="center"
-            android:contentDescription="@string/placeholder_text"
-            android:background="@mipmap/arrow_gray_icon" />
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
+            android:textSize="13sp" />
     </LinearLayout>
 </LinearLayout>

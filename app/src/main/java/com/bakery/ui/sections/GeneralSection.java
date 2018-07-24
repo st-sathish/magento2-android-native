@@ -25,7 +25,7 @@ public class GeneralSection extends StatelessSection implements View.OnClickList
 
     public GeneralSection(String title, List<NavListItem> list) {
         super(SectionParameters.builder()
-                .itemResourceId(R.layout.item_navdrawer)
+                .itemResourceId(R.layout.item_general_section)
                 .headerResourceId(R.layout.section_header)
                 .build());
         this.title = title;

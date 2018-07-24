@@ -226,7 +226,7 @@ public class FragmentDrawer extends BaseFragment implements View.OnClickListener
     @Override
     public void setNavMenuItem(List<NavListItem> categoryItems, List<NavListItem> offerItems,
                                List<NavListItem> accountItems, List<NavListItem> serviceItems) {
-        adapter.addSection("Category", new CategorySection("Category", categoryItems));
+        adapter.addSection("Category", new CategorySection(this, "Category", categoryItems));
         adapter.addSection("Offers", new GeneralSection("Offers", offerItems));
         adapter.addSection("My Accounts", new GeneralSection("My Accounts", accountItems));
         adapter.addSection("Terms & Conditions", new GeneralSection("Terms & Conditions", serviceItems));

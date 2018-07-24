@@ -20,7 +20,7 @@ import butterknife.ButterKnife;
 public class ExpCategoryFragment extends BaseFragment implements ExpCategoryMvpView {
 
     @BindView(R.id.recycler_view)
-    private RecyclerView recyclerView;
+    RecyclerView recyclerView;
 
     private ExpCategoryMvpPresenter<ExpCategoryMvpView> mPresenter = new ExpCategoryPresenter<>();
 
