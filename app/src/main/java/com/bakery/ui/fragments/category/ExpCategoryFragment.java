@@ -46,7 +46,7 @@ public class ExpCategoryFragment extends BaseFragment implements ExpCategoryMvpV
     }
 
     public void setRecyclerViewAdapter() {
-        ExpCategoryAdapter categoryAdapter = new ExpCategoryAdapter(getActivity(), SessionStore.sSelectedCategory);
+        ExpCategoryAdapter categoryAdapter = new ExpCategoryAdapter(getActivity(), SessionStore.sSelectedExpandableCategory);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());

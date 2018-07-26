@@ -3,6 +3,7 @@ package com.bakery.ui.sections;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bakery.R;
@@ -18,7 +19,7 @@ import java.util.List;
 import io.github.luizgrp.sectionedrecyclerviewadapter.SectionParameters;
 import io.github.luizgrp.sectionedrecyclerviewadapter.StatelessSection;
 
-public class CategorySection extends StatelessSection implements View.OnClickListener {
+public class CategorySection extends StatelessSection {
 
     private String title;
 
@@ -47,13 +48,33 @@ public class CategorySection extends StatelessSection implements View.OnClickLis
     }
 
     @Override
-    public void onBindItemViewHolder(RecyclerView.ViewHolder holder, int position) {
+    public void onBindItemViewHolder(RecyclerView.ViewHolder holder, final int position) {
         CategoryItemViewHolder itemHolder = (CategoryItemViewHolder) holder;
         CategoryItem categoryItem   = (CategoryItem) mNavItems.get(position);
         itemHolder.title.setText(categoryItem.getCategoryResponse().getName());
         itemHolder.iconView.setImageResource(categoryItem.getCategoryResponse().getIcon());
-        itemHolder.rootView.setOnClickListener(this);
-        itemHolder.rootView.setTag(position);
+        // itemHolder.category_arrow_icon_layout.setTag(position);
+        // itemHolder.category_layout.setTag(position);
+        itemHolder.category_arrow_icon_layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CategoryItem categoryItem   = (CategoryItem) mNavItems.get(position);
+                CategoryResponse categoryResponse = categoryItem.getCategoryResponse();
+                String name = categoryResponse.getName();
+                SessionStore.sSelectedExpandableCategory = categoryResponse.getChildrenData();
+                mBaseFragment.switchFragment(LandingPageActivity.FRAGMENT_EXP_CATEGORY, name, true);
+            }
+        });
+        itemHolder.category_layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Integer position = (Integer) v.getTag();
+                CategoryItem categoryItem   = (CategoryItem) mNavItems.get(position);
+                String name = categoryItem.getCategoryResponse().getName();
+                SessionStore.sSelectedCategory = categoryItem.getCategoryResponse();
+                mBaseFragment.switchFragment(LandingPageActivity.FRAGMENT_PRODUCT, name, true);
+            }
+        });
     }
 
     @Override
@@ -65,16 +86,6 @@ public class CategorySection extends StatelessSection implements View.OnClickLis
     public void onBindHeaderViewHolder(RecyclerView.ViewHolder holder) {
         HeaderViewHolder headerHolder = (HeaderViewHolder) holder;
         headerHolder.tvTitle.setText(title);
-    }
-
-    @Override
-    public void onClick(View v) {
-        Integer position = (Integer) v.getTag();
-        CategoryItem categoryItem   = (CategoryItem) mNavItems.get(position);
-        CategoryResponse categoryResponse = categoryItem.getCategoryResponse();
-        String name = categoryResponse.getName();
-        SessionStore.sSelectedCategory = categoryResponse.getChildrenData();
-        mBaseFragment.switchFragment(LandingPageActivity.FRAGMENT_EXP_CATEGORY, name, true);
     }
 
     private class HeaderViewHolder extends RecyclerView.ViewHolder {
@@ -89,13 +100,15 @@ public class CategorySection extends StatelessSection implements View.OnClickLis
     class CategoryItemViewHolder extends RecyclerView.ViewHolder {
         private final TextView title;
         private final ImageView iconView;
-        private final View rootView;
+        private final LinearLayout category_arrow_icon_layout;
+        private final LinearLayout category_layout;
 
-        CategoryItemViewHolder(View v) {
-            super(v);
-            rootView = v;
+        CategoryItemViewHolder(View itemView) {
+            super(itemView);
             title = itemView.findViewById(R.id.title);
             iconView = itemView.findViewById(R.id.icon);
+            category_layout = itemView.findViewById(R.id.category_layout);
+            category_arrow_icon_layout = itemView.findViewById(R.id.category_arrow_icon_layout);
         }
     }
 }

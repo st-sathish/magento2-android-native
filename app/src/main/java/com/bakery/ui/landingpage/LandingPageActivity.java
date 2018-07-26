@@ -13,12 +13,14 @@ import com.bakery.ui.fragments.category.ExpCategoryFragment;
 import com.bakery.ui.fragments.drawer.FragmentDrawer;
 import com.bakery.ui.fragments.comingsoon.ComingSoonFragment;
 import com.bakery.ui.fragments.home.HomeFragment;
+import com.bakery.ui.fragments.product.ProductFragment;
 
 public class LandingPageActivity extends BaseAppCompatActivity implements FragmentDrawer.FragmentDrawerListener {
 
     public static final int FRAGMENT_DEFAULT = 1;
     public static final int FRAGMENT_HOME = 2;
     public static final int FRAGMENT_EXP_CATEGORY = 3;
+    public static final int FRAGMENT_PRODUCT = 4;
 
     private FragmentDrawer drawerFragment;
     private LandingPageMvpPresenter mPresenter = null;
@@ -53,6 +55,10 @@ public class LandingPageActivity extends BaseAppCompatActivity implements Fragme
             case FRAGMENT_EXP_CATEGORY:
                 title = "";
                 fragment = ExpCategoryFragment.newInstance(title);
+                break;
+            case FRAGMENT_PRODUCT:
+                title = "";
+                fragment = ProductFragment.newInstance(title);
                 break;
             case FRAGMENT_DEFAULT:
             default:

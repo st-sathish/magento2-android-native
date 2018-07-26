@@ -14,6 +14,7 @@
     <LinearLayout
         android:layout_width="0dp"
         android:layout_weight="1.7"
+        android:id="@+id/category_layout"
         android:layout_height="match_parent">
         <ImageView
             android:id="@+id/icon"
@@ -36,7 +37,7 @@
         android:layout_weight="0.3"
         android:layout_gravity="center"
         android:gravity="center"
-        android:id="@+id/more_icon"
+        android:id="@+id/category_arrow_icon_layout"
         android:layout_height="match_parent">
         <ImageView
             android:layout_width="15dp"

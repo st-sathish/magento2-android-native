@@ -16,4 +16,7 @@ public final class ApiEndpoints {
 
     /** Customer signup post request */
     public static final String API_POST_CUSTOMER_SIGNUP = BuildConfig.BASE_URL + "/customers";
+
+    /** Get all categories */
+    public static final String API_GET_PRODUCTS = BuildConfig.BASE_URL + "/products";
 }
