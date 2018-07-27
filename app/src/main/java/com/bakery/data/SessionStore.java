@@ -1,7 +1,6 @@
 package com.bakery.data;
 
 import com.bakery.data.network.models.CategoryResponse;
-import com.bakery.data.ui.models.CategoryItem;
 
 import java.util.List;
 

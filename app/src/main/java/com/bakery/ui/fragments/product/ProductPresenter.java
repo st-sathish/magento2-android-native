@@ -28,7 +28,7 @@ public class ProductPresenter <V extends ProductMvp> extends BasePresenter<V> im
      * Get list of product by category
      * @return Observable
      */
-    private Observable<List<ApiProduct>> getProductListObservable(Integer categoryId) {
+    private Observable<List<ApiProduct>> getCategorySkuListObservable(Integer categoryId) {
         return Rx2AndroidNetworking
                 .get(ApiEndpoints.API_GET_CATEGORIES+"/{categoryId}/products")
                 .addHeaders("Content-Type", "application/json")
@@ -51,7 +51,7 @@ public class ProductPresenter <V extends ProductMvp> extends BasePresenter<V> im
     }
 
     private void flatMapProduct() {
-        getProductListObservable(SessionStore.sSelectedCategory.getId())
+        getCategorySkuListObservable(SessionStore.sSelectedCategory.getId())
                 .flatMap(new Function <List<ApiProduct>, Observable<ApiProduct>>() {
                     @Override
                     public Observable<ApiProduct> apply(List<ApiProduct> apiProducts) {
@@ -90,12 +90,13 @@ public class ProductPresenter <V extends ProductMvp> extends BasePresenter<V> im
 
                     @Override
                     public void onNext(ApiProductDetail apiProductDetail) {
-                        System.out.println(apiProductDetail);
+                        getMvpView().hideLoading();
+                        getMvpView().update(apiProductDetail);
                     }
 
                     @Override
                     public void onComplete() {
-                        getMvpView().hideLoading();
+
                     }
                 });
     }
