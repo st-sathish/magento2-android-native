@@ -1,4 +1,4 @@
-package com.bakery.data.db.models;
+package com.bakery.data.db.domain;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.bakery.data.db.models;
+package com.bakery.data.db.domain;
 
 public class Product {
 
