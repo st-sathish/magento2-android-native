@@ -9,7 +9,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bakery.R;
-import com.bakery.data.network.models.CategoryResponse;
 import com.bakery.data.ui.NavListItem;
 import com.bakery.data.ui.models.CategoryItem;
 import com.bakery.data.ui.models.GeneralItem;

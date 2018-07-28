@@ -59,4 +59,6 @@
     <string name="empty_screen">We do not have anything\nhere right now.</string>
     <string name="please_retry">Please Retry</string>
     <string name="retry">Retry</string>
+
+    <string name="Rs">\u20B9</string>
 </resources>

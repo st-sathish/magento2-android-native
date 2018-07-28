@@ -9,6 +9,8 @@ public final class AppConstants {
 
     public static final String INTENT_PARAM_ONE = "TITLE";
 
+    public static final int PAGINATION_LIMIT = 10;
+
     private AppConstants() {
         // This utility class is not publicly instantiable
     }

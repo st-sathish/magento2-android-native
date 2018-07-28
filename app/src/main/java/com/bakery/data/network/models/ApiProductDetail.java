@@ -3,6 +3,7 @@ package com.bakery.data.network.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ApiProductDetail {
@@ -54,6 +55,10 @@ public class ApiProductDetail {
     @Expose
     @SerializedName("product_links")
     private List<ApiProductLink> productLinks;
+
+    @Expose
+    @SerializedName("media_gallery_entries")
+    private List<ApiMediaGalleryEntry> mediaGalleryEntries= new ArrayList<>();
 
     public Integer getId() {
         return id;
@@ -149,5 +154,13 @@ public class ApiProductDetail {
 
     public void setProductLinks(List<ApiProductLink> productLinks) {
         this.productLinks = productLinks;
+    }
+
+    public List<ApiMediaGalleryEntry> getMediaGalleryEntries() {
+        return mediaGalleryEntries;
+    }
+
+    public void setMediaGalleryEntries(List<ApiMediaGalleryEntry> mediaGalleryEntries) {
+        this.mediaGalleryEntries = mediaGalleryEntries;
     }
 }
