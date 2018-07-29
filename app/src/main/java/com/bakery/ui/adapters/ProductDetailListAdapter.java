@@ -9,12 +9,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bakery.BuildConfig;
 import com.bakery.R;
-import com.bakery.data.network.ApiEndpoints;
 import com.bakery.data.network.models.ApiMediaGalleryEntry;
 import com.bakery.data.network.models.ApiProductDetail;
-import com.bakery.utils.AppConstants;
+import com.bakery.ui.listeners.OnItemClickListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -26,8 +24,11 @@ public class ProductDetailListAdapter extends RecyclerView.Adapter<ProductDetail
 
     private Context mContext;
 
-    public ProductDetailListAdapter(Context context) {
+    private OnItemClickListener mListener;
+
+    public ProductDetailListAdapter(Context context, OnItemClickListener onItemClickListener) {
         mContext = context;
+        this.mListener = onItemClickListener;
     }
 
     public void update(List<ApiProductDetail> productDetails) {
@@ -38,16 +39,24 @@ public class ProductDetailListAdapter extends RecyclerView.Adapter<ProductDetail
     @Override
     public ProductDetailListAdapter.ProductDetailViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        return new ProductDetailListAdapter.ProductDetailViewHolder(inflater.inflate(R.layout.item_product_detail, parent, false));
+        View view = inflater.inflate(R.layout.item_product_detail, parent, false);
+        final ProductDetailViewHolder holder = new ProductDetailListAdapter.ProductDetailViewHolder(view);
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mListener.onItemClick(v, holder.getAdapterPosition());
+            }
+        });
+        return holder;
     }
 
     @Override
-    public void onBindViewHolder(ProductDetailListAdapter.ProductDetailViewHolder viewHolder, int position) {
+    public void onBindViewHolder(ProductDetailViewHolder itemHolder, int position) {
         ApiProductDetail productDetail = mProductDetails.get(position);
-        viewHolder.name.setText(productDetail.getName());
+        itemHolder.name.setText(productDetail.getName());
         String price = mContext.getResources().getString(R.string.Rs)+" " +String.valueOf(productDetail.getPrice());
-        viewHolder.price.setText(price);
-        loadImage(viewHolder.imageView, productDetail.getMediaGalleryEntries());
+        itemHolder.price.setText(price);
+        loadImage(itemHolder.imageView, productDetail.getMediaGalleryEntries());
     }
 
     private void loadImage(ImageView imageView, List<ApiMediaGalleryEntry> mediaGalleryEntries) {
@@ -55,7 +64,7 @@ public class ProductDetailListAdapter extends RecyclerView.Adapter<ProductDetail
             String url = mediaGalleryEntries.get(0).getFile();
             if(!url.equals("")) {
                 Picasso.with(mContext)
-                        .load(Uri.parse("http://www.ramveltraders.com/pub/media/"+ url))
+                        .load(Uri.parse("http://www.ramveltraders.com/pub/media/catalog/product"+ url))
                         .into(imageView);
             }
         }
@@ -66,7 +75,7 @@ public class ProductDetailListAdapter extends RecyclerView.Adapter<ProductDetail
         return mProductDetails != null ? mProductDetails.size() : 0;
     }
 
-    class ProductDetailViewHolder extends RecyclerView.ViewHolder {
+    class ProductDetailViewHolder extends RecyclerView.ViewHolder{
         TextView name;
         TextView price;
         ImageView imageView;

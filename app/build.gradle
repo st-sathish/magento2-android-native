@@ -12,13 +12,13 @@ android {
     }
     buildTypes {
         debug {
-            buildConfigField("String", "BASE_URL", "\"http://www.ramveltraders.com/rest/V1\"")
+            buildConfigField("String", "BASE_URL", "\"http://www.ramveltraders.com\"")
             buildConfigField("String", "API_KEY", "\"ABCXYZ123TEST\"")
         }
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            buildConfigField("String", "BASE_URL", "\"http://www.ramveltraders.com/rest/V1\"")
+            buildConfigField("String", "BASE_URL", "\"http://www.ramveltraders.com\"")
             buildConfigField("String", "API_KEY", "\"ABCXYZ123TEST\"")
         }
     }

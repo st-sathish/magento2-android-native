@@ -1,7 +1,5 @@
 package com.bakery.ui.fragments.product;
 
-import android.support.annotation.NonNull;
-
 import com.androidnetworking.error.ANError;
 import com.bakery.data.SessionStore;
 import com.bakery.data.network.ApiEndpoints;
@@ -17,17 +15,16 @@ import java.util.List;
 import io.reactivex.Observable;
 import io.reactivex.ObservableSource;
 import io.reactivex.Observer;
-import io.reactivex.Single;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 
-public class ProductPresenter <V extends ProductMvp> extends BasePresenter<V> implements ProductMvpPresenter<V> {
+public class ProductDetailListPresenter<V extends ProductDetailListMvp> extends BasePresenter<V> implements ProductDetailListMvpPresenter<V> {
 
     private int page;
 
-    public ProductPresenter() {
+    public ProductDetailListPresenter() {
         this.page = 0;
     }
 

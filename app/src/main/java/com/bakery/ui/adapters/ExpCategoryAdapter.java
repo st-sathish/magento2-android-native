@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.bakery.R;
 import com.bakery.data.network.models.CategoryResponse;
+import com.bakery.ui.listeners.OnItemClickListener;
 
 import java.util.List;
 
@@ -18,15 +19,25 @@ public class ExpCategoryAdapter extends RecyclerView.Adapter<ExpCategoryAdapter.
 
     private List<CategoryResponse> mItems;
 
-    public ExpCategoryAdapter(Context context, List<CategoryResponse> items) {
+    private OnItemClickListener mListener;
+
+    public ExpCategoryAdapter(Context context, List<CategoryResponse> items, OnItemClickListener onItemClickListener) {
         mContext = context;
         mItems = items;
+        mListener = onItemClickListener;
     }
 
     @Override
     public ExpCategoryAdapter.ItemSingleRowViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_exp_category, parent, false);
-        return new ItemSingleRowViewHolder(itemView);
+        final ItemSingleRowViewHolder itemSingleRowViewHolder = new ItemSingleRowViewHolder(itemView);
+        itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mListener.onItemClick(v, itemSingleRowViewHolder.getAdapterPosition());
+            }
+        });
+        return itemSingleRowViewHolder;
     }
 
     @Override

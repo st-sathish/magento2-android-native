@@ -5,7 +5,7 @@ import com.bakery.presenter.MvpView;
 
 import java.util.List;
 
-public interface ProductMvp extends MvpView {
+public interface ProductDetailListMvp extends MvpView {
 
      void update(List<ApiProductDetail> apiProductDetails);
 

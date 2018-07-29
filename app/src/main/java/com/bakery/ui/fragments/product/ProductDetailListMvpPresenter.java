@@ -2,7 +2,7 @@ package com.bakery.ui.fragments.product;
 
 import com.bakery.presenter.MvpPresenter;
 
-public interface ProductMvpPresenter<V extends ProductMvp> extends MvpPresenter<V> {
+public interface ProductDetailListMvpPresenter<V extends ProductDetailListMvp> extends MvpPresenter<V> {
 
     void pickProducts();
 

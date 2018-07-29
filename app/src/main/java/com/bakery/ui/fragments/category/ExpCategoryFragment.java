@@ -10,14 +10,17 @@ import android.view.ViewGroup;
 
 import com.bakery.R;
 import com.bakery.data.SessionStore;
+import com.bakery.data.network.models.CategoryResponse;
 import com.bakery.ui.BaseFragment;
 import com.bakery.ui.adapters.ExpCategoryAdapter;
+import com.bakery.ui.landingpage.LandingPageActivity;
+import com.bakery.ui.listeners.OnItemClickListener;
 import com.bakery.utils.AppConstants;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class ExpCategoryFragment extends BaseFragment implements ExpCategoryMvpView {
+public class ExpCategoryFragment extends BaseFragment implements ExpCategoryMvpView, OnItemClickListener {
 
     @BindView(R.id.recycler_view)
     RecyclerView recyclerView;
@@ -46,10 +49,17 @@ public class ExpCategoryFragment extends BaseFragment implements ExpCategoryMvpV
     }
 
     public void setRecyclerViewAdapter() {
-        ExpCategoryAdapter categoryAdapter = new ExpCategoryAdapter(getActivity(), SessionStore.sSelectedExpandableCategory);
+        ExpCategoryAdapter categoryAdapter = new ExpCategoryAdapter(getActivity(), SessionStore.sSelectedExpandableCategory, this);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(categoryAdapter);
+    }
+
+    @Override
+    public void onItemClick(View v, int position) {
+        CategoryResponse categoryResponse = SessionStore.sSelectedExpandableCategory.get(position);
+        SessionStore.sSelectedCategory = categoryResponse;
+        switchFragment(LandingPageActivity.FRAGMENT_DETAIL_LIST_PRODUCT, categoryResponse.getName(), true);
     }
 }

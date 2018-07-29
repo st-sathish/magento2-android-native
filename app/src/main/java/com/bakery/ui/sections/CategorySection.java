@@ -72,7 +72,7 @@ public class CategorySection extends StatelessSection {
                 CategoryItem categoryItem   = (CategoryItem) mNavItems.get(position);
                 String name = categoryItem.getCategoryResponse().getName();
                 SessionStore.sSelectedCategory = categoryItem.getCategoryResponse();
-                mBaseFragment.switchFragment(LandingPageActivity.FRAGMENT_PRODUCT, name, true);
+                mBaseFragment.switchFragment(LandingPageActivity.FRAGMENT_DETAIL_LIST_PRODUCT, name, true);
             }
         });
     }
