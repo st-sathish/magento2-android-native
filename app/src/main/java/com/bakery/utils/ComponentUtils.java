@@ -4,8 +4,14 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
+import android.widget.ImageView;
 
 import com.bakery.R;
+import com.bakery.data.network.models.ApiMediaGalleryEntry;
+import com.squareup.picasso.Picasso;
+
+import java.util.List;
 
 public final class ComponentUtils {
 
@@ -24,5 +30,16 @@ public final class ComponentUtils {
         progressDialog.setCancelable(false);
         progressDialog.setCanceledOnTouchOutside(false);
         return progressDialog;
+    }
+
+    public static void loadImage(Context context, ImageView imageView, List<ApiMediaGalleryEntry> mediaGalleryEntries) {
+        if(mediaGalleryEntries.size() > 0) {
+            String url = mediaGalleryEntries.get(0).getFile();
+            if(!url.equals("")) {
+                Picasso.with(context)
+                        .load(Uri.parse("http://www.ramveltraders.com/pub/media/catalog/product"+ url))
+                        .into(imageView);
+            }
+        }
     }
 }

@@ -10,10 +10,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.bakery.R;
+import com.bakery.data.SessionStore;
 import com.bakery.data.network.models.ApiProductDetail;
 import com.bakery.decorators.ItemDecorationGridColumns;
 import com.bakery.ui.BaseFragment;
 import com.bakery.ui.adapters.ProductDetailListAdapter;
+import com.bakery.ui.landingpage.LandingPageActivity;
 import com.bakery.ui.listeners.OnItemClickListener;
 import com.bakery.utils.AppConstants;
 
@@ -45,7 +47,7 @@ public class ProductDetailListFragment extends BaseFragment implements ProductDe
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fr_product, container, false);
+        View view = inflater.inflate(R.layout.fr_product_detail_list, container, false);
         setUnBinder(ButterKnife.bind(this, view));
         mPresenter.onAttach(this);
         initializeRecyclerViewAdapter();
@@ -78,6 +80,7 @@ public class ProductDetailListFragment extends BaseFragment implements ProductDe
 
     @Override
     public void onItemClick(View v, int position) {
-
+        SessionStore.productDetail = productDetailListAdapter.getItem(position);
+        switchFragment(LandingPageActivity.FRAGMENT_DETAILS_PRODUCT, "", true);
     }
 }

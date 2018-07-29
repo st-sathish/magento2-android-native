@@ -13,6 +13,7 @@ import com.bakery.R;
 import com.bakery.data.network.models.ApiMediaGalleryEntry;
 import com.bakery.data.network.models.ApiProductDetail;
 import com.bakery.ui.listeners.OnItemClickListener;
+import com.bakery.utils.ComponentUtils;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -36,10 +37,14 @@ public class ProductDetailListAdapter extends RecyclerView.Adapter<ProductDetail
         notifyDataSetChanged();
     }
 
+    public ApiProductDetail getItem(int position) {
+        return mProductDetails.get(position);
+    }
+
     @Override
     public ProductDetailListAdapter.ProductDetailViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View view = inflater.inflate(R.layout.item_product_detail, parent, false);
+        View view = inflater.inflate(R.layout.item_product_detail_list, parent, false);
         final ProductDetailViewHolder holder = new ProductDetailListAdapter.ProductDetailViewHolder(view);
         view.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,18 +61,7 @@ public class ProductDetailListAdapter extends RecyclerView.Adapter<ProductDetail
         itemHolder.name.setText(productDetail.getName());
         String price = mContext.getResources().getString(R.string.Rs)+" " +String.valueOf(productDetail.getPrice());
         itemHolder.price.setText(price);
-        loadImage(itemHolder.imageView, productDetail.getMediaGalleryEntries());
-    }
-
-    private void loadImage(ImageView imageView, List<ApiMediaGalleryEntry> mediaGalleryEntries) {
-        if(mediaGalleryEntries.size() > 0) {
-            String url = mediaGalleryEntries.get(0).getFile();
-            if(!url.equals("")) {
-                Picasso.with(mContext)
-                        .load(Uri.parse("http://www.ramveltraders.com/pub/media/catalog/product"+ url))
-                        .into(imageView);
-            }
-        }
+        ComponentUtils.loadImage(mContext, itemHolder.imageView, productDetail.getMediaGalleryEntries());
     }
 
     @Override

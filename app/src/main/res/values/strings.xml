@@ -61,4 +61,6 @@
     <string name="retry">Retry</string>
 
     <string name="Rs">\u20B9</string>
+    <string name="btn_txt_cart">Add to Cart</string>
+    <string name="btn_txt_wish_list">Add to Wish List</string>
 </resources>
