@@ -58,23 +58,28 @@ public class CategorySection extends StatelessSection {
         itemHolder.category_arrow_icon_layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CategoryItem categoryItem   = (CategoryItem) mNavItems.get(position);
-                CategoryResponse categoryResponse = categoryItem.getCategoryResponse();
-                String name = categoryResponse.getName();
-                SessionStore.sSelectedExpandableCategory = categoryResponse.getChildrenData();
-                mBaseFragment.switchFragment(LandingPageActivity.FRAGMENT_EXP_CATEGORY, name, true);
+                goOnClick(position);
             }
         });
         itemHolder.category_layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Integer position = (Integer) v.getTag();
-                CategoryItem categoryItem   = (CategoryItem) mNavItems.get(position);
-                String name = categoryItem.getCategoryResponse().getName();
-                SessionStore.sSelectedCategory = categoryItem.getCategoryResponse();
-                mBaseFragment.switchFragment(LandingPageActivity.FRAGMENT_DETAIL_LIST_PRODUCT, name, true);
+//                CategoryItem categoryItem   = (CategoryItem) mNavItems.get(position);
+//                String name = categoryItem.getCategoryResponse().getName();
+//                SessionStore.sSelectedCategory = categoryItem.getCategoryResponse();
+//                mBaseFragment.switchFragment(LandingPageActivity.FRAGMENT_DETAIL_LIST_PRODUCT, name, true);
+                goOnClick(position);
             }
         });
+    }
+
+    private void goOnClick(int position) {
+        CategoryItem categoryItem   = (CategoryItem) mNavItems.get(position);
+        CategoryResponse categoryResponse = categoryItem.getCategoryResponse();
+        String name = categoryResponse.getName();
+        SessionStore.sSelectedExpandableCategory = categoryResponse.getChildrenData();
+        mBaseFragment.switchFragment(LandingPageActivity.FRAGMENT_EXP_CATEGORY, name, true);
     }
 
     @Override

@@ -1,7 +1,6 @@
 package com.bakery.ui.adapters;
 
 import android.content.Context;
-import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,42 +9,41 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bakery.R;
-import com.bakery.data.network.models.ApiMediaGalleryEntry;
-import com.bakery.data.network.models.ApiProductDetail;
+import com.bakery.data.network.models.ProductResponse;
 import com.bakery.ui.listeners.OnItemClickListener;
 import com.bakery.utils.ComponentUtils;
-import com.squareup.picasso.Picasso;
+import com.bakery.utils.ProductImageUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductDetailListAdapter extends RecyclerView.Adapter<ProductDetailListAdapter.ProductDetailViewHolder> {
+public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.ProductDetailViewHolder> {
 
-    private List<ApiProductDetail> mProductDetails = new ArrayList<>();
+    private List<ProductResponse> mProductDetails = new ArrayList<>();
 
     private Context mContext;
 
     private OnItemClickListener mListener;
 
-    public ProductDetailListAdapter(Context context, OnItemClickListener onItemClickListener) {
+    public ProductListAdapter(Context context, OnItemClickListener onItemClickListener) {
         mContext = context;
         this.mListener = onItemClickListener;
     }
 
-    public void update(List<ApiProductDetail> productDetails) {
+    public void update(List<ProductResponse> productDetails) {
         mProductDetails.addAll(productDetails);
         notifyDataSetChanged();
     }
 
-    public ApiProductDetail getItem(int position) {
+    public ProductResponse getItem(int position) {
         return mProductDetails.get(position);
     }
 
     @Override
-    public ProductDetailListAdapter.ProductDetailViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ProductListAdapter.ProductDetailViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View view = inflater.inflate(R.layout.item_product_detail_list, parent, false);
-        final ProductDetailViewHolder holder = new ProductDetailListAdapter.ProductDetailViewHolder(view);
+        final ProductDetailViewHolder holder = new ProductListAdapter.ProductDetailViewHolder(view);
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,11 +55,11 @@ public class ProductDetailListAdapter extends RecyclerView.Adapter<ProductDetail
 
     @Override
     public void onBindViewHolder(ProductDetailViewHolder itemHolder, int position) {
-        ApiProductDetail productDetail = mProductDetails.get(position);
+        ProductResponse productDetail = mProductDetails.get(position);
         itemHolder.name.setText(productDetail.getName());
         String price = mContext.getResources().getString(R.string.Rs)+" " +String.valueOf(productDetail.getPrice());
         itemHolder.price.setText(price);
-        ComponentUtils.loadImage(mContext, itemHolder.imageView, productDetail.getMediaGalleryEntries());
+        ProductImageUtils.loadImage(mContext, itemHolder.imageView, productDetail);
     }
 
     @Override

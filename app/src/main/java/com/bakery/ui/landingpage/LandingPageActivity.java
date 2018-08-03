@@ -13,7 +13,7 @@ import com.bakery.ui.fragments.category.ExpCategoryFragment;
 import com.bakery.ui.fragments.drawer.FragmentDrawer;
 import com.bakery.ui.fragments.comingsoon.ComingSoonFragment;
 import com.bakery.ui.fragments.home.HomeFragment;
-import com.bakery.ui.fragments.product.ProductDetailListFragment;
+import com.bakery.ui.fragments.product.ProductListFragment;
 import com.bakery.ui.fragments.product.detail.ProductDetailFragment;
 
 public class LandingPageActivity extends BaseAppCompatActivity implements FragmentDrawer.FragmentDrawerListener {
@@ -60,7 +60,7 @@ public class LandingPageActivity extends BaseAppCompatActivity implements Fragme
                 break;
             case FRAGMENT_DETAIL_LIST_PRODUCT:
                 title = "";
-                fragment = ProductDetailListFragment.newInstance(title);
+                fragment = ProductListFragment.newInstance(title);
                 break;
             case FRAGMENT_DETAILS_PRODUCT:
                 title = "";

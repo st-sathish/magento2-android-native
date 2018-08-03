@@ -12,10 +12,10 @@ import android.widget.ProgressBar;
 
 import com.bakery.R;
 import com.bakery.data.SessionStore;
-import com.bakery.data.network.models.ApiProductDetail;
+import com.bakery.data.network.models.ProductResponse;
 import com.bakery.decorators.ItemDecorationGridColumns;
 import com.bakery.ui.BaseFragment;
-import com.bakery.ui.adapters.ProductDetailListAdapter;
+import com.bakery.ui.adapters.ProductListAdapter;
 import com.bakery.ui.landingpage.LandingPageActivity;
 import com.bakery.ui.listeners.EndlessRecyclerOnScrollListener;
 import com.bakery.ui.listeners.OnItemClickListener;
@@ -26,33 +26,33 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class ProductDetailListFragment extends BaseFragment implements ProductDetailListMvp, OnItemClickListener {
+public class ProductListFragment extends BaseFragment implements ProductListMvp, OnItemClickListener {
 
-    ProductDetailListMvpPresenter<ProductDetailListMvp> mPresenter = new ProductDetailListPresenter<>();
+    ProductListMvpPresenter<ProductListMvp> mPresenter = new ProductListPresenter<>();
 
     @BindView(R.id.recycler_view)
     RecyclerView mRecyclerView;
 
-    ProductDetailListAdapter productDetailListAdapter = null;
+    ProductListAdapter productListAdapter = null;
 
     @BindView(R.id.progress_bar)
     ProgressBar progressBar;
 
-    public ProductDetailListFragment() {
+    public ProductListFragment() {
 
     }
 
-    public static ProductDetailListFragment newInstance(String title) {
-        ProductDetailListFragment productDetailListFragment = new ProductDetailListFragment();
+    public static ProductListFragment newInstance(String title) {
+        ProductListFragment productListFragment = new ProductListFragment();
         Bundle bundle = new Bundle();
         bundle.putString(AppConstants.INTENT_PARAM_ONE, title);
-        productDetailListFragment.setArguments(bundle);
-        return productDetailListFragment;
+        productListFragment.setArguments(bundle);
+        return productListFragment;
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fr_product_detail_list, container, false);
+        View view = inflater.inflate(R.layout.fr_product_list, container, false);
         setUnBinder(ButterKnife.bind(this, view));
         mPresenter.onAttach(this);
         initializeRecyclerViewAdapter();
@@ -72,15 +72,15 @@ public class ProductDetailListFragment extends BaseFragment implements ProductDe
     }
 
     @Override
-    public void update(List<ApiProductDetail> apiProductDetails) {
-        productDetailListAdapter.update(apiProductDetails);
+    public void update(List<ProductResponse> productResponses) {
+        productListAdapter.update(productResponses);
     }
 
     public void initializeRecyclerViewAdapter() {
-        productDetailListAdapter = new ProductDetailListAdapter(getActivity(), this);
+        productListAdapter = new ProductListAdapter(getActivity(), this);
         mRecyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
-        mRecyclerView.setAdapter(productDetailListAdapter);
+        mRecyclerView.setAdapter(productListAdapter);
         mRecyclerView.addItemDecoration(new ItemDecorationGridColumns(10, 2));
         mRecyclerView.addOnScrollListener(new EndlessRecyclerOnScrollListener() {
             @Override
@@ -95,7 +95,7 @@ public class ProductDetailListFragment extends BaseFragment implements ProductDe
 
     @Override
     public void onItemClick(View v, int position) {
-        SessionStore.productDetail = productDetailListAdapter.getItem(position);
+        SessionStore.productDetail = productListAdapter.getItem(position);
         switchFragment(LandingPageActivity.FRAGMENT_DETAILS_PRODUCT, "", true);
     }
 }

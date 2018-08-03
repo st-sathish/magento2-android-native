@@ -23,7 +23,7 @@ public class SplashScreenActivity extends BaseAppCompatActivity implements Splas
     }
 
     public void startLoginIntent() {
-        Intent i = new Intent(SplashScreenActivity.this, LoginActivity.class);
+        Intent i = new Intent(SplashScreenActivity.this, LandingPageActivity.class);
         startActivity(i);
         finish();
     }

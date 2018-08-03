@@ -3,7 +3,7 @@ package com.bakery.data.network.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class ApiStockKeepingUnit {
+public class StockKeepingUnitResponse {
 
     @Expose
     @SerializedName("sku")

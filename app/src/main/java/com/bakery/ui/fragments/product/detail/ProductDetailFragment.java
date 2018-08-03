@@ -8,12 +8,11 @@ import android.widget.ImageView;
 
 import com.bakery.R;
 import com.bakery.data.SessionStore;
-import com.bakery.data.network.models.ApiProductDetail;
-import com.bakery.data.network.models.CategoryResponse;
+import com.bakery.data.network.models.ProductResponse;
 import com.bakery.ui.BaseFragment;
 import com.bakery.utils.AppConstants;
 import com.bakery.utils.ComponentUtils;
-import com.squareup.picasso.Picasso;
+import com.bakery.utils.ProductImageUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -45,8 +44,8 @@ public class ProductDetailFragment extends BaseFragment {
     }
 
     public void init() {
-        ApiProductDetail productDetail = SessionStore.productDetail;
-        ComponentUtils.loadImage(getContext(), imageView, productDetail.getMediaGalleryEntries());
+        ProductResponse productDetail = SessionStore.productDetail;
+        ProductImageUtils.loadGalleryImage(getContext(), imageView, productDetail.getMediaGalleryEntries());
     }
 
     @OnClick(R.id.my_cart_btn)

@@ -1,6 +1,7 @@
 package com.bakery.data.network.product;
 
-import com.bakery.data.network.models.ApiProductDetail;
+import com.bakery.data.network.models.ProductListResponse;
+import com.bakery.data.network.models.ProductResponse;
 
 import java.util.List;
 
@@ -19,5 +20,5 @@ public interface ProductApi {
      * @return
      *      list of product detail list
      */
-    Observable<List<ApiProductDetail>> getProductDetailListByCategoryId(int currentPage, int pageSize, int categoryId);
+    Observable<ProductListResponse> getProductDetailListByCategoryId(int currentPage, int pageSize, int categoryId);
 }
