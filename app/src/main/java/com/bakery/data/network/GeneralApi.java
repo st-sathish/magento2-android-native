@@ -20,5 +20,5 @@ public interface GeneralApi {
      * @return
      *      Observable
      */
-    Observable signup();
+    Observable signUp();
 }
