@@ -5,6 +5,8 @@ import com.bakery.data.SessionStore;
 import com.bakery.data.network.ApiEndpoints;
 import com.bakery.data.network.models.ApiProductDetail;
 import com.bakery.data.network.models.ApiStockKeepingUnit;
+import com.bakery.data.network.product.ProductApi;
+import com.bakery.data.network.product.ProductApiImpl;
 import com.bakery.presenter.BasePresenter;
 import com.bakery.utils.AppConstants;
 import com.rx2androidnetworking.Rx2AndroidNetworking;
@@ -24,27 +26,59 @@ public class ProductDetailListPresenter<V extends ProductDetailListMvp> extends 
 
     private int page;
 
-    private int size = AppConstants.PAGINATION_LIMIT;
+    private int pageSize = AppConstants.PAGINATION_LIMIT;
+
+    private ProductApi productApi;
 
     public ProductDetailListPresenter() {
         this.page = 0;
+        this.productApi = new ProductApiImpl();
     }
 
     @Override
     public void pickProducts() {
         //flatMapProduct();
-        mkCategorySkuListApi();
+        //mkCategorySkuListApi();
+        getProductDetailList();
+    }
+
+    private void getProductDetailList() {
+        this.productApi.getProductDetailListByCategoryId(page, pageSize, SessionStore.sSelectedCategory.getId())
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<List<ApiProductDetail>>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(List<ApiProductDetail> apiProductDetails) {
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        page += 1;
+                    }
+                });
     }
 
     @Override
     public void loadNextPage() {
-        getProductsBySku(SessionStore.sStockKeepingUnits.subList(page, size));
-        if(SessionStore.sStockKeepingUnits.size() > size) {
-            page = (size + 1);
-            size += size;
-        } else {
-            getMvpView().stopEndlessLoading();
-        }
+//        getProductsBySku(SessionStore.sStockKeepingUnits.subList(page, pageSize));
+//        if(SessionStore.sStockKeepingUnits.size() > pageSize) {
+//            page = (pageSize + 1);
+//            pageSize += pageSize;
+//        } else {
+//            getMvpView().stopEndlessLoading();
+//        }
+        getProductDetailList();
     }
 
     private void mkCategorySkuListApi() {
