@@ -27,6 +27,8 @@ public abstract class BaseFragment extends Fragment implements MvpView {
 
     private Toolbar toolbar;
 
+    protected boolean loadMoreRecord = true;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

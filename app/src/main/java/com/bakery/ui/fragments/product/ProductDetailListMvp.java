@@ -9,5 +9,5 @@ public interface ProductDetailListMvp extends MvpView {
 
      void update(List<ApiProductDetail> apiProductDetails);
 
-     void loadNextPage();
+     void stopEndlessLoading();
 }

@@ -24,6 +24,8 @@ public class ProductDetailListPresenter<V extends ProductDetailListMvp> extends 
 
     private int page;
 
+    private int size = AppConstants.PAGINATION_LIMIT;
+
     public ProductDetailListPresenter() {
         this.page = 0;
     }
@@ -36,11 +38,13 @@ public class ProductDetailListPresenter<V extends ProductDetailListMvp> extends 
 
     @Override
     public void loadNextPage() {
-        if(page != 0) {
-            // increase the page
-            page += 1;
+        getProductsBySku(SessionStore.sStockKeepingUnits.subList(page, size));
+        if(SessionStore.sStockKeepingUnits.size() > size) {
+            page = (size + 1);
+            size += size;
+        } else {
+            getMvpView().stopEndlessLoading();
         }
-        getProductsBySku(SessionStore.sStockKeepingUnits.subList(page, AppConstants.PAGINATION_LIMIT));
     }
 
     private void mkCategorySkuListApi() {
