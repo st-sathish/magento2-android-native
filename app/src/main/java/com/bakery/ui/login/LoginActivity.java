@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.bakery.ui.landingpage.LandingPageActivity;
-import com.bakery.ui.forgotpassword.ForgetPasswordActivity;
+import com.bakery.ui.forgotpassword.ForgotPasswordActivity;
 import com.bakery.ui.signup.SignUpActivity;
 import com.bakery.R;
 import com.bakery.ui.BaseAppCompatActivity;
@@ -56,7 +56,7 @@ public class LoginActivity extends BaseAppCompatActivity implements LoginMvpView
     @OnClick(R.id.forgot_password)
     @Override
     public void onForgotPasswordClick(View v) {
-        Intent intent = new Intent(LoginActivity.this, ForgetPasswordActivity.class);
+        Intent intent = new Intent(LoginActivity.this, ForgotPasswordActivity.class);
         startActivity(intent);
         finish();
     }
