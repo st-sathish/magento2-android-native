@@ -40,11 +40,15 @@ public class ProductListPresenter<V extends ProductListMvp> extends BasePresente
                 .subscribe(new Observer<ProductListResponse>() {
                     @Override
                     public void onSubscribe(Disposable d) {
-
+                        getMvpView().showEndlessSpinner();
                     }
 
                     @Override
                     public void onNext(ProductListResponse productListResponse) {
+                        if(productListResponse.getItems().size() == 0) {
+                            getMvpView().stopEndlessLoading();
+                            return;
+                        }
                         getMvpView().update(productListResponse.getItems());
                     }
 
@@ -53,9 +57,6 @@ public class ProductListPresenter<V extends ProductListMvp> extends BasePresente
                         if (!isViewAttached()) {
                             return;
                         }
-
-                        getMvpView().hideLoading();
-
                         // handle the login error here
                         if (e instanceof ANError) {
                             ANError anError = (ANError) e;
@@ -65,6 +66,7 @@ public class ProductListPresenter<V extends ProductListMvp> extends BasePresente
 
                     @Override
                     public void onComplete() {
+                        getMvpView().hideEndlessSpinner();
                         page += 1;
                     }
                 });

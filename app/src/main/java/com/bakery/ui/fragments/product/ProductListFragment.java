@@ -98,4 +98,14 @@ public class ProductListFragment extends BaseFragment implements ProductListMvp,
         SessionStore.productDetail = productListAdapter.getItem(position);
         switchFragment(LandingPageActivity.FRAGMENT_DETAILS_PRODUCT, "", true);
     }
+
+    @Override
+    public void showEndlessSpinner() {
+        progressBar.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void hideEndlessSpinner() {
+        progressBar.setVisibility(View.INVISIBLE);
+    }
 }

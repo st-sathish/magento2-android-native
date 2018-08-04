@@ -10,4 +10,8 @@ public interface ProductListMvp extends MvpView {
      void update(List<ProductResponse> productResponses);
 
      void stopEndlessLoading();
+
+     void showEndlessSpinner();
+
+     void hideEndlessSpinner();
 }
