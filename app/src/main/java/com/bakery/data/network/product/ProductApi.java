@@ -21,4 +21,11 @@ public interface ProductApi {
      *      list of product detail list
      */
     Observable<ProductListResponse> getProductDetailListByCategoryId(int currentPage, int pageSize, int categoryId);
+
+    /**
+     * Product Response
+     * @param productSkuId
+     * @return
+     */
+    Observable<ProductResponse> getProductBySku(String productSkuId);
 }

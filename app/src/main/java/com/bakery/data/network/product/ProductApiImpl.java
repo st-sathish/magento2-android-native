@@ -2,6 +2,7 @@ package com.bakery.data.network.product;
 
 import com.bakery.data.network.ApiEndpoints;
 import com.bakery.data.network.models.ProductListResponse;
+import com.bakery.data.network.models.ProductResponse;
 import com.rx2androidnetworking.Rx2AndroidNetworking;
 
 import io.reactivex.Observable;
@@ -18,5 +19,15 @@ public class ProductApiImpl implements ProductApi {
                 .addQueryParameter("searchCriteria[filter_groups][0][filters][0][value]", String.valueOf(categoryId))
                 .build()
                 .getObjectObservable(ProductListResponse.class);
+    }
+
+    @Override
+    public Observable<ProductResponse> getProductBySku(String productSkuId) {
+        return Rx2AndroidNetworking
+                .get(ApiEndpoints.API_GET_PRODUCTS+"/{productSkuId}")
+                .addHeaders("Content-Type", "application/json")
+                .addPathParameter("productSkuId", productSkuId)
+                .build()
+                .getObjectObservable(ProductResponse.class);
     }
 }

@@ -1,6 +1,10 @@
 package com.bakery.ui.fragments.product.detail;
 
 import android.os.Bundle;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,15 +14,22 @@ import android.widget.TextView;
 import com.bakery.R;
 import com.bakery.data.SessionStore;
 import com.bakery.data.network.models.ProductResponse;
+import com.bakery.decorators.ItemDecorationGridColumns;
 import com.bakery.ui.BaseFragment;
+import com.bakery.ui.adapters.ProductListAdapter;
+import com.bakery.ui.landingpage.LandingPageActivity;
+import com.bakery.ui.listeners.EndlessRecyclerOnScrollListener;
+import com.bakery.ui.listeners.OnItemClickListener;
 import com.bakery.utils.AppConstants;
 import com.bakery.utils.ProductImageUtils;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class ProductDetailFragment extends BaseFragment implements ProductDetailMvp {
+public class ProductDetailFragment extends BaseFragment implements ProductDetailMvp, OnItemClickListener {
 
     @BindView(R.id.product_img_large)
     ImageView imageView;
@@ -38,6 +49,11 @@ public class ProductDetailFragment extends BaseFragment implements ProductDetail
     ProductResponse mProductDetail;
 
     ProductDetailMvpPresenter<ProductDetailMvp> mvpPresenter;
+
+    @BindView(R.id.recycler_view)
+    RecyclerView mRecyclerView;
+
+    ProductListAdapter productListAdapter = null;
 
     public ProductDetailFragment() {
 
@@ -60,6 +76,7 @@ public class ProductDetailFragment extends BaseFragment implements ProductDetail
         mProductDetail = SessionStore.productDetail;
         mvpPresenter.setViewValue(mProductDetail);
         ProductImageUtils.loadAttributeImage(getActivity(), imageView, mProductDetail.getCustomAttributes());
+        initializeRecyclerViewAdapter();
         return view;
     }
 
@@ -92,6 +109,32 @@ public class ProductDetailFragment extends BaseFragment implements ProductDetail
     @Override
     public void setShortDescription(String shortDescription) {
         tvShortDescription.setText(shortDescription);
+    }
+
+    @Override
+    public void onRelatedProductsSuccess(List<ProductResponse> relatedProducts) {
+        productListAdapter.update(relatedProducts);
+    }
+
+    public void initializeRecyclerViewAdapter() {
+        productListAdapter = new ProductListAdapter(getContext(), this);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        mRecyclerView.setAdapter(productListAdapter);
+        //mRecyclerView.addItemDecoration(new ItemDecorationGridColumns(10, 2));
+        /*mRecyclerView.addOnScrollListener(new EndlessRecyclerOnScrollListener() {
+            @Override
+            public void onLoadMore() {
+                if(loadMoreRecord) {
+                    mPresenter.loadNextPage();
+                    progressBar.setVisibility(View.VISIBLE);
+                }
+            }
+        });*/
+    }
+
+    @Override
+    public void onItemClick(View v, int position) {
+
     }
 
     @Override

@@ -1,6 +1,9 @@
 package com.bakery.ui.fragments.product.detail;
 
+import com.bakery.data.network.models.ProductResponse;
 import com.bakery.presenter.MvpView;
+
+import java.util.List;
 
 public interface ProductDetailMvp extends MvpView {
 
@@ -11,4 +14,6 @@ public interface ProductDetailMvp extends MvpView {
     void setProductName(String productName);
 
     void setProductPrice(String productPrice);
+
+    void onRelatedProductsSuccess(List<ProductResponse> relatedProducts);
 }

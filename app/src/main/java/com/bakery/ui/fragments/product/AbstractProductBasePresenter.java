@@ -1,10 +1,12 @@
-package com.bakery.ui.fragments.product.detail;
+package com.bakery.ui.fragments.product;
 
 import com.androidnetworking.error.ANError;
 import com.bakery.data.network.models.ProductResponse;
 import com.bakery.data.network.product.ProductApi;
 import com.bakery.data.network.product.ProductApiImpl;
 import com.bakery.presenter.BasePresenter;
+import com.bakery.presenter.MvpPresenter;
+import com.bakery.presenter.MvpView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,41 +19,17 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 
-public class ProductDetailPresenter <V extends ProductDetailMvp> extends BasePresenter<V> implements ProductDetailMvpPresenter<V> {
+// we use this later whenever necessary to make this call again & again in different screens
+public abstract class AbstractProductBasePresenter <V extends MvpView> extends BasePresenter<V> implements MvpPresenter<V> {
 
-    private final ProductApi productApi;
+    private final ProductApi productApi = new ProductApiImpl();
 
-    public ProductDetailPresenter() {
-        productApi = new ProductApiImpl();
-    }
-
-    @Override
-    public void setViewValue(ProductResponse mProductDetail) {
-        if(!isViewAttached()) {
-            return;
-        }
-        getMvpView().setProductName(mProductDetail.getName());
-        getMvpView().setProductPrice(String.valueOf(mProductDetail.getPrice()));
-        for(ProductResponse.CustomAttribute customAttribute: mProductDetail.getCustomAttributes()) {
-            if(customAttribute.getAttributeCode().equals("description")) {
-                getMvpView().setDescription(String.valueOf(customAttribute.getValue()));
-            }
-            if(customAttribute.getAttributeCode().equals("short_description")) {
-                getMvpView().setShortDescription(String.valueOf(customAttribute.getValue()));
-            }
-        }
-
-        // load related products
-        getProductRelatedLinks(mProductDetail.getProductLinks());
-    }
-
-    public void getProductRelatedLinks(List<ProductResponse.ProductLink> productLinks) {
+    protected void getProductRelatedLinks(List<ProductResponse.ProductLink> productLinks) {
         final List<ProductResponse> productResponses = new ArrayList<>();
         Observable.fromIterable(productLinks)
                 .flatMap(new Function<ProductResponse.ProductLink, ObservableSource<ProductResponse>>() {
                     @Override
                     public ObservableSource<ProductResponse> apply(ProductResponse.ProductLink link) {
-                        System.out.print(link.getSku());
                         return productApi.getProductBySku(link.getSku());
                     }
                 })
@@ -84,8 +62,10 @@ public class ProductDetailPresenter <V extends ProductDetailMvp> extends BasePre
 
                     @Override
                     public void onComplete() {
-                        getMvpView().onRelatedProductsSuccess(productResponses);
+                        productRespCallback(productResponses);
                     }
                 });
     }
+
+    public abstract void productRespCallback(List<ProductResponse> productResponses);
 }

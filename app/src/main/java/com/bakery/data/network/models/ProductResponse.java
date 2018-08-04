@@ -271,7 +271,7 @@ public class ProductResponse {
 
         @Expose
         @SerializedName("value")
-        private String value;
+        private Object value;
 
         public String getAttributeCode() {
             return attributeCode;
@@ -281,11 +281,11 @@ public class ProductResponse {
             this.attributeCode = attributeCode;
         }
 
-        public String getValue() {
+        public Object getValue() {
             return value;
         }
 
-        public void setValue(String value) {
+        public void setValue(Object value) {
             this.value = value;
         }
     }

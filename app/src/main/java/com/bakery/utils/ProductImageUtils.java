@@ -32,7 +32,7 @@ public final class ProductImageUtils {
     public static void loadAttributeImage(Context context, ImageView imageView, List<ProductResponse.CustomAttribute> customAttributes) {
         for(ProductResponse.CustomAttribute customAttribute : customAttributes) {
             if(customAttribute.getAttributeCode().equals("thumbnail")) {
-                loadImage(context, imageView, customAttribute.getValue());
+                loadImage(context, imageView, String.valueOf(customAttribute.getValue()));
                 break;
             }
         }
