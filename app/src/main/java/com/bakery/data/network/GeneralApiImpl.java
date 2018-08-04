@@ -2,6 +2,8 @@ package com.bakery.data.network;
 
 import com.rx2androidnetworking.Rx2AndroidNetworking;
 
+import org.json.JSONObject;
+
 import java.util.Map;
 
 import io.reactivex.Observable;
@@ -9,12 +11,13 @@ import io.reactivex.Observable;
 public class GeneralApiImpl implements GeneralApi {
 
     @Override
-    public Observable signUp() {
+    public Observable signUp(JSONObject body) {
         return Rx2AndroidNetworking
                 .post(ApiEndpoints.API_POST_CUSTOMER_SIGNUP)
-                .addApplicationJsonBody(null)
+                .addHeaders("Content-Type", "application/json")
+                .addApplicationJsonBody(body)
                 .build()
-                .getObjectObservable(String.class);
+                .getJSONObjectObservable();
     }
 
     @Override
