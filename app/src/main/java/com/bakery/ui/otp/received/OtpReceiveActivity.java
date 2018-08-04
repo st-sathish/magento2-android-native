@@ -9,6 +9,7 @@ import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bakery.ui.BaseAppCompatActivity;
 import com.bakery.ui.otp.verify.OtpVerifyActivity;
 import com.bakery.R;
 
@@ -16,7 +17,7 @@ import com.bakery.R;
  * Created by system2 on 30-Jan-18.
  */
 
-public class OtpReceiveActivity extends AppCompatActivity {
+public class OtpReceiveActivity extends BaseAppCompatActivity implements OtpReceiveMvpView{
     TextView manual;
     ImageView rotate_image;
 
@@ -47,5 +48,17 @@ public class OtpReceiveActivity extends AppCompatActivity {
             }
         });
 
-         }
+    }
+
+    @Override
+    public void onContinueButtonClick(View v) {
+
+    }
+
+    @Override
+    public void onExistingUserClick(View v) {
+
+    }
+
+
 }

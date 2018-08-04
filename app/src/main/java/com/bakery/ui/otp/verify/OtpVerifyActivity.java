@@ -13,14 +13,15 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.bakery.R;
-import com.bakery.ui.forgotpassword.ForgetPasswordActivity;
+import com.bakery.ui.BaseAppCompatActivity;
+import com.bakery.ui.forgotpassword.ForgotPasswordActivity;
 import com.bakery.ui.otp.received.OtpReceiveActivity;
 
 /**
  * Created by system2 on 30-Jan-18.
  */
 
-public class OtpVerifyActivity extends AppCompatActivity{
+public class OtpVerifyActivity extends BaseAppCompatActivity {
     int size=1;
     TextView resend;
     Button auto;
@@ -151,7 +152,7 @@ public class OtpVerifyActivity extends AppCompatActivity{
         resend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(OtpVerifyActivity.this,ForgetPasswordActivity.class);
+                Intent intent=new Intent(OtpVerifyActivity.this,ForgotPasswordActivity.class);
                 startActivity(intent);
                 finish();
             }
