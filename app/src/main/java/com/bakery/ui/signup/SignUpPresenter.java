@@ -3,6 +3,8 @@ package com.bakery.ui.signup;
 import com.androidnetworking.error.ANError;
 import com.bakery.R;
 import com.bakery.data.network.ApiEndpoints;
+import com.bakery.data.network.GeneralApi;
+import com.bakery.data.network.GeneralApiImpl;
 import com.bakery.presenter.BasePresenter;
 import com.bakery.utils.ValidationUtils;
 import com.rx2androidnetworking.Rx2AndroidNetworking;
@@ -16,6 +18,12 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
 public class SignUpPresenter<V extends SignUpMvpView> extends BasePresenter<V> implements SignUpMvpPresenter<V> {
+
+    GeneralApi generalApi;
+
+    public SignUpPresenter() {
+        generalApi = new GeneralApiImpl();
+    }
 
     @Override
     public void onRegisterBtnClick(String email, String firstName, String lastName,
@@ -63,12 +71,7 @@ public class SignUpPresenter<V extends SignUpMvpView> extends BasePresenter<V> i
 
     private void mkSignUpRequest(JSONObject body) {
         getMvpView().showLoading();
-        Rx2AndroidNetworking
-                .post(ApiEndpoints.API_POST_CUSTOMER_SIGNUP)
-                .addHeaders("Content-Type", "application/json")
-                .addApplicationJsonBody(body)
-                .build()
-                .getJSONObjectObservable()
+        generalApi.signUp(body)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<JSONObject>() {
