@@ -11,7 +11,6 @@ import android.widget.TextView;
 import com.bakery.R;
 import com.bakery.data.network.models.ProductResponse;
 import com.bakery.ui.listeners.OnItemClickListener;
-import com.bakery.utils.ComponentUtils;
 import com.bakery.utils.ProductImageUtils;
 
 import java.util.ArrayList;
@@ -42,7 +41,7 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
     @Override
     public ProductListAdapter.ProductDetailViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View view = inflater.inflate(R.layout.item_product_detail_list, parent, false);
+        View view = inflater.inflate(R.layout.item_product_list, parent, false);
         final ProductDetailViewHolder holder = new ProductListAdapter.ProductDetailViewHolder(view);
         view.setOnClickListener(new View.OnClickListener() {
             @Override

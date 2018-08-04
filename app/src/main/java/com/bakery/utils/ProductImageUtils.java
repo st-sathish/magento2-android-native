@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.widget.ImageView;
 
+import com.bakery.BuildConfig;
 import com.bakery.data.network.models.ProductResponse;
 import com.squareup.picasso.Picasso;
 
@@ -40,7 +41,7 @@ public final class ProductImageUtils {
     public static void loadImage(Context context, ImageView imageView, String url) {
         if(!url.equals("")) {
             Picasso.with(context)
-                    .load(Uri.parse("http://www.ramveltraders.com/pub/media/catalog/product"+ url))
+                    .load(Uri.parse(BuildConfig.BASE_URL + "/pub/media/catalog/product"+ url))
                     .into(imageView);
         }
     }

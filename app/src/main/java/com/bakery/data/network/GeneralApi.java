@@ -1,7 +1,5 @@
 package com.bakery.data.network;
 
-import com.google.gson.JsonObject;
-
 import org.json.JSONObject;
 
 import java.util.Map;
@@ -24,5 +22,5 @@ public interface GeneralApi {
      * @return
      *      Observable
      */
-    Observable signUp(JSONObject body);
+    Observable<JSONObject> signUp(JSONObject body);
 }

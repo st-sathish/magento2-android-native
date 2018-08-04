@@ -8,4 +8,5 @@
         <dimen name="profile_image_size">50dp</dimen>
         <dimen name="menu_height_size">50dp</dimen>
         <dimen name="nav_drawer_width">240dp</dimen>
+        <dimen name="button_radius_large">10dp</dimen>
 </resources>

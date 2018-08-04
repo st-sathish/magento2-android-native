@@ -63,4 +63,7 @@
     <string name="Rs">\u20B9</string>
     <string name="btn_txt_cart">Add to Cart</string>
     <string name="btn_txt_wish_list">Add to Wish List</string>
+    <string name="short_description">Short Description</string>
+    <string name="description">Description</string>
+    <string name="price">Price</string>
 </resources>

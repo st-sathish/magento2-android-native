@@ -19,7 +19,7 @@ import io.reactivex.schedulers.Schedulers;
 
 public class SignUpPresenter<V extends SignUpMvpView> extends BasePresenter<V> implements SignUpMvpPresenter<V> {
 
-    GeneralApi generalApi;
+    private GeneralApi generalApi;
 
     public SignUpPresenter() {
         generalApi = new GeneralApiImpl();
