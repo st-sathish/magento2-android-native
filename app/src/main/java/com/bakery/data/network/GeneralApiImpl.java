@@ -11,7 +11,7 @@ import io.reactivex.Observable;
 public class GeneralApiImpl implements GeneralApi {
 
     @Override
-    public Observable signUp(JSONObject body) {
+    public Observable<JSONObject> signUp(JSONObject body) {
         return Rx2AndroidNetworking
                 .post(ApiEndpoints.API_POST_CUSTOMER_SIGNUP)
                 .addHeaders("Content-Type", "application/json")
