@@ -1,5 +1,6 @@
-package com.bakery.data.network;
+package com.bakery.data.network.security;
 
+import com.bakery.data.network.ApiEndpoints;
 import com.rx2androidnetworking.Rx2AndroidNetworking;
 
 import org.json.JSONObject;
@@ -8,7 +9,7 @@ import java.util.Map;
 
 import io.reactivex.Observable;
 
-public class GeneralApiImpl implements GeneralApi {
+public class SecurityApiImpl implements SecurityApi {
 
     @Override
     public Observable<JSONObject> signUp(JSONObject body) {

@@ -3,6 +3,8 @@ package com.bakery.presenter;
 import com.androidnetworking.common.ANConstants;
 import com.androidnetworking.error.ANError;
 import com.bakery.R;
+import com.bakery.data.AppDataManager;
+import com.bakery.data.DataManager;
 import com.bakery.data.network.models.ApiError;
 import com.bakery.utils.AppConstants;
 import com.google.gson.Gson;
@@ -14,6 +16,12 @@ import javax.net.ssl.HttpsURLConnection;
 public class BasePresenter <V extends MvpView> implements MvpPresenter<V> {
 
     private V mMvpView;
+
+    private DataManager mDataManager;
+
+    public BasePresenter() {
+        this.mDataManager = new AppDataManager();
+    }
 
     @Override
     public void onAttach(V mvpView) {
@@ -92,5 +100,14 @@ public class BasePresenter <V extends MvpView> implements MvpPresenter<V> {
             super("Please call Presenter.onAttach(MvpView) before" +
                     " requesting data to the Presenter");
         }
+    }
+
+    /**
+     * Return both data managers
+     * @return
+     *      data manager instance
+     */
+    public DataManager getDataManager() {
+        return this.mDataManager;
     }
 }

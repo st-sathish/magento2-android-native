@@ -19,11 +19,8 @@ public class ProductListPresenter<V extends ProductListMvp> extends BasePresente
 
     private int pageSize = AppConstants.PAGINATION_LIMIT;
 
-    private ProductApi productApi;
-
     public ProductListPresenter() {
         this.page = 0;
-        this.productApi = new ProductApiImpl();
     }
 
     @Override
@@ -34,7 +31,7 @@ public class ProductListPresenter<V extends ProductListMvp> extends BasePresente
     }
 
     private void getProductList() {
-        this.productApi.getProductDetailListByCategoryId(page, pageSize, SessionStore.sSelectedCategory.getId())
+        this.getDataManager().getProductDetailListByCategoryId(page, pageSize, SessionStore.sSelectedCategory.getId())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<ProductListResponse>() {

@@ -19,10 +19,9 @@ import io.reactivex.schedulers.Schedulers;
 
 public class ProductDetailPresenter <V extends ProductDetailMvp> extends BasePresenter<V> implements ProductDetailMvpPresenter<V> {
 
-    private final ProductApi productApi;
 
     public ProductDetailPresenter() {
-        productApi = new ProductApiImpl();
+
     }
 
     @Override
@@ -52,7 +51,7 @@ public class ProductDetailPresenter <V extends ProductDetailMvp> extends BasePre
                     @Override
                     public ObservableSource<ProductResponse> apply(ProductResponse.ProductLink link) {
                         System.out.print(link.getSku());
-                        return productApi.getProductBySku(link.getSku());
+                        return getDataManager().getProductBySku(link.getSku());
                     }
                 })
                 .subscribeOn(Schedulers.io())

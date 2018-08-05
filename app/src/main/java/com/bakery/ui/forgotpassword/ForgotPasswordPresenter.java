@@ -2,8 +2,8 @@ package com.bakery.ui.forgotpassword;
 
 import com.androidnetworking.error.ANError;
 import com.bakery.R;
-import com.bakery.data.network.GeneralApi;
-import com.bakery.data.network.GeneralApiImpl;
+import com.bakery.data.network.security.SecurityApi;
+import com.bakery.data.network.security.SecurityApiImpl;
 import com.bakery.presenter.BasePresenter;
 import com.bakery.utils.ValidationUtils;
 
@@ -17,10 +17,10 @@ import io.reactivex.schedulers.Schedulers;
 
 public class ForgotPasswordPresenter<V extends ForgotPasswordMvpView> extends BasePresenter<V> implements ForgotPasswordMvpPresenter<V> {
 
-    GeneralApi generalApi;
+    SecurityApi securityApi;
 
     public ForgotPasswordPresenter() {
-        generalApi = new GeneralApiImpl();
+        securityApi = new SecurityApiImpl();
     }
 
         public void onLoginBtnClick(String email, String password) {
@@ -40,7 +40,7 @@ public class ForgotPasswordPresenter<V extends ForgotPasswordMvpView> extends Ba
         Map<String, String> body = new HashMap<>();
         body.put("username", email);
         body.put("password", password);
-        generalApi.login(body)
+        securityApi.login(body)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<String>() {

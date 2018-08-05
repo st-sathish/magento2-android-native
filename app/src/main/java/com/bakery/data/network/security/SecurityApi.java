@@ -1,4 +1,4 @@
-package com.bakery.data.network;
+package com.bakery.data.network.security;
 
 import org.json.JSONObject;
 
@@ -6,7 +6,7 @@ import java.util.Map;
 
 import io.reactivex.Observable;
 
-public interface GeneralApi {
+public interface SecurityApi {
 
     /**
      * Login

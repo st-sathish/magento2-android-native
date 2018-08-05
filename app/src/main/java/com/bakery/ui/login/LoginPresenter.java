@@ -2,12 +2,10 @@ package com.bakery.ui.login;
 
 import com.androidnetworking.error.ANError;
 import com.bakery.R;
-import com.bakery.data.network.ApiEndpoints;
-import com.bakery.data.network.GeneralApi;
-import com.bakery.data.network.GeneralApiImpl;
+import com.bakery.data.AppDataManager;
+import com.bakery.data.DataManager;
 import com.bakery.presenter.BasePresenter;
 import com.bakery.utils.ValidationUtils;
-import com.rx2androidnetworking.Rx2AndroidNetworking;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -18,12 +16,6 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
 public class LoginPresenter <V extends LoginMvpView> extends BasePresenter<V> implements LoginMvpPresenter<V> {
-
-    GeneralApi generalApi;
-
-    public LoginPresenter() {
-        generalApi = new GeneralApiImpl();
-    }
 
     @Override
     public void onLoginBtnClick(String email, String password) {
@@ -43,7 +35,7 @@ public class LoginPresenter <V extends LoginMvpView> extends BasePresenter<V> im
         Map<String, String> body = new HashMap<>();
         body.put("username", email);
         body.put("password", password);
-        generalApi.login(body)
+        getDataManager().login(body)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<String>() {
