@@ -24,9 +24,12 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
 
     private OnItemClickListener mListener;
 
-    public ProductListAdapter(Context context, OnItemClickListener onItemClickListener) {
+    private int mLayout;
+
+    public ProductListAdapter(Context context, OnItemClickListener onItemClickListener, int layout) {
         mContext = context;
         this.mListener = onItemClickListener;
+        this.mLayout = layout;
     }
 
     public void update(List<ProductResponse> productDetails) {
@@ -41,7 +44,7 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
     @Override
     public ProductListAdapter.ProductDetailViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View view = inflater.inflate(R.layout.item_product_list, parent, false);
+        View view = inflater.inflate(mLayout, parent, false);
         final ProductDetailViewHolder holder = new ProductListAdapter.ProductDetailViewHolder(view);
         view.setOnClickListener(new View.OnClickListener() {
             @Override

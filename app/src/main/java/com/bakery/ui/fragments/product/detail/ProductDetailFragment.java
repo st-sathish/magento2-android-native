@@ -117,7 +117,7 @@ public class ProductDetailFragment extends BaseFragment implements ProductDetail
     }
 
     public void initializeRecyclerViewAdapter() {
-        productListAdapter = new ProductListAdapter(getContext(), this);
+        productListAdapter = new ProductListAdapter(getContext(), this, R.layout.item_product_list_horizontal);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerView.setAdapter(productListAdapter);
         //mRecyclerView.addItemDecoration(new ItemDecorationGridColumns(10, 2));
