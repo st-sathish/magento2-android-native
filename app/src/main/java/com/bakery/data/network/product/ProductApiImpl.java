@@ -1,6 +1,8 @@
 package com.bakery.data.network.product;
 
+import com.bakery.data.db.domain.Cart;
 import com.bakery.data.network.ApiEndpoints;
+import com.bakery.data.network.models.CartRequest;
 import com.bakery.data.network.models.ProductListResponse;
 import com.bakery.data.network.models.ProductResponse;
 import com.rx2androidnetworking.Rx2AndroidNetworking;
@@ -19,6 +21,17 @@ public class ProductApiImpl implements ProductApi {
                 .addQueryParameter("searchCriteria[filter_groups][0][filters][0][value]", String.valueOf(categoryId))
                 .build()
                 .getObjectObservable(ProductListResponse.class);
+    }
+
+    @Override
+    public Observable<Cart> addCartApi(CartRequest cartRequest) {
+        return Rx2AndroidNetworking
+                .post(ApiEndpoints.API_POST_ADD_CART)
+                .addHeaders("Content-Type", "application/json")
+                .addHeaders("Authorization", "Bearer"+" ")
+                .addBodyParameter(cartRequest)
+                .build()
+                .getObjectObservable(Cart.class);
     }
 
     @Override

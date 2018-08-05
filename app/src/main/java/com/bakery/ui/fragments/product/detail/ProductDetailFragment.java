@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -57,6 +58,9 @@ public class ProductDetailFragment extends BaseFragment implements ProductDetail
     @BindView(R.id.progress_bar)
     ProgressBar progressBar;
 
+    @BindView(R.id.quantity)
+    EditText quantity;
+
     ProductListAdapter productListAdapter = null;
 
     public ProductDetailFragment() {
@@ -86,7 +90,7 @@ public class ProductDetailFragment extends BaseFragment implements ProductDetail
 
     @OnClick(R.id.my_cart_btn)
     public void onAddToCartClick() {
-
+        mvpPresenter.addToCart(SessionStore.productDetail.getId(), SessionStore.productDetail.getSku(), quantity.getText().toString());
     }
 
     @Override

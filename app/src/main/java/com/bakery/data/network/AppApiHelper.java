@@ -11,15 +11,23 @@ public class AppApiHelper implements ApiHelper {
 
     private SecurityApi securityApi;
 
+    private AppApiHeader mAppApiHeader;
+
     public AppApiHelper() {
         // manage all api helpers
         productApi = new ProductApiImpl();
         securityApi = new SecurityApiImpl();
+        mAppApiHeader = new AppApiHeader();
     }
 
     @Override
     public SecurityApi getSecurityApi() {
         return this.securityApi;
+    }
+
+    @Override
+    public AppApiHeader getApiHeader() {
+        return mAppApiHeader;
     }
 
     @Override

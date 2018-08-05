@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:cardview="http://schemas.android.com/apk/res-auto">
+    android:layout_height="wrap_content"
+    xmlns:cardview="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/tools">
 
     <LinearLayout
         android:orientation="vertical"
@@ -57,24 +58,57 @@
         <LinearLayout
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
+            android:layout_marginBottom="20dp"
             android:orientation="vertical">
 
-            <Button
+            <LinearLayout
+                android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:text="@string/btn_txt_cart"
-                android:id="@+id/my_cart_btn"
-                android:textColor="@color/white"
-                android:layout_margin="10dp"
-                android:background="@drawable/btn_background"
-                android:layout_height="wrap_content" />
+                android:orientation="horizontal">
 
-            <Button
-                android:layout_width="match_parent"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="@string/hint_quantity"
+                    android:textSize="18sp"
+                    android:padding="10dp"
+                    android:textColor="@color/black"
+                    android:layout_height="wrap_content" />
+
+                <EditText
+                    android:id="@+id/quantity"
+                    android:layout_width="100dp"
+                    android:inputType="number"
+                    android:hint="@string/hint_quantity"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:layout_width="match_parent"
+            android:text="@string/btn_txt_cart"
+            android:id="@+id/my_cart_btn"
+            android:textColor="@color/white"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/btn_background"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:layout_height="40dp"
+            android:layout_width="match_parent"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
                 android:id="@+id/wish_btn"
                 android:text="@string/btn_txt_wish_list"
-                android:textColor="@color/white"
+                android:textColor="@color/DarkBlue"
                 android:layout_margin="10dp"
-                android:background="@drawable/btn_background"
                 android:layout_height="wrap_content" />
         </LinearLayout>
 
@@ -202,7 +236,6 @@
                             <android.support.v7.widget.RecyclerView
                                 android:layout_width="wrap_content"
                                 android:id="@+id/recycler_view"
-                                android:visibility="invisible"
                                 android:layout_height="wrap_content" />
 
                             <ProgressBar

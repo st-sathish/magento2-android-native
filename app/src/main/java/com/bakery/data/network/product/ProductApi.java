@@ -1,5 +1,7 @@
 package com.bakery.data.network.product;
 
+import com.bakery.data.db.domain.Cart;
+import com.bakery.data.network.models.CartRequest;
 import com.bakery.data.network.models.ProductListResponse;
 import com.bakery.data.network.models.ProductResponse;
 
@@ -28,4 +30,11 @@ public interface ProductApi {
      * @return
      */
     Observable<ProductResponse> getProductBySku(String productSkuId);
+
+    /**
+     * Add to cart Api
+     * @return
+     *      cart
+     */
+    Observable<Cart> addCartApi(CartRequest cartRequest);
 }

@@ -21,4 +21,7 @@ public final class ApiEndpoints {
 
     /** Get all categories */
     public static final String API_GET_PRODUCTS = API_URL + "/products";
+
+    /** Add product to the cart */
+    public static final String API_POST_ADD_CART = API_URL + "/carts/mine/items";
 }

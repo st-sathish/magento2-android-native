@@ -1,9 +1,9 @@
 package com.bakery.ui.fragments.product.detail;
 
 import com.androidnetworking.error.ANError;
+import com.bakery.data.db.domain.Cart;
+import com.bakery.data.network.models.CartRequest;
 import com.bakery.data.network.models.ProductResponse;
-import com.bakery.data.network.product.ProductApi;
-import com.bakery.data.network.product.ProductApiImpl;
 import com.bakery.presenter.BasePresenter;
 
 import java.util.ArrayList;
@@ -18,11 +18,6 @@ import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 
 public class ProductDetailPresenter <V extends ProductDetailMvp> extends BasePresenter<V> implements ProductDetailMvpPresenter<V> {
-
-
-    public ProductDetailPresenter() {
-
-    }
 
     @Override
     public void setViewValue(ProductResponse mProductDetail) {
@@ -84,6 +79,40 @@ public class ProductDetailPresenter <V extends ProductDetailMvp> extends BasePre
                     public void onComplete() {
                         getMvpView().onRelatedProductsSuccess(productResponses);
                         getMvpView().hideHorizontalProgressBar();
+                    }
+                });
+    }
+
+    @Override
+    public void addToCart(Integer quoteId, String sku, String quantity) {
+        if(quantity == null || quantity.equals("")) {
+            return;
+        }
+
+        Integer qty = Integer.valueOf(quantity);
+        CartRequest cartRequest = new CartRequest(new CartRequest.CartItem(quoteId, sku, qty));
+        getDataManager().addToCartApi(cartRequest)
+                .observeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<Cart>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(Cart cart) {
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
                     }
                 });
     }

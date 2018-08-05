@@ -8,4 +8,6 @@ public interface ApiHelper {
     SecurityApi getSecurityApi();
 
     ProductApi getProductApi();
+
+    AppApiHeader getApiHeader();
 }
