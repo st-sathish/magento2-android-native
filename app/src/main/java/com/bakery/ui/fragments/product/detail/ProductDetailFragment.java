@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.bakery.R;
@@ -52,6 +53,9 @@ public class ProductDetailFragment extends BaseFragment implements ProductDetail
 
     @BindView(R.id.recycler_view)
     RecyclerView mRecyclerView;
+
+    @BindView(R.id.progress_bar)
+    ProgressBar progressBar;
 
     ProductListAdapter productListAdapter = null;
 
@@ -117,10 +121,10 @@ public class ProductDetailFragment extends BaseFragment implements ProductDetail
     }
 
     public void initializeRecyclerViewAdapter() {
-        productListAdapter = new ProductListAdapter(getContext(), this, R.layout.item_product_list_horizontal);
+        productListAdapter = new ProductListAdapter(getContext(), this, R.layout.item_product_horizontal);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         mRecyclerView.setAdapter(productListAdapter);
-        //mRecyclerView.addItemDecoration(new ItemDecorationGridColumns(10, 2));
+        mRecyclerView.addItemDecoration(new ItemDecorationGridColumns(10, 2));
         /*mRecyclerView.addOnScrollListener(new EndlessRecyclerOnScrollListener() {
             @Override
             public void onLoadMore() {
@@ -130,11 +134,23 @@ public class ProductDetailFragment extends BaseFragment implements ProductDetail
                 }
             }
         });*/
+        // load related products
+        mvpPresenter.getProductRelatedLinks(mProductDetail.getProductLinks());
     }
 
     @Override
     public void onItemClick(View v, int position) {
 
+    }
+
+    @Override
+    public void showHorizontalProgressBar() {
+        progressBar.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void hideHorizontalProgressBar() {
+        progressBar.setVisibility(View.INVISIBLE);
     }
 
     @Override

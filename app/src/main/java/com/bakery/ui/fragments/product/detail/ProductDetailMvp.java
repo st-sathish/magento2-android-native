@@ -1,5 +1,7 @@
 package com.bakery.ui.fragments.product.detail;
 
+import android.view.View;
+
 import com.bakery.data.network.models.ProductResponse;
 import com.bakery.presenter.MvpView;
 
@@ -16,4 +18,8 @@ public interface ProductDetailMvp extends MvpView {
     void setProductPrice(String productPrice);
 
     void onRelatedProductsSuccess(List<ProductResponse> relatedProducts);
+
+    void showHorizontalProgressBar();
+
+    void hideHorizontalProgressBar();
 }

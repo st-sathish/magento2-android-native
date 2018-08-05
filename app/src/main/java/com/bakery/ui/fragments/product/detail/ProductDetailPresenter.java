@@ -39,13 +39,12 @@ public class ProductDetailPresenter <V extends ProductDetailMvp> extends BasePre
                 getMvpView().setShortDescription(String.valueOf(customAttribute.getValue()));
             }
         }
-
-        // load related products
-        getProductRelatedLinks(mProductDetail.getProductLinks());
     }
 
+    @Override
     public void getProductRelatedLinks(List<ProductResponse.ProductLink> productLinks) {
         final List<ProductResponse> productResponses = new ArrayList<>();
+        getMvpView().showHorizontalProgressBar();
         Observable.fromIterable(productLinks)
                 .flatMap(new Function<ProductResponse.ProductLink, ObservableSource<ProductResponse>>() {
                     @Override
@@ -84,6 +83,7 @@ public class ProductDetailPresenter <V extends ProductDetailMvp> extends BasePre
                     @Override
                     public void onComplete() {
                         getMvpView().onRelatedProductsSuccess(productResponses);
+                        getMvpView().hideHorizontalProgressBar();
                     }
                 });
     }
