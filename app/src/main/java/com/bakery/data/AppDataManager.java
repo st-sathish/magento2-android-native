@@ -1,14 +1,11 @@
 package com.bakery.data;
 
-import com.bakery.RamvelTraderApplication;
 import com.bakery.data.db.domain.Cart;
 import com.bakery.data.network.ApiHelper;
 import com.bakery.data.network.AppApiHelper;
 import com.bakery.data.network.models.CartRequest;
 import com.bakery.data.network.models.ProductListResponse;
 import com.bakery.data.network.models.ProductResponse;
-import com.bakery.data.pref.AppPreferencesHelper;
-import com.bakery.data.pref.AppPreferencesHelperImpl;
 
 import org.json.JSONObject;
 
@@ -20,11 +17,8 @@ public class AppDataManager implements DataManager {
 
     private ApiHelper mApiHelper;
 
-    private AppPreferencesHelper mPreferencesHelper;
-
     public AppDataManager() {
         mApiHelper = new AppApiHelper();
-        mPreferencesHelper = new AppPreferencesHelperImpl(RamvelTraderApplication.context);
     }
 
     @Override
@@ -54,12 +48,11 @@ public class AppDataManager implements DataManager {
 
     @Override
     public void setAccessToken(String accessToken) {
-        mPreferencesHelper.setAccessToken(accessToken);
         mApiHelper.getApiHeader().getProtectedApiHeader().setAccessToken(accessToken);
     }
 
     @Override
     public String getAccessToken() {
-        return mPreferencesHelper.getAccessToken();
+        return null;
     }
 }

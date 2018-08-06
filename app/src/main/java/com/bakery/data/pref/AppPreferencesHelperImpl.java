@@ -9,6 +9,8 @@ public class AppPreferencesHelperImpl implements AppPreferencesHelper {
 
     private final SharedPreferences mPrefs;
 
+    private static AppPreferencesHelper instance;
+
     public AppPreferencesHelperImpl(Context context) {
         mPrefs = context.getSharedPreferences("USER_DETAILS", Context.MODE_PRIVATE);
     }

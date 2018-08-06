@@ -16,6 +16,10 @@ import com.bakery.utils.ProductImageUtils;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.ProductDetailViewHolder> {
 
     private List<ProductResponse> mProductDetails = new ArrayList<>();
@@ -45,14 +49,7 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
     public ProductListAdapter.ProductDetailViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View view = inflater.inflate(mLayout, parent, false);
-        final ProductDetailViewHolder holder = new ProductListAdapter.ProductDetailViewHolder(view);
-        view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mListener.onItemClick(v, holder.getAdapterPosition());
-            }
-        });
-        return holder;
+        return new ProductListAdapter.ProductDetailViewHolder(view);
     }
 
     @Override
@@ -69,16 +66,41 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
         return mProductDetails != null ? mProductDetails.size() : 0;
     }
 
-    class ProductDetailViewHolder extends RecyclerView.ViewHolder{
-        TextView name;
-        TextView price;
+    class ProductDetailViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+
+        @BindView(R.id.item_thumb)
         ImageView imageView;
+
+        @BindView(R.id.item_name)
+        TextView name;
+
+        @BindView(R.id.item_price)
+        TextView price;
+
+        @BindView(R.id.item_short_desc)
+        TextView shortDesc;
 
         public ProductDetailViewHolder(View v) {
             super(v);
-            name = v.findViewById(R.id.product_name);
-            price = v.findViewById(R.id.product_price);
-            imageView = v.findViewById(R.id.product_img);
+            ButterKnife.bind(this, v);
+            v.setOnClickListener(this);
         }
+
+        @Override
+        public void onClick(View v) {
+            mListener.onItemClick(v, getAdapterPosition());
+        }
+
+        /*@OnClick(R.id.add_item)
+        public void onAddItem(View v) {
+            TextView view = v.findViewById(R.id.item_quantity);
+            view.setText(Integer.valueOf(view.getText().toString()) + 1);
+        }
+
+        @OnClick(R.id.remove_item)
+        public void onRemoveItem(View v) {
+            TextView view = v.findViewById(R.id.item_quantity);
+            view.setText(Integer.valueOf(view.getText().toString()) - 1);
+        }*/
     }
 }

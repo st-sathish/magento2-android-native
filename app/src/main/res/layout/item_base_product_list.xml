@@ -16,7 +16,7 @@
             android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/product_img"
+                android:id="@+id/item_thumb"
                 android:layout_width="match_parent"
                 android:scaleType="fitXY"
                 android:contentDescription="@string/placeholder_text"
@@ -29,7 +29,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/product_name"
+                android:id="@+id/item_name"
                 android:layout_width="match_parent"
                 android:padding="5dp"
                 android:textSize="12sp"
@@ -37,7 +37,7 @@
                 android:layout_height="wrap_content" />
 
             <TextView
-                android:id="@+id/product_price"
+                android:id="@+id/item_price"
                 android:layout_width="match_parent"
                 android:padding="5dp"
                 android:textSize="15sp"

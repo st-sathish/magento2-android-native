@@ -17,6 +17,8 @@ public final class SessionStore {
 
     public static ProductResponse productDetail = null;
 
+    public static String accessToken = "";
+
     private SessionStore() {
 
     }

@@ -4,6 +4,8 @@ import com.androidnetworking.error.ANError;
 import com.bakery.R;
 import com.bakery.data.AppDataManager;
 import com.bakery.data.DataManager;
+import com.bakery.data.SessionStore;
+import com.bakery.data.pref.AppPreferencesHelper;
 import com.bakery.presenter.BasePresenter;
 import com.bakery.utils.ValidationUtils;
 
@@ -46,8 +48,7 @@ public class LoginPresenter <V extends LoginMvpView> extends BasePresenter<V> im
 
                     @Override
                     public void onNext(String accessToken) {
-                        getMvpView().hideLoading();
-                        getMvpView().openLandingPageActivity();
+                        SessionStore.accessToken = accessToken;
                     }
 
                     @Override
@@ -67,7 +68,8 @@ public class LoginPresenter <V extends LoginMvpView> extends BasePresenter<V> im
 
                     @Override
                     public void onComplete() {
-
+                        getMvpView().hideLoading();
+                        getMvpView().openLandingPageActivity();
                     }
                 });
     }

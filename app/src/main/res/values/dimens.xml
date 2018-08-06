@@ -10,4 +10,5 @@
         <dimen name="nav_drawer_width">240dp</dimen>
         <dimen name="button_radius_large">10dp</dimen>
         <dimen name="dimen_img_hor">80dp</dimen>
+        <dimen name="card_default_elevation">5dp</dimen>
 </resources>

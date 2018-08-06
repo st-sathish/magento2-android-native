@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -78,10 +79,11 @@ public class ProductListFragment extends BaseFragment implements ProductListMvp,
 
     public void initializeRecyclerViewAdapter() {
         productListAdapter = new ProductListAdapter(getActivity(), this, R.layout.item_product_list);
-        mRecyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
+        //mRecyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mRecyclerView.setAdapter(productListAdapter);
-        mRecyclerView.addItemDecoration(new ItemDecorationGridColumns(10, 2));
+       // mRecyclerView.addItemDecoration(new ItemDecorationGridColumns(10, 2));
         mRecyclerView.addOnScrollListener(new EndlessRecyclerOnScrollListener() {
             @Override
             public void onLoadMore() {

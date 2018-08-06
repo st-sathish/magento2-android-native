@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.EditText;
 
+import com.bakery.data.pref.AppPreferencesHelperImpl;
 import com.bakery.ui.landingpage.LandingPageActivity;
 import com.bakery.ui.forgotpassword.ForgotPasswordActivity;
 import com.bakery.ui.signup.SignUpActivity;
@@ -30,12 +31,13 @@ public class LoginActivity extends BaseAppCompatActivity implements LoginMvpView
     @BindView(R.id.edit_password)
     EditText mPasswordEditText;
 
-    LoginMvpPresenter<LoginMvpView> mPresenter = new LoginPresenter<>();
+    LoginMvpPresenter<LoginMvpView> mPresenter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        mPresenter = new LoginPresenter<>();
         setUnBinder(ButterKnife.bind(this));
         mPresenter.onAttach(LoginActivity.this);
     }
