@@ -64,6 +64,8 @@
             <LinearLayout
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center_vertical"
                 android:orientation="horizontal">
 
                 <TextView
@@ -74,13 +76,61 @@
                     android:textColor="@color/black"
                     android:layout_height="wrap_content" />
 
-                <EditText
-                    android:id="@+id/quantity"
-                    android:layout_width="100dp"
-                    android:inputType="number"
-                    android:hint="@string/hint_quantity"
-                    android:layout_height="wrap_content"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center"
+                    android:gravity="center_vertical"
+                    android:layout_height="match_parent">
 
+                    <TextView
+                        android:id="@+id/remove_item"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_gravity="center_vertical|center_horizontal"
+                        android:background="@drawable/round_text_remove_item"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:text="@string/symbol_remove_item"
+                        android:textColor="#FF0000"
+                        android:paddingStart="5dp"
+                        android:paddingEnd="5dp"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/item_quantity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical|center_horizontal"
+                        android:ellipsize="marquee"
+                        android:focusable="true"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:focusableInTouchMode="true"
+                        android:freezesText="true"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:marqueeRepeatLimit="marquee_forever"
+                        android:scrollHorizontally="true"
+                        android:singleLine="true"
+                        android:text="@string/default_item_value"
+                        android:textColor="@android:color/background_dark"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/add_item"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_gravity="center_vertical|center_horizontal"
+                        android:background="@drawable/round_text_add_item"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:text="@string/symbol_add_item"
+                        android:textColor="#ff669900"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
             </LinearLayout>
 
         </LinearLayout>

@@ -1,6 +1,7 @@
 package com.bakery.ui.adapters;
 
 import android.content.Context;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -77,6 +78,7 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
         @BindView(R.id.item_price)
         TextView price;
 
+        @Nullable
         @BindView(R.id.item_short_desc)
         TextView shortDesc;
 

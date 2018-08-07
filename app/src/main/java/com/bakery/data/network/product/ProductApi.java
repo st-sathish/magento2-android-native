@@ -30,11 +30,4 @@ public interface ProductApi {
      * @return
      */
     Observable<ProductResponse> getProductBySku(String productSkuId);
-
-    /**
-     * Add to cart Api
-     * @return
-     *      cart
-     */
-    Observable<Cart> addCartApi(CartRequest cartRequest);
 }

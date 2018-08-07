@@ -21,6 +21,42 @@ public class Cart {
     @SerializedName("name")
     private String name;
 
+    @Expose
+    @SerializedName("price")
+    private Integer price;
+
+    @Expose
+    @SerializedName("quote_id")
+    private String quoteId;
+
+    @Expose
+    @SerializedName("product_type")
+    private String productType;
+
+    public Integer getPrice() {
+        return price;
+    }
+
+    public void setPrice(Integer price) {
+        this.price = price;
+    }
+
+    public String getQuoteId() {
+        return quoteId;
+    }
+
+    public void setQuoteId(String quoteId) {
+        this.quoteId = quoteId;
+    }
+
+    public String getProductType() {
+        return productType;
+    }
+
+    public void setProductType(String productType) {
+        this.productType = productType;
+    }
+
     public Integer getItemId() {
         return itemId;
     }

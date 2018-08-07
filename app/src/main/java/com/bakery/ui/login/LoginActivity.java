@@ -37,9 +37,11 @@ public class LoginActivity extends BaseAppCompatActivity implements LoginMvpView
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        mPresenter = new LoginPresenter<>();
         setUnBinder(ButterKnife.bind(this));
+        mPresenter = new LoginPresenter<>();
         mPresenter.onAttach(LoginActivity.this);
+        mEmailEditText.setText("sukumar.inapp2@gmail.com");
+        mPasswordEditText.setText("rails123$");
     }
 
     @Override

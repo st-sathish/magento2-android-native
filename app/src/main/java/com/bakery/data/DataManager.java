@@ -1,6 +1,7 @@
 package com.bakery.data;
 
 import com.bakery.data.db.domain.Cart;
+import com.bakery.data.db.domain.CartList;
 import com.bakery.data.network.models.CartRequest;
 import com.bakery.data.network.models.ProductListResponse;
 import com.bakery.data.network.models.ProductResponse;
@@ -25,5 +26,11 @@ public interface DataManager {
 
     String getAccessToken();
 
-    Observable<Cart> addToCartApi(CartRequest cartRequest);
+    Observable<CartList> getCartItems();
+
+    Observable<Cart> addItemCart(CartRequest request);
+
+    Observable<String> createEmptyCart();
+
+    Observable<Boolean> deleteCartItem(String itemId);
 }

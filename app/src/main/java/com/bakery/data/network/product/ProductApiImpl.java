@@ -24,17 +24,6 @@ public class ProductApiImpl implements ProductApi {
     }
 
     @Override
-    public Observable<Cart> addCartApi(CartRequest cartRequest) {
-        return Rx2AndroidNetworking
-                .post(ApiEndpoints.API_POST_ADD_CART)
-                .addHeaders("Content-Type", "application/json")
-                .addHeaders("Authorization", "Bearer"+" ")
-                .addBodyParameter(cartRequest)
-                .build()
-                .getObjectObservable(Cart.class);
-    }
-
-    @Override
     public Observable<ProductResponse> getProductBySku(String productSkuId) {
         return Rx2AndroidNetworking
                 .get(ApiEndpoints.API_GET_PRODUCTS+"/{productSkuId}")

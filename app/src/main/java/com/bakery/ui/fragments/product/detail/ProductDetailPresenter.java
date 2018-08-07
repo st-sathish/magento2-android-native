@@ -5,6 +5,7 @@ import com.bakery.data.db.domain.Cart;
 import com.bakery.data.network.models.CartRequest;
 import com.bakery.data.network.models.ProductResponse;
 import com.bakery.presenter.BasePresenter;
+import com.bakery.ui.cart.CartPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +19,12 @@ import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 
 public class ProductDetailPresenter <V extends ProductDetailMvp> extends BasePresenter<V> implements ProductDetailMvpPresenter<V> {
+
+    private CartPresenter mCartPresenter;
+
+    public ProductDetailPresenter() {
+        mCartPresenter = new CartPresenter();
+    }
 
     @Override
     public void setViewValue(ProductResponse mProductDetail) {
@@ -84,36 +91,32 @@ public class ProductDetailPresenter <V extends ProductDetailMvp> extends BasePre
     }
 
     @Override
-    public void addToCart(Integer quoteId, String sku, String quantity) {
-        if(quantity == null || quantity.equals("")) {
+    public void addCart(String quantity, String sku) {
+        Integer qty = Integer.parseInt(quantity);
+        Integer quoteId = 0;
+        CartRequest cartRequest = new CartRequest(new CartRequest.CartItem(quoteId, sku, qty));
+        mCartPresenter.addCart(cartRequest);
+    }
+
+    @Override
+    public void increaseQuantity(String quantity) {
+        int qty = Integer.valueOf(quantity);
+        if(qty < 0) {
+            getMvpView().updateQuantity("0");
             return;
         }
+        qty += 1;
+        getMvpView().updateQuantity(String.valueOf(qty));
+    }
 
-        Integer qty = Integer.valueOf(quantity);
-        CartRequest cartRequest = new CartRequest(new CartRequest.CartItem(quoteId, sku, qty));
-        getDataManager().addToCartApi(cartRequest)
-                .observeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<Cart>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
-
-                    }
-
-                    @Override
-                    public void onNext(Cart cart) {
-
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-
-                    }
-
-                    @Override
-                    public void onComplete() {
-
-                    }
-                });
+    @Override
+    public void decreaseQuantity(String quantity) {
+        int qty = Integer.valueOf(quantity);
+        if(qty <= 0) {
+            getMvpView().updateQuantity("0");
+            return;
+        }
+        qty -= 1;
+        getMvpView().updateQuantity(String.valueOf(qty));
     }
 }

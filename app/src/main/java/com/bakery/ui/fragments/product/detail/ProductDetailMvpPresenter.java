@@ -12,5 +12,9 @@ public interface ProductDetailMvpPresenter <V extends MvpView> extends MvpPresen
 
     void getProductRelatedLinks(List<ProductResponse.ProductLink> productLinks);
 
-    void addToCart(Integer quoteId, String sku, String quantity);
+    void increaseQuantity(String quantity);
+
+    void decreaseQuantity(String quantity);
+
+    void addCart(String quantity, String sku);
 }

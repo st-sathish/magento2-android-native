@@ -58,8 +58,8 @@ public class ProductDetailFragment extends BaseFragment implements ProductDetail
     @BindView(R.id.progress_bar)
     ProgressBar progressBar;
 
-    @BindView(R.id.quantity)
-    EditText quantity;
+    @BindView(R.id.item_quantity)
+    TextView quantity;
 
     ProductListAdapter productListAdapter = null;
 
@@ -88,9 +88,19 @@ public class ProductDetailFragment extends BaseFragment implements ProductDetail
         return view;
     }
 
+    @OnClick(R.id.add_item)
+    public void addItem() {
+        mvpPresenter.increaseQuantity(quantity.getText().toString());
+    }
+
+    @OnClick(R.id.remove_item)
+    public void removeItem() {
+        mvpPresenter.decreaseQuantity(quantity.getText().toString());
+    }
+
     @OnClick(R.id.my_cart_btn)
     public void onAddToCartClick() {
-        mvpPresenter.addToCart(SessionStore.productDetail.getId(), SessionStore.productDetail.getSku(), quantity.getText().toString());
+        mvpPresenter.addCart(quantity.getText().toString(), SessionStore.productDetail.getSku());
     }
 
     @Override
@@ -155,6 +165,11 @@ public class ProductDetailFragment extends BaseFragment implements ProductDetail
     @Override
     public void hideHorizontalProgressBar() {
         progressBar.setVisibility(View.INVISIBLE);
+    }
+
+    @Override
+    public void updateQuantity(String q) {
+        quantity.setText(q);
     }
 
     @Override

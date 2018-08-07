@@ -1,6 +1,7 @@
 package com.bakery.data;
 
 import com.bakery.data.db.domain.Cart;
+import com.bakery.data.db.domain.CartList;
 import com.bakery.data.network.ApiHelper;
 import com.bakery.data.network.AppApiHelper;
 import com.bakery.data.network.models.CartRequest;
@@ -42,8 +43,23 @@ public class AppDataManager implements DataManager {
     }
 
     @Override
-    public Observable<Cart> addToCartApi(CartRequest cartRequest) {
-        return this.mApiHelper.getProductApi().addCartApi(cartRequest);
+    public Observable<CartList> getCartItems() {
+        return mApiHelper.getCartApi().getItems();
+    }
+
+    @Override
+    public Observable<Cart> addItemCart(CartRequest request) {
+        return mApiHelper.getCartApi().addItem(request);
+    }
+
+    @Override
+    public Observable<String> createEmptyCart() {
+        return mApiHelper.getCartApi().createEmpty();
+    }
+
+    @Override
+    public Observable<Boolean> deleteCartItem(String itemId) {
+        return mApiHelper.getCartApi().deleteItem(itemId);
     }
 
     @Override

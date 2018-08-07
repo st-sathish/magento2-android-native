@@ -1,5 +1,7 @@
 package com.bakery.data.network;
 
+import com.bakery.data.network.cart.CartApi;
+import com.bakery.data.network.cart.CartApiImpl;
 import com.bakery.data.network.product.ProductApi;
 import com.bakery.data.network.product.ProductApiImpl;
 import com.bakery.data.network.security.SecurityApi;
@@ -13,11 +15,14 @@ public class AppApiHelper implements ApiHelper {
 
     private AppApiHeader mAppApiHeader;
 
+    private CartApi mCartApi;
+
     public AppApiHelper() {
         // manage all api helpers
         productApi = new ProductApiImpl();
         securityApi = new SecurityApiImpl();
         mAppApiHeader = new AppApiHeader();
+        mCartApi = new CartApiImpl();
     }
 
     @Override
@@ -28,6 +33,11 @@ public class AppApiHelper implements ApiHelper {
     @Override
     public AppApiHeader getApiHeader() {
         return mAppApiHeader;
+    }
+
+    @Override
+    public CartApi getCartApi() {
+        return this.mCartApi;
     }
 
     @Override

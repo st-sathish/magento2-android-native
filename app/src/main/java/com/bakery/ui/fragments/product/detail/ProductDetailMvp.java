@@ -22,4 +22,6 @@ public interface ProductDetailMvp extends MvpView {
     void showHorizontalProgressBar();
 
     void hideHorizontalProgressBar();
+
+    void updateQuantity(String quantity);
 }
