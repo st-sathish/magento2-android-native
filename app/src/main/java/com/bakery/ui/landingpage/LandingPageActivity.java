@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.TextView;
 
 import com.bakery.R;
 import com.bakery.ui.BaseAppCompatActivity;
@@ -16,7 +17,10 @@ import com.bakery.ui.fragments.home.HomeFragment;
 import com.bakery.ui.fragments.product.ProductListFragment;
 import com.bakery.ui.fragments.product.detail.ProductDetailFragment;
 
-public class LandingPageActivity extends BaseAppCompatActivity implements FragmentDrawer.FragmentDrawerListener {
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
+public class LandingPageActivity extends BaseAppCompatActivity implements FragmentDrawer.FragmentDrawerListener, LandingPageMvpView  {
 
     public static final int FRAGMENT_DEFAULT = 1;
     public static final int FRAGMENT_HOME = 2;
@@ -25,20 +29,27 @@ public class LandingPageActivity extends BaseAppCompatActivity implements Fragme
     public static final int FRAGMENT_DETAILS_PRODUCT = 5;
 
     private FragmentDrawer drawerFragment;
-    private LandingPageMvpPresenter mPresenter = null;
+    private LandingPageMvpPresenter<LandingPageMvpView> mPresenter = null;
+
+    @BindView(R.id.item_count)
+    TextView itemCount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ac_landing_page);
         Toolbar mToolbar = findViewById(R.id.toolbar);
-        mPresenter = new LandingPagePresenter();
+        setUnBinder(ButterKnife.bind(this));
+        mPresenter = new LandingPagePresenter<>();
+        mPresenter.onAttach(this);
         drawerFragment = (FragmentDrawer) getSupportFragmentManager().findFragmentById(R.id.fragment_navigation_drawer);
         drawerFragment.setUp(R.id.fragment_navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout), mToolbar);
         drawerFragment.setDrawerListener(this);
 
         //load default
         displayView(FRAGMENT_HOME, "", false);
+        // get cart count
+        mPresenter.getCartList();
     }
 
     @Override
@@ -85,5 +96,16 @@ public class LandingPageActivity extends BaseAppCompatActivity implements Fragme
         if (aAddtoBackstack)
             ft.addToBackStack(backStateName);
         ft.commit();
+    }
+
+    @Override
+    public void updateCartCount(String count) {
+        itemCount.setText(count);
+    }
+
+    @Override
+    protected void onDestroy() {
+        mPresenter.onDetach();
+        super.onDestroy();
     }
 }

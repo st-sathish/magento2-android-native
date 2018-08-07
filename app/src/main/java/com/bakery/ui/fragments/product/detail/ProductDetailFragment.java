@@ -101,6 +101,7 @@ public class ProductDetailFragment extends BaseFragment implements ProductDetail
     @OnClick(R.id.my_cart_btn)
     public void onAddToCartClick() {
         mvpPresenter.addCart(quantity.getText().toString(), SessionStore.productDetail.getSku());
+        updateCartCount(quantity.getText().toString());
     }
 
     @Override
