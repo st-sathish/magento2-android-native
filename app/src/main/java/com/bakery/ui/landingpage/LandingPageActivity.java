@@ -99,8 +99,22 @@ public class LandingPageActivity extends BaseAppCompatActivity implements Fragme
     }
 
     @Override
+    public void onBackPressed() {
+        if (getFragmentManager().getBackStackEntryCount() == 0) {
+            return;
+        }
+        getFragmentManager().popBackStack();
+    }
+
+    @Override
     public void updateCartCount(String count) {
         itemCount.setText(count);
+    }
+
+    @Override
+    public void doIncrementCartCount(Integer count) {
+        count +=1;
+        updateCartCount(String.valueOf(count));
     }
 
     @Override

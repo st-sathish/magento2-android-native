@@ -2,39 +2,19 @@ package com.bakery.ui.landingpage;
 
 import com.bakery.data.db.domain.CartList;
 import com.bakery.presenter.BasePresenter;
+import com.bakery.ui.cart.CartMvpPresenter;
+import com.bakery.ui.cart.CartPresenter;
 
-import io.reactivex.Observer;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.schedulers.Schedulers;
-
-public class LandingPagePresenter <V extends LandingPageMvpView> extends BasePresenter<V> implements LandingPageMvpPresenter<V> {
+public class LandingPagePresenter <V extends LandingPageMvpView> extends BasePresenter<V> implements LandingPageMvpPresenter<V>, CartPresenter.OnCartItemsCallback {
 
     @Override
     public void getCartList() {
-        getDataManager().getCartItems()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<CartList>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
+        CartMvpPresenter cartMvpPresenter = new CartPresenter();
+        cartMvpPresenter.getCartItems(this);
+    }
 
-                    }
-
-                    @Override
-                    public void onNext(CartList cartList) {
-                        getMvpView().updateCartCount(String.valueOf(cartList.getItemsCount()));
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-
-                    }
-
-                    @Override
-                    public void onComplete() {
-
-                    }
-                });
+    @Override
+    public void onCartListSuccess(CartList cartList) {
+        getMvpView().updateCartCount(String.valueOf(cartList.getItemsCount()));
     }
 }

@@ -1,5 +1,7 @@
 package com.bakery.ui.cart;
 
+import com.androidnetworking.error.ANError;
+import com.bakery.data.SessionStore;
 import com.bakery.data.db.domain.Cart;
 import com.bakery.data.db.domain.CartList;
 import com.bakery.data.network.models.CartRequest;
@@ -12,10 +14,8 @@ import io.reactivex.schedulers.Schedulers;
 
 public class CartPresenter extends BasePresenter implements CartMvpPresenter {
 
-    private CartPresenterResponseCallback callback = null;
-
     @Override
-    public void checkCart() {
+    public void getCartItems(final OnCartItemsCallback callback) {
         getDataManager().getCartItems()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -27,15 +27,20 @@ public class CartPresenter extends BasePresenter implements CartMvpPresenter {
 
                     @Override
                     public void onNext(CartList cartList) {
-                        if(callback == null) {
-                            return;
-                        }
-                        callback.cartListSuccessCallback(cartList);
+                        callback.onCartListSuccess(cartList);
                     }
 
                     @Override
                     public void onError(Throwable e) {
+                        if (!isViewAttached()) {
+                            return;
+                        }
 
+                        // handle the login error here
+                        if (e instanceof ANError) {
+                            ANError anError = (ANError) e;
+                            handleApiError(anError);
+                        }
                     }
 
                     @Override
@@ -46,7 +51,7 @@ public class CartPresenter extends BasePresenter implements CartMvpPresenter {
     }
 
     @Override
-    public void createEmptyCart() {
+    public void createEmptyCart(final EmptyCartCallback emptyCartCallback) {
         getDataManager().createEmptyCart()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -58,15 +63,21 @@ public class CartPresenter extends BasePresenter implements CartMvpPresenter {
 
                     @Override
                     public void onNext(String quoteId) {
-                        if(callback == null) {
-                            return;
-                        }
-                        callback.createEmptyCartSuccessCallback(quoteId);
+                        SessionStore.quoteId = Integer.parseInt(quoteId);
+                        emptyCartCallback.onEmptyCartCallback();
                     }
 
                     @Override
                     public void onError(Throwable e) {
+                        if (!isViewAttached()) {
+                            return;
+                        }
 
+                        // handle the login error here
+                        if (e instanceof ANError) {
+                            ANError anError = (ANError) e;
+                            handleApiError(anError);
+                        }
                     }
 
                     @Override
@@ -77,7 +88,7 @@ public class CartPresenter extends BasePresenter implements CartMvpPresenter {
     }
 
     @Override
-    public void addCart(CartRequest request) {
+    public void addCart(CartRequest request, final OnAddItemCartCallback callback) {
         getDataManager().addItemCart(request)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -89,15 +100,20 @@ public class CartPresenter extends BasePresenter implements CartMvpPresenter {
 
                     @Override
                     public void onNext(Cart cart) {
-                        if(callback == null) {
-                            return;
-                        }
-                        callback.addItemCartSuccessCallback(cart);
+                        callback.onCartItemAdded();
                     }
 
                     @Override
                     public void onError(Throwable e) {
+                        if (!isViewAttached()) {
+                            return;
+                        }
 
+                        // handle the login error here
+                        if (e instanceof ANError) {
+                            ANError anError = (ANError) e;
+                            handleApiError(anError);
+                        }
                     }
 
                     @Override
@@ -120,15 +136,20 @@ public class CartPresenter extends BasePresenter implements CartMvpPresenter {
 
                     @Override
                     public void onNext(Boolean b) {
-                        if(callback == null) {
-                            return;
-                        }
-                        callback.removeItemCartSuccessCallback(b);
+
                     }
 
                     @Override
                     public void onError(Throwable e) {
+                        if (!isViewAttached()) {
+                            return;
+                        }
 
+                        // handle the login error here
+                        if (e instanceof ANError) {
+                            ANError anError = (ANError) e;
+                            handleApiError(anError);
+                        }
                     }
 
                     @Override
@@ -138,18 +159,15 @@ public class CartPresenter extends BasePresenter implements CartMvpPresenter {
                 });
     }
 
-    public void setOnCartResponseCallback(CartPresenterResponseCallback callback) {
-        this.callback = callback;
+    public interface EmptyCartCallback {
+        void onEmptyCartCallback();
     }
 
-    public interface CartPresenterResponseCallback {
+    public interface OnAddItemCartCallback {
+        void onCartItemAdded();
+    }
 
-        void cartListSuccessCallback(CartList cartList);
-
-        void createEmptyCartSuccessCallback(String quoteId);
-
-        void addItemCartSuccessCallback(Cart cart);
-
-        void removeItemCartSuccessCallback(boolean isRemoved);
+    public interface  OnCartItemsCallback {
+        void onCartListSuccess(CartList cartList);
     }
 }

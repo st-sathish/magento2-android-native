@@ -1,6 +1,7 @@
 package com.bakery.ui.fragments.product.detail;
 
 import com.androidnetworking.error.ANError;
+import com.bakery.data.SessionStore;
 import com.bakery.data.db.domain.Cart;
 import com.bakery.data.network.models.CartRequest;
 import com.bakery.data.network.models.ProductResponse;
@@ -18,7 +19,7 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 
-public class ProductDetailPresenter <V extends ProductDetailMvp> extends BasePresenter<V> implements ProductDetailMvpPresenter<V> {
+public class ProductDetailPresenter <V extends ProductDetailMvp> extends BasePresenter<V> implements ProductDetailMvpPresenter<V>, CartPresenter.OnAddItemCartCallback {
 
     private CartPresenter mCartPresenter;
 
@@ -91,11 +92,21 @@ public class ProductDetailPresenter <V extends ProductDetailMvp> extends BasePre
     }
 
     @Override
-    public void addCart(String quantity, String sku) {
-        Integer qty = Integer.parseInt(quantity);
-        Integer quoteId = 0;
-        CartRequest cartRequest = new CartRequest(new CartRequest.CartItem(quoteId, sku, qty));
-        mCartPresenter.addCart(cartRequest);
+    public void addCart(final String quantity, final String sku) {
+        final Integer qty = Integer.parseInt(quantity);
+        getMvpView().showLoading();
+        if(SessionStore.quoteId == 0) {
+            mCartPresenter.createEmptyCart(new CartPresenter.EmptyCartCallback() {
+                @Override
+                public void onEmptyCartCallback() {
+                    CartRequest cartRequest = new CartRequest(new CartRequest.CartItem(SessionStore.quoteId, sku, qty));
+                    mCartPresenter.addCart(cartRequest, ProductDetailPresenter.this);
+                }
+            });
+        } else {
+            CartRequest cartRequest = new CartRequest(new CartRequest.CartItem(SessionStore.quoteId, sku, qty));
+            mCartPresenter.addCart(cartRequest, this);
+        }
     }
 
     @Override
@@ -118,5 +129,11 @@ public class ProductDetailPresenter <V extends ProductDetailMvp> extends BasePre
         }
         qty -= 1;
         getMvpView().updateQuantity(String.valueOf(qty));
+    }
+
+    @Override
+    public void onCartItemAdded() {
+        getMvpView().switchProductListFragment(1);
+        getMvpView().hideLoading();
     }
 }

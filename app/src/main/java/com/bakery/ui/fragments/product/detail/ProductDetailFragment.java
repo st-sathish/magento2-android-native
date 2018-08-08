@@ -1,14 +1,11 @@
 package com.bakery.ui.fragments.product.detail;
 
 import android.os.Bundle;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -19,8 +16,6 @@ import com.bakery.data.network.models.ProductResponse;
 import com.bakery.decorators.ItemDecorationGridColumns;
 import com.bakery.ui.BaseFragment;
 import com.bakery.ui.adapters.ProductListAdapter;
-import com.bakery.ui.landingpage.LandingPageActivity;
-import com.bakery.ui.listeners.EndlessRecyclerOnScrollListener;
 import com.bakery.ui.listeners.OnItemClickListener;
 import com.bakery.utils.AppConstants;
 import com.bakery.utils.ProductImageUtils;
@@ -171,6 +166,12 @@ public class ProductDetailFragment extends BaseFragment implements ProductDetail
     @Override
     public void updateQuantity(String q) {
         quantity.setText(q);
+    }
+
+    @Override
+    public void switchProductListFragment(Integer addedCount) {
+        doIncrementCartCount(addedCount);
+        goBack();
     }
 
     @Override

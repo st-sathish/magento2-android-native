@@ -30,4 +30,6 @@ public final class ApiEndpoints {
 
     /** Delete cart item */
     public static final String API_DELETE_CART_ITEM = API_URL +"/carts/mine/items/:itemId";
+
+    public static final String HEADER_AUTHORIZATION = "Authorization";
 }

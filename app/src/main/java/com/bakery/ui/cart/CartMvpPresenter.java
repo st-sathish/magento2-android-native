@@ -5,11 +5,11 @@ import com.bakery.presenter.MvpPresenter;
 
 public interface CartMvpPresenter extends MvpPresenter {
 
-    void checkCart();
+    void getCartItems(final CartPresenter.OnCartItemsCallback callback);
 
-    void createEmptyCart();
+    void createEmptyCart(CartPresenter.EmptyCartCallback emptyCartCallback);
 
-    void addCart(CartRequest request);
+    void addCart(CartRequest request, CartPresenter.OnAddItemCartCallback callback);
 
     void removeCart(String itemId);
 }

@@ -171,4 +171,18 @@ public abstract class BaseFragment extends Fragment implements MvpView {
             landingPageMvpView.updateCartCount(count);
         }
     }
+
+    protected void goBack() {
+        LandingPageActivity landingPageActivity = (LandingPageActivity) getActivity();
+        if(null != landingPageActivity) {
+            landingPageActivity.onBackPressed();
+        }
+    }
+
+    public void doIncrementCartCount(Integer count) {
+        LandingPageMvpView landingPageMvpView = (LandingPageActivity) getActivity();
+        if(null != landingPageMvpView) {
+            landingPageMvpView.doIncrementCartCount(count);
+        }
+    }
 }

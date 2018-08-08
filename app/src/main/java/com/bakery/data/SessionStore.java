@@ -19,6 +19,8 @@ public final class SessionStore {
 
     public static String accessToken = "";
 
+    public static int quoteId = 0;
+
     private SessionStore() {
 
     }
