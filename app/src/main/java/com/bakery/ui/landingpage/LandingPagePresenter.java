@@ -1,6 +1,6 @@
 package com.bakery.ui.landingpage;
 
-import com.bakery.data.db.domain.CartList;
+import com.bakery.data.db.domain.CartOverview;
 import com.bakery.presenter.BasePresenter;
 import com.bakery.ui.cart.CartMvpPresenter;
 import com.bakery.ui.cart.CartPresenter;
@@ -14,7 +14,7 @@ public class LandingPagePresenter <V extends LandingPageMvpView> extends BasePre
     }
 
     @Override
-    public void onCartListSuccess(CartList cartList) {
-        getMvpView().updateCartCount(String.valueOf(cartList.getItemsCount()));
+    public void onCartListSuccess(CartOverview cartOverview) {
+        getMvpView().updateCartCount(String.valueOf(cartOverview.getItemsCount()));
     }
 }

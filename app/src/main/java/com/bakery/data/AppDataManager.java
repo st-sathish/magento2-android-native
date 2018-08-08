@@ -1,7 +1,7 @@
 package com.bakery.data;
 
 import com.bakery.data.db.domain.Cart;
-import com.bakery.data.db.domain.CartList;
+import com.bakery.data.db.domain.CartOverview;
 import com.bakery.data.network.ApiHelper;
 import com.bakery.data.network.AppApiHelper;
 import com.bakery.data.network.models.CartRequest;
@@ -43,7 +43,7 @@ public class AppDataManager implements DataManager {
     }
 
     @Override
-    public Observable<CartList> getCartItems() {
+    public Observable<CartOverview> getCartItems() {
         return mApiHelper.getCartApi().getItems();
     }
 

@@ -3,7 +3,7 @@ package com.bakery.ui.cart;
 import com.androidnetworking.error.ANError;
 import com.bakery.data.SessionStore;
 import com.bakery.data.db.domain.Cart;
-import com.bakery.data.db.domain.CartList;
+import com.bakery.data.db.domain.CartOverview;
 import com.bakery.data.network.models.CartRequest;
 import com.bakery.presenter.BasePresenter;
 
@@ -19,15 +19,15 @@ public class CartPresenter extends BasePresenter implements CartMvpPresenter {
         getDataManager().getCartItems()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<CartList>() {
+                .subscribe(new Observer<CartOverview>() {
                     @Override
                     public void onSubscribe(Disposable d) {
 
                     }
 
                     @Override
-                    public void onNext(CartList cartList) {
-                        callback.onCartListSuccess(cartList);
+                    public void onNext(CartOverview cartOverview) {
+                        callback.onCartListSuccess(cartOverview);
                     }
 
                     @Override
@@ -168,6 +168,6 @@ public class CartPresenter extends BasePresenter implements CartMvpPresenter {
     }
 
     public interface  OnCartItemsCallback {
-        void onCartListSuccess(CartList cartList);
+        void onCartListSuccess(CartOverview cartOverview);
     }
 }

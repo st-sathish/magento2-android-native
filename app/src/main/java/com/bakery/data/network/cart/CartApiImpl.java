@@ -2,7 +2,7 @@ package com.bakery.data.network.cart;
 
 import com.bakery.data.SessionStore;
 import com.bakery.data.db.domain.Cart;
-import com.bakery.data.db.domain.CartList;
+import com.bakery.data.db.domain.CartOverview;
 import com.bakery.data.network.ApiEndpoints;
 import com.bakery.data.network.models.CartRequest;
 import com.rx2androidnetworking.Rx2AndroidNetworking;
@@ -12,11 +12,11 @@ import io.reactivex.Observable;
 public class CartApiImpl implements CartApi {
 
     @Override
-    public Observable<CartList> getItems() {
+    public Observable<CartOverview> getItems() {
         return Rx2AndroidNetworking.get(ApiEndpoints.API_GET_AND_CREATE_EMPTY_CART)
                 .addHeaders(ApiEndpoints.HEADER_AUTHORIZATION, "Bearer "+ SessionStore.accessToken)
                 .build()
-                .getObjectObservable(CartList.class);
+                .getObjectObservable(CartOverview.class);
     }
 
     @Override
