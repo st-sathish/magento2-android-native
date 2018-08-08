@@ -6,13 +6,17 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bakery.ui.BaseAppCompatActivity;
+import com.bakery.ui.login.LoginMvpPresenter;
 import com.bakery.ui.login.LoginMvpView;
 import com.bakery.ui.otp.received.OtpReceiveActivity;
 import com.bakery.R;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -23,12 +27,20 @@ import butterknife.OnClick;
 public class ForgotPasswordActivity extends BaseAppCompatActivity implements ForgotPasswordMvpView {
     //Button button_continue;
 
+    @BindView(R.id.edit_email)
+    EditText mEmailEditText;
+
+    ForgotPasswordPresenter forgotPasswordPresenter;
+
     TextView return_page;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgot_passward);
         setUnBinder(ButterKnife.bind(this));
+        forgotPasswordPresenter = new ForgotPasswordPresenter();
+        forgotPasswordPresenter.onAttach(ForgotPasswordActivity.this);
+
         //button_continue=(Button)findViewById(R.id.button_continue);
         return_page=(TextView)findViewById(R.id.return_page);
 
@@ -57,9 +69,14 @@ public class ForgotPasswordActivity extends BaseAppCompatActivity implements For
     @Override
     @OnClick(R.id.button_continue)
     public void onContinueButtonClick(View v) {
-        Intent intent=new Intent(ForgotPasswordActivity.this,OtpReceiveActivity.class);
-        startActivity(intent);
-        finish();
+        forgotPasswordPresenter.onResetPasswordClick(mEmailEditText.getText().toString());
+        showMessage("Reset instructions sent to your email address");
+    }
+
+    @Override
+    protected void onDestroy() {
+        forgotPasswordPresenter.onDetach();
+        super.onDestroy();
     }
 
 }

@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/colorPrimary"
             android:textSize="16dp"
-            android:text="Please Enter Your Mobile Number"/>
+            android:text="Please Enter Your Email"/>
         <View
             android:layout_width="match_parent"
             android:layout_height="20dp"/>
@@ -38,19 +38,9 @@
             android:gravity="center"
             android:layout_gravity="center"
             android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="15dp"
-                android:layout_weight="1"
-                android:textColor="@color/colorPrimary"
-                android:text="   IN +91"/>
-            <View
-                android:layout_width="20dp"
-                android:layout_height="match_parent"/>
             <EditText
                 android:id="@+id/edit_email"
-                android:layout_width="250dp"
+                android:layout_width="240dp"
                 android:layout_height="40dp"
                 android:ems="11"
                 android:layout_weight="1"
@@ -60,7 +50,7 @@
                 android:textColorHint="@color/colorPrimary"
                 android:textCursorDrawable="@drawable/edittext_douch_color"
                 android:background="@android:color/transparent"
-                android:hint=" Enter Mobile No"/></LinearLayout>
+                android:hint="Enter Email address"/></LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -68,13 +58,6 @@
             android:gravity="center"
             android:layout_gravity="center"
             android:orientation="horizontal">
-            <View
-                android:layout_width="50dp"
-                android:layout_height="1dp"
-                android:background="@android:color/white"/>
-            <View
-                android:layout_width="10dp"
-                android:layout_height="match_parent"/>
             <View
                 android:layout_width="240dp"
                 android:layout_height="1dp"

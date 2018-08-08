@@ -1,5 +1,7 @@
 package com.bakery.ui.forgotpassword;
 
+import android.widget.Toast;
+
 import com.androidnetworking.error.ANError;
 import com.bakery.R;
 import com.bakery.data.network.security.SecurityApi;
@@ -19,28 +21,22 @@ public class ForgotPasswordPresenter<V extends ForgotPasswordMvpView> extends Ba
 
     SecurityApi securityApi;
 
+
     public ForgotPasswordPresenter() {
         securityApi = new SecurityApiImpl();
     }
 
-        public void onLoginBtnClick(String email, String password) {
+    public void onResetPasswordClick(String email) {
         if (email == null || email.isEmpty()) {
             getMvpView().onError(R.string.empty_email);
-            return;
         }
-        if(!ValidationUtils.isEmailValid(email)) {
-            getMvpView().onError(R.string.invalid_email);
-            return;
-        }
-        if (password == null || password.isEmpty()) {
-            getMvpView().onError(R.string.empty_password);
-            return;
-        }
+
         getMvpView().showLoading();
         Map<String, String> body = new HashMap<>();
-        body.put("username", email);
-        body.put("password", password);
-        securityApi.login(body)
+        body.put("email", email);
+        body.put("template", "email_reset");
+        body.put("websiteId", "1");
+        securityApi.forgotPassword(body)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<String>() {
@@ -50,9 +46,8 @@ public class ForgotPasswordPresenter<V extends ForgotPasswordMvpView> extends Ba
                     }
 
                     @Override
-                    public void onNext(String accessToken) {
+                    public void onNext(String response) {
                         getMvpView().hideLoading();
-                        //getMvpView().openLandingPageActivity();
                     }
 
                     @Override
@@ -72,8 +67,9 @@ public class ForgotPasswordPresenter<V extends ForgotPasswordMvpView> extends Ba
 
                     @Override
                     public void onComplete() {
-
-                    }
+                        getMvpView().hideLoading();
+                   }
                 });
     }
+
 }

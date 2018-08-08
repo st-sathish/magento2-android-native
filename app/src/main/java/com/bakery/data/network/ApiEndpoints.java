@@ -13,6 +13,9 @@ public final class ApiEndpoints {
     /** Custom login API */
     public static final String LOGIN_API = API_URL + "/integration/customer/token";
 
+    /** Reset Password API */
+    public static final String RESET_PWD_API = API_URL + "/customers/password";
+
     /** Get all categories */
     public static final String API_GET_CATEGORIES = API_URL + "/categories";
 

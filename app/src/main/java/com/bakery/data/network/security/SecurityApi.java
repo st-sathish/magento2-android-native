@@ -18,6 +18,15 @@ public interface SecurityApi {
     Observable<String> login(Map<String, String> body);
 
     /**
+     * Forgot Password
+     * @param body
+     *      request body
+     * @return
+     *      Observable
+     */
+    Observable<String> forgotPassword(Map<String, String> body);
+
+    /**
      * Signup
      * @return
      *      Observable

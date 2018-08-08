@@ -29,4 +29,14 @@ public class SecurityApiImpl implements SecurityApi {
                 .build()
                 .getObjectObservable(String.class);
     }
+
+    @Override
+    public Observable<String> forgotPassword(Map<String, String> body) {
+        return Rx2AndroidNetworking
+                .post(ApiEndpoints.RESET_PWD_API)
+                .addApplicationJsonBody(body)
+                .build()
+                .getObjectObservable(String.class);
+    }
+
 }
