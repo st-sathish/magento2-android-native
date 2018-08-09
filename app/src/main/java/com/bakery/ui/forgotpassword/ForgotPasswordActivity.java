@@ -70,7 +70,7 @@ public class ForgotPasswordActivity extends BaseAppCompatActivity implements For
     @OnClick(R.id.button_continue)
     public void onContinueButtonClick(View v) {
         forgotPasswordPresenter.onResetPasswordClick(mEmailEditText.getText().toString());
-        showMessage("Reset instructions sent to your email address");
+        showMessage("If an account exists for " + mEmailEditText.getText().toString() + ", an email will be sent with further instructions.");
     }
 
     @Override
