@@ -78,10 +78,6 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
         @BindView(R.id.item_price)
         TextView price;
 
-        @Nullable
-        @BindView(R.id.item_short_desc)
-        TextView shortDesc;
-
         public ProductDetailViewHolder(View v) {
             super(v);
             ButterKnife.bind(this, v);
