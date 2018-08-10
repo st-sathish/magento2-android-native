@@ -2,153 +2,124 @@
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:cardview="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="350dp"
     cardview:cardCornerRadius="4dp"
     cardview:cardElevation="@dimen/card_default_elevation"
     cardview:cardUseCompatPadding="true">
 
-    <FrameLayout
-        android:id="@+id/top_view"
-        android:layout_width="275dp"
-        android:layout_height="275dp"
-        android:layout_gravity="center_vertical"
-        android:background="@color/white"
-        android:orientation="horizontal"
-        android:padding="5dp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/item_thumb"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="180dp"
-            android:layout_gravity="top"
-            android:layout_marginLeft="5dp"
-            android:layout_marginStart="5dp"
-            android:contentDescription="@string/placeholder_text"
-            android:gravity="center_horizontal" />
+            android:id="@+id/item_panel"
+            android:layout_height="200dp">
 
+            <ImageView
+                android:id="@+id/item_thumb"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:contentDescription="@string/placeholder_text" />
 
-        <TextView
-            android:id="@+id/remove_item"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_alignParentBottom="true"
-            android:layout_gravity="bottom|left"
-            android:layout_marginBottom="10dp"
-            android:layout_toLeftOf="@+id/item_quantity"
-            android:layout_toStartOf="@+id/item_quantity"
-            android:background="@drawable/round_text_remove_item"
-            android:gravity="center_horizontal|center_vertical"
-            android:text="@string/symbol_remove_item"
-            android:textColor="#FF0000"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/item_quantity"
+        </RelativeLayout>
+        <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_gravity="bottom|center"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_toLeftOf="@+id/add_item"
-            android:layout_toStartOf="@+id/add_item"
-            android:ellipsize="marquee"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:freezesText="true"
-            android:marqueeRepeatLimit="marquee_forever"
-            android:scrollHorizontally="true"
-            android:singleLine="true"
-            android:text="@string/default_item_value"
-            android:textColor="@android:color/background_dark"
-            android:textSize="20sp" />
+            android:layout_margin="10dp"
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/add_item"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_gravity="bottom|right"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/round_text_add_item"
-            android:gravity="center_vertical|center_horizontal"
-            android:text="@string/symbol_add_item"
-            android:textColor="#ff669900"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/item_name"
+            <ImageView
+                android:id="@+id/item_favorite"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:contentDescription="@string/placeholder_text"
+                android:src="@drawable/ic_launcher_background"/>
+        </RelativeLayout>
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="5dp"
-            android:ellipsize="marquee"
-            android:focusable="false"
-            android:freezesText="true"
-            android:marqueeRepeatLimit="marquee_forever"
-            android:scrollHorizontally="true"
-            android:singleLine="true"
-            android:textColor="@android:color/background_dark"
-            android:textSize="15sp" />
+            android:orientation="vertical"
+            android:layout_alignBottom="@+id/item_panel"
+            android:layout_margin="10dp"
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/item_short_desc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/item_name"
-            android:layout_marginTop="5dp"
-            android:ellipsize="marquee"
-            android:focusable="false"
-            android:freezesText="true"
-            android:marqueeRepeatLimit="marquee_forever"
-            android:scrollHorizontally="true"
-            android:singleLine="true"
-            android:textColor="@android:color/darker_gray"
-            android:textSize="15sp" />
+            <TextView
+                android:id="@+id/remove_item"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:layout_marginBottom="10dp"
+                android:layout_toLeftOf="@+id/item_quantity"
+                android:layout_toStartOf="@+id/item_quantity"
+                android:background="@drawable/round_text_remove_item"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="@string/symbol_remove_item"
+                android:textColor="#FF0000"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
-        <!--<TextView
-                android:id="@+id/iteam_avilable"
+            <TextView
+                android:id="@+id/item_quantity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/item_short_desc"
-                android:layout_alignBottom="@+id/item_short_desc"
-                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:layout_marginBottom="10dp"
                 android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_toLeftOf="@+id/add_item"
+                android:layout_toStartOf="@+id/add_item"
                 android:ellipsize="marquee"
-                android:focusable="false"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
                 android:freezesText="true"
                 android:marqueeRepeatLimit="marquee_forever"
                 android:scrollHorizontally="true"
                 android:singleLine="true"
-                android:text="Available"
+                android:text="@string/default_item_value"
+                android:textColor="@android:color/background_dark"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/add_item"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/round_text_add_item"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="@string/symbol_add_item"
                 android:textColor="#ff669900"
-                android:textSize="15sp"
-                android:visibility="gone" />-->
-
-        <TextView
-            android:id="@+id/item_price"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="10dp"
-            android:ellipsize="marquee"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:freezesText="true"
-            android:marqueeRepeatLimit="marquee_forever"
-            android:scrollHorizontally="true"
-            android:singleLine="true"
-            android:textColor="@android:color/background_dark"
-            android:textSize="15sp"
-            android:textStyle="bold" />
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/item_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="@android:color/background_dark"
+                android:textSize="17sp" />
 
-    </FrameLayout>
-
-
+            <TextView
+                android:id="@+id/item_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorGreen"
+                android:textSize="17sp"
+                android:layout_gravity="center"
+                android:gravity="center" />
+        </LinearLayout>
+    </RelativeLayout>
 </android.support.v7.widget.CardView>
