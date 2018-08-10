@@ -7,6 +7,7 @@ import com.bakery.data.network.models.CartRequest;
 import com.bakery.data.network.models.ProductResponse;
 import com.bakery.presenter.BasePresenter;
 import com.bakery.ui.cart.CartPresenter;
+import com.bakery.utils.ProductUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -111,24 +112,12 @@ public class ProductDetailPresenter <V extends ProductDetailMvp> extends BasePre
 
     @Override
     public void increaseQuantity(String quantity) {
-        int qty = Integer.valueOf(quantity);
-        if(qty < 0) {
-            getMvpView().updateQuantity("0");
-            return;
-        }
-        qty += 1;
-        getMvpView().updateQuantity(String.valueOf(qty));
+        getMvpView().updateQuantity(ProductUtils.increaseItemQuantity(quantity));
     }
 
     @Override
     public void decreaseQuantity(String quantity) {
-        int qty = Integer.valueOf(quantity);
-        if(qty <= 0) {
-            getMvpView().updateQuantity("0");
-            return;
-        }
-        qty -= 1;
-        getMvpView().updateQuantity(String.valueOf(qty));
+        getMvpView().updateQuantity(ProductUtils.deceaseItemQuantity(quantity));
     }
 
     @Override

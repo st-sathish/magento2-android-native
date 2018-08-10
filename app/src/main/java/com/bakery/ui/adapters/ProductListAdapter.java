@@ -13,6 +13,7 @@ import com.bakery.R;
 import com.bakery.data.network.models.ProductResponse;
 import com.bakery.ui.listeners.OnItemClickListener;
 import com.bakery.utils.ProductImageUtils;
+import com.bakery.utils.ProductUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -78,27 +79,35 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
         @BindView(R.id.item_price)
         TextView price;
 
+        @BindView(R.id.remove_item)
+        TextView removeItem;
+
+        @BindView(R.id.add_item)
+        TextView addItem;
+
+        @BindView(R.id.item_quantity)
+        TextView quantity;
+
         public ProductDetailViewHolder(View v) {
             super(v);
             ButterKnife.bind(this, v);
             v.setOnClickListener(this);
+            addItem.setOnClickListener(this);
+            removeItem.setOnClickListener(this);
+            v.setTag(this);
         }
 
         @Override
         public void onClick(View v) {
-            mListener.onItemClick(v, getAdapterPosition());
+            //mListener.onItemClick(v, getAdapterPosition());
+            switch (v.getId()) {
+                case R.id.add_item:
+                    quantity.setText(ProductUtils.increaseItemQuantity(quantity.getText().toString()));
+                    break;
+                case R.id.remove_item:
+                    quantity.setText(ProductUtils.deceaseItemQuantity(quantity.getText().toString()));
+                    break;
+            }
         }
-
-        /*@OnClick(R.id.add_item)
-        public void onAddItem(View v) {
-            TextView view = v.findViewById(R.id.item_quantity);
-            view.setText(Integer.valueOf(view.getText().toString()) + 1);
-        }
-
-        @OnClick(R.id.remove_item)
-        public void onRemoveItem(View v) {
-            TextView view = v.findViewById(R.id.item_quantity);
-            view.setText(Integer.valueOf(view.getText().toString()) - 1);
-        }*/
     }
 }
