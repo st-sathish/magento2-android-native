@@ -79,11 +79,11 @@ public class ProductListFragment extends BaseFragment implements ProductListMvp,
 
     public void initializeRecyclerViewAdapter() {
         productListAdapter = new ProductListAdapter(getActivity(), this, R.layout.item_product_list);
-        //mRecyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mRecyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
+        //mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mRecyclerView.setAdapter(productListAdapter);
-       // mRecyclerView.addItemDecoration(new ItemDecorationGridColumns(10, 2));
+        mRecyclerView.addItemDecoration(new ItemDecorationGridColumns(10, 2));
         mRecyclerView.addOnScrollListener(new EndlessRecyclerOnScrollListener() {
             @Override
             public void onLoadMore() {
