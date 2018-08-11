@@ -17,6 +17,7 @@ import com.bakery.decorators.ItemDecorationGridColumns;
 import com.bakery.ui.BaseFragment;
 import com.bakery.ui.adapters.ProductListAdapter;
 import com.bakery.ui.listeners.OnItemClickListener;
+import com.bakery.ui.listeners.OnProductClickListener;
 import com.bakery.utils.AppConstants;
 import com.bakery.utils.ProductImageUtils;
 
@@ -26,7 +27,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class ProductDetailFragment extends BaseFragment implements ProductDetailMvp, OnItemClickListener {
+public class ProductDetailFragment extends BaseFragment implements ProductDetailMvp, OnProductClickListener {
 
     @BindView(R.id.product_img_large)
     ImageView imageView;
@@ -149,11 +150,6 @@ public class ProductDetailFragment extends BaseFragment implements ProductDetail
     }
 
     @Override
-    public void onItemClick(View v, int position) {
-
-    }
-
-    @Override
     public void showHorizontalProgressBar() {
         progressBar.setVisibility(View.VISIBLE);
     }
@@ -178,5 +174,15 @@ public class ProductDetailFragment extends BaseFragment implements ProductDetail
     public void onDestroy() {
         mvpPresenter.onDetach();
         super.onDestroy();
+    }
+
+    @Override
+    public void onAddCartClick(View v, int position, String quantity) {
+
+    }
+
+    @Override
+    public void onCompareClick(View v, int position) {
+
     }
 }
