@@ -89,8 +89,8 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
         @BindView(R.id.item_cart)
         ImageView itemCart;
 
-        @BindView(R.id.item_compare)
-        ImageView itemCompare;
+        //@BindView(R.id.item_compare)
+        //ImageView itemCompare;
 
         public ProductDetailViewHolder(View v) {
             super(v);
@@ -99,7 +99,7 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
             addItem.setOnClickListener(this);
             removeItem.setOnClickListener(this);
             itemCart.setOnClickListener(this);
-            itemCompare.setOnClickListener(this);
+            //itemCompare.setOnClickListener(this);
             v.setTag(this);
         }
 
@@ -115,9 +115,9 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
                 case R.id.item_cart:
                     mListener.onAddCartClick(v, getAdapterPosition(), quantity.getText().toString());
                     break;
-                case R.id.item_compare:
+                /*case R.id.item_compare:
                     mListener.onCompareClick(v, getAdapterPosition());
-                    break;
+                    break;*/
             }
         }
     }
