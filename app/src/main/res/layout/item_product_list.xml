@@ -41,26 +41,28 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_width="160dp"
+            android:layout_width="150dp"
+
             android:orientation="vertical"
             android:layout_alignBottom="@+id/item_panel"
             android:layout_margin="10dp"
             android:layout_height="40dp">
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:weightSum="4">
+            android:padding="5dp"
+            android:id="@+id/icon_items"
+            android:background="@color/colorGreen"
+            >
             <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="3"
-                android:padding="5dp"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
                 android:background="@color/colorGreen">
             <TextView
                 android:id="@+id/remove_item"
                 android:layout_width="25dp"
-                android:layout_height="35dp"
+                android:layout_height="30dp"
                 android:background="@drawable/round_text_remove_item"
                 android:gravity="center_vertical|center_horizontal"
                 android:text="@string/symbol_remove_item"
@@ -71,17 +73,18 @@
             <TextView
                 android:id="@+id/item_quantity"
                 android:layout_width="25dp"
-                android:layout_height="35dp"
+                android:layout_height="30dp"
                 android:gravity="center_vertical|center_horizontal"
                 android:text="@string/default_item_value"
                 android:textColor="@android:color/background_dark"
                 android:background="@color/white"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/add_item"
                 android:layout_width="25dp"
-                android:layout_height="35dp"
+                android:layout_height="30dp"
                 android:background="@drawable/round_text_add_item"
                 android:gravity="center_vertical|center_horizontal"
                 android:text="@string/symbol_add_item"
@@ -89,33 +92,31 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-                <ImageView
+             <ImageView
                     android:id="@+id/item_cart"
                     android:layout_width="25dp"
-                    android:layout_height="35dp"
-                    android:gravity="center"
-                    android:background="@mipmap/purchase"
-                    />
+                    android:layout_height="30dp"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:background="@mipmap/purchase" />
 
             </LinearLayout>
-            <TextView
-                android:layout_width="10dp"
-                android:layout_height="match_parent" />
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
-                <ImageView
-                    android:id="@+id/item_compare"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:gravity="center"
-                    android:contentDescription="@string/placeholder_text"
-                    android:src="@drawable/ic_launcher_background" />
-            </LinearLayout>
-
         </LinearLayout>
+        <TextView
+            android:layout_width="10dp"
+            android:layout_toRightOf="@+id/icon_items"
+            android:id="@+id/blank_space"
+            android:layout_height="40dp" />
+
+            <ImageView
+                android:id="@+id/item_compare"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:layout_toRightOf="@+id/blank_space"
+                android:src="@drawable/ic_launcher_background" />
+
         </RelativeLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:orientation="vertical"

@@ -8,6 +8,6 @@
         android:width="2dip"
         android:color="@color/LiteGray" />
 
-    <solid android:color="#FFF" />
+    <solid android:color="@color/LiteGray" />
 
 </shape>
