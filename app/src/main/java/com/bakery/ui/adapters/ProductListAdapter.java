@@ -1,7 +1,6 @@
 package com.bakery.ui.adapters;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +10,7 @@ import android.widget.TextView;
 
 import com.bakery.R;
 import com.bakery.data.network.models.ProductResponse;
-import com.bakery.ui.listeners.OnItemClickListener;
+import com.bakery.ui.listeners.OnProductClickListener;
 import com.bakery.utils.ProductImageUtils;
 import com.bakery.utils.ProductUtils;
 
@@ -20,7 +19,6 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.ProductDetailViewHolder> {
 
@@ -28,11 +26,11 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
 
     private Context mContext;
 
-    private OnItemClickListener mListener;
+    private OnProductClickListener mListener;
 
     private int mLayout;
 
-    public ProductListAdapter(Context context, OnItemClickListener onItemClickListener, int layout) {
+    public ProductListAdapter(Context context, OnProductClickListener onItemClickListener, int layout) {
         mContext = context;
         this.mListener = onItemClickListener;
         this.mLayout = layout;
@@ -88,24 +86,37 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
         @BindView(R.id.item_quantity)
         TextView quantity;
 
+        @BindView(R.id.item_cart)
+        ImageView itemCart;
+
+        @BindView(R.id.item_compare)
+        ImageView itemCompare;
+
         public ProductDetailViewHolder(View v) {
             super(v);
             ButterKnife.bind(this, v);
             v.setOnClickListener(this);
             addItem.setOnClickListener(this);
             removeItem.setOnClickListener(this);
+            itemCart.setOnClickListener(this);
+            itemCompare.setOnClickListener(this);
             v.setTag(this);
         }
 
         @Override
         public void onClick(View v) {
-            //mListener.onItemClick(v, getAdapterPosition());
             switch (v.getId()) {
                 case R.id.add_item:
                     quantity.setText(ProductUtils.increaseItemQuantity(quantity.getText().toString()));
                     break;
                 case R.id.remove_item:
                     quantity.setText(ProductUtils.deceaseItemQuantity(quantity.getText().toString()));
+                    break;
+                case R.id.item_cart:
+                    mListener.onAddCartClick(v, getAdapterPosition(), quantity.getText().toString());
+                    break;
+                case R.id.item_compare:
+                    mListener.onCompareClick(v, getAdapterPosition());
                     break;
             }
         }

@@ -20,6 +20,7 @@ import com.bakery.ui.adapters.ProductListAdapter;
 import com.bakery.ui.landingpage.LandingPageActivity;
 import com.bakery.ui.listeners.EndlessRecyclerOnScrollListener;
 import com.bakery.ui.listeners.OnItemClickListener;
+import com.bakery.ui.listeners.OnProductClickListener;
 import com.bakery.utils.AppConstants;
 
 import java.util.List;
@@ -27,7 +28,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class ProductListFragment extends BaseFragment implements ProductListMvp, OnItemClickListener {
+public class ProductListFragment extends BaseFragment implements ProductListMvp, OnProductClickListener {
 
     ProductListMvpPresenter<ProductListMvp> mPresenter = new ProductListPresenter<>();
 
@@ -96,9 +97,14 @@ public class ProductListFragment extends BaseFragment implements ProductListMvp,
     }
 
     @Override
-    public void onItemClick(View v, int position) {
-        SessionStore.productDetail = productListAdapter.getItem(position);
-        switchFragment(LandingPageActivity.FRAGMENT_DETAILS_PRODUCT, "", true);
+    public void onCompareClick(View v, int position) {
+        //SessionStore.productDetail = productListAdapter.getItem(position);
+        //switchFragment(LandingPageActivity.FRAGMENT_DETAILS_PRODUCT, "", true);
+    }
+
+    @Override
+    public void onAddCartClick(View v, int position, String quantity) {
+
     }
 
     @Override
