@@ -112,8 +112,9 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:gravity="center"
+                android:background="@color/colorGreen"
                 android:layout_toRightOf="@+id/blank_space"
-                android:src="@drawable/ic_launcher_background" />
+                android:src="@drawable/icon_compare" />
 
         </RelativeLayout>
 
