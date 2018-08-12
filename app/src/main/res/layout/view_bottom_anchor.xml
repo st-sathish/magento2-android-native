@@ -15,7 +15,7 @@
 
     <HorizontalScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <android.support.v7.widget.RecyclerView
             android:layout_width="wrap_content"
@@ -23,27 +23,18 @@
             android:layout_height="wrap_content" />
 
     </HorizontalScrollView>
-    <!--<RelativeLayout
-        android:id="@+id/checkout_item_root"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@color/white"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:weightSum="100">
 
-        <FrameLayout
-            android:id="@+id/item_counter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:layout_weight="20">
+    <!--<LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
                 android:background="@drawable/cart"
                 android:scaleType="fitXY" />
 
@@ -56,8 +47,7 @@
                 android:gravity="center"
                 android:text="0"
                 android:textColor="@color/white" />
-        </FrameLayout>
 
-    </RelativeLayout>-->
+        </LinearLayout>-->
 
 </LinearLayout>

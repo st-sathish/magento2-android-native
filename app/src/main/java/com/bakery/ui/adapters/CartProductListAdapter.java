@@ -6,13 +6,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.bakery.R;
 import com.bakery.data.network.models.ProductResponse;
-import com.bakery.ui.listeners.OnProductClickListener;
 import com.bakery.utils.ProductImageUtils;
-import com.bakery.utils.ProductUtils;
 
 import java.util.ArrayList;
 import java.util.List;

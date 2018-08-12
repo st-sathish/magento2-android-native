@@ -104,9 +104,8 @@ public class ProductListFragment extends BaseFragment implements ProductListMvp,
 
     public void initializeCartRecyclerView() {
         mCartProducts = new CartProductListAdapter(getActivity(), this);
-        mCartRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
+        mCartRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, true));
         mCartRecyclerView.setItemAnimator(new DefaultItemAnimator());
-        mRecyclerView.addItemDecoration(new ItemDecorationGridColumns(10, 2));
         mCartRecyclerView.setAdapter(mCartProducts);
     }
 
