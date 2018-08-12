@@ -29,7 +29,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class ProductListFragment extends BaseFragment implements ProductListMvp, OnProductClickListener {
+public class ProductListFragment extends BaseFragment implements ProductListMvp, OnProductClickListener, CartProductListAdapter.OnCartProductListener {
 
     ProductListMvpPresenter<ProductListMvp> mPresenter = new ProductListPresenter<>();
 
@@ -103,11 +103,16 @@ public class ProductListFragment extends BaseFragment implements ProductListMvp,
     }
 
     public void initializeCartRecyclerView() {
-        mCartProducts = new CartProductListAdapter(getActivity());
+        mCartProducts = new CartProductListAdapter(getActivity(), this);
         mCartRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
         mCartRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mRecyclerView.addItemDecoration(new ItemDecorationGridColumns(10, 2));
         mCartRecyclerView.setAdapter(mCartProducts);
+    }
+
+    @Override
+    public void removedCartItem(View v, int position) {
+        mCartProducts.remove(position);
     }
 
     @Override

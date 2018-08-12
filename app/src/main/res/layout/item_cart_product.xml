@@ -17,6 +17,7 @@
         android:layout_toRightOf="@+id/item_cart_thumb"
         android:contentDescription="@string/app_name"
         android:background="@drawable/ic_delete"
+        style="?android:actionButtonStyle"
         android:id="@+id/item_remove_cart_product"
         android:layout_height="40dp" />
 </RelativeLayout>

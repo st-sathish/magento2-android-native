@@ -26,12 +26,20 @@ public class CartProductListAdapter extends RecyclerView.Adapter<CartProductList
 
     private Context mContext;
 
-    public CartProductListAdapter(Context context) {
-        mContext = context;
+    private OnCartProductListener mOnCartProductListener;
+
+    public CartProductListAdapter(Context context, OnCartProductListener mOnCartProductListener) {
+        this.mContext = context;
+        this.mOnCartProductListener = mOnCartProductListener;
     }
 
     public void refresh(ProductResponse productDetail) {
         mProductDetails.add(productDetail);
+        notifyDataSetChanged();
+    }
+
+    public void remove(int position) {
+        mProductDetails.remove(position);
         notifyDataSetChanged();
     }
 
@@ -57,6 +65,10 @@ public class CartProductListAdapter extends RecyclerView.Adapter<CartProductList
         return mProductDetails != null ? mProductDetails.size() : 0;
     }
 
+    public interface OnCartProductListener {
+        void removedCartItem(View v, int position);
+    }
+
     class CartProductViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         @BindView(R.id.item_cart_thumb)
@@ -77,6 +89,7 @@ public class CartProductListAdapter extends RecyclerView.Adapter<CartProductList
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.item_remove_cart_product:
+                    mOnCartProductListener.removedCartItem(v, getAdapterPosition());
                     break;
                 default:
                     break;
