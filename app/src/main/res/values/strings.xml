@@ -71,4 +71,5 @@
     <string name="symbol_remove_item">-</string>
     <string name="symbol_add_item">+</string>
     <string name="default_item_value">1</string>
+    <string name="checkout">Checkout</string>
 </resources>

@@ -16,6 +16,7 @@ import com.bakery.data.SessionStore;
 import com.bakery.data.network.models.ProductResponse;
 import com.bakery.decorators.ItemDecorationGridColumns;
 import com.bakery.ui.BaseFragment;
+import com.bakery.ui.adapters.CartProductListAdapter;
 import com.bakery.ui.adapters.ProductListAdapter;
 import com.bakery.ui.landingpage.LandingPageActivity;
 import com.bakery.ui.listeners.EndlessRecyclerOnScrollListener;
@@ -40,6 +41,11 @@ public class ProductListFragment extends BaseFragment implements ProductListMvp,
     @BindView(R.id.progress_bar)
     ProgressBar progressBar;
 
+    @BindView(R.id.cart_recycler_view)
+    RecyclerView mCartRecyclerView;
+
+    CartProductListAdapter mCartProducts = null;
+
     public ProductListFragment() {
 
     }
@@ -58,6 +64,7 @@ public class ProductListFragment extends BaseFragment implements ProductListMvp,
         setUnBinder(ButterKnife.bind(this, view));
         mPresenter.onAttach(this);
         initializeRecyclerViewAdapter();
+        initializeCartRecyclerView();
         return view;
     }
 
@@ -81,7 +88,6 @@ public class ProductListFragment extends BaseFragment implements ProductListMvp,
     public void initializeRecyclerViewAdapter() {
         productListAdapter = new ProductListAdapter(getActivity(), this, R.layout.item_product_list);
         mRecyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
-        //mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mRecyclerView.setAdapter(productListAdapter);
         mRecyclerView.addItemDecoration(new ItemDecorationGridColumns(10, 2));
@@ -96,6 +102,14 @@ public class ProductListFragment extends BaseFragment implements ProductListMvp,
         });
     }
 
+    public void initializeCartRecyclerView() {
+        mCartProducts = new CartProductListAdapter(getActivity());
+        mCartRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
+        mCartRecyclerView.setItemAnimator(new DefaultItemAnimator());
+        mRecyclerView.addItemDecoration(new ItemDecorationGridColumns(10, 2));
+        mCartRecyclerView.setAdapter(mCartProducts);
+    }
+
     @Override
     public void onCompareClick(View v, int position) {
         //SessionStore.productDetail = productListAdapter.getItem(position);
@@ -104,7 +118,7 @@ public class ProductListFragment extends BaseFragment implements ProductListMvp,
 
     @Override
     public void onAddCartClick(View v, int position, String quantity) {
-
+        mCartProducts.refresh(productListAdapter.getItem(position));
     }
 
     @Override

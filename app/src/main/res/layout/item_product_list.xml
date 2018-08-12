@@ -102,8 +102,9 @@
                     android:layout_marginEnd="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginStart="10dp"
+                    style="?android:actionButtonStyle"
                     android:gravity="center_vertical|center_horizontal"
-                    android:src="@drawable/ic_shopping_cart_white" />
+                    android:src="@drawable/ic_add_shopping_cart_white" />
 
             </LinearLayout>
 <!--
