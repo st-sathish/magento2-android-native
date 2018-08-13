@@ -1,6 +1,8 @@
 package com.bakery.ui.adapters;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -64,6 +66,7 @@ public class CartProductListAdapter extends RecyclerView.Adapter<CartProductList
 
     public interface OnCartProductListener {
         void removedCartItem(View v, int position);
+        ProductResponse getItem(int position);
     }
 
     class CartProductViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -83,10 +86,28 @@ public class CartProductListAdapter extends RecyclerView.Adapter<CartProductList
         }
 
         @Override
-        public void onClick(View v) {
+        public void onClick(final View v) {
             switch (v.getId()) {
                 case R.id.item_remove_cart_product:
-                    mOnCartProductListener.removedCartItem(v, getAdapterPosition());
+                    DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int choice) {
+                            switch (choice) {
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    mOnCartProductListener.removedCartItem(v, getAdapterPosition());
+                                    break;
+                                case DialogInterface.BUTTON_NEGATIVE:
+                                    dialog.cancel();
+                                    break;
+                            }
+                        }
+                    };
+                    AlertDialog.Builder builder = new AlertDialog.Builder(v.getRootView().getContext());
+                    builder.setMessage("Do you want to remove " + mOnCartProductListener.getItem(getAdapterPosition()).getName() + " from cart?")
+                            .setPositiveButton("Yes", dialogClickListener)
+                            .setNegativeButton("No", dialogClickListener)
+                            .setTitle("Ramvel Traders")
+                            .show();
                     break;
                 default:
                     break;

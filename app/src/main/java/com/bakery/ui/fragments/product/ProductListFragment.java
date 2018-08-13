@@ -115,6 +115,11 @@ public class ProductListFragment extends BaseFragment implements ProductListMvp,
     }
 
     @Override
+    public ProductResponse getItem(int position) {
+        return mCartProducts.getItem(position);
+    }
+
+    @Override
     public void onCompareClick(View v, int position) {
         //SessionStore.productDetail = productListAdapter.getItem(position);
         //switchFragment(LandingPageActivity.FRAGMENT_DETAILS_PRODUCT, "", true);
