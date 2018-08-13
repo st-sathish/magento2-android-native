@@ -2,7 +2,8 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:padding="3dp">
     <ImageView
         android:layout_width="100dp"
         android:id="@+id/item_cart_thumb"
@@ -12,8 +13,7 @@
 
     <ImageView
         android:layout_width="20dp"
-        android:layout_toEndOf="@+id/item_cart_thumb"
-        android:layout_toRightOf="@+id/item_cart_thumb"
+        android:layout_alignRight="@id/item_cart_thumb"
         android:contentDescription="@string/app_name"
         android:background="@drawable/ic_delete"
         style="?android:actionButtonStyle"
