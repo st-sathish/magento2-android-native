@@ -10,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.bakery.R;
 import com.bakery.data.SessionStore;
@@ -128,6 +130,12 @@ public class ProductListFragment extends BaseFragment implements ProductListMvp,
     @Override
     public void onAddCartClick(View v, int position, String quantity) {
         mCartProducts.refresh(productListAdapter.getItem(position));
+        RelativeLayout relLayout = (RelativeLayout) mRecyclerView.getParent();
+        TextView count1 = relLayout.findViewById(R.id.item_count1);
+        if (count1 != null) {
+            int oldCount = Integer.valueOf(count1.getText().toString());
+            count1.setText(oldCount + Integer.valueOf(quantity) + "");
+        }
     }
 
     @Override
