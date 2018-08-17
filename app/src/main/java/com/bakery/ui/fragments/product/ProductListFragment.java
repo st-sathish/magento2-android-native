@@ -113,6 +113,12 @@ public class ProductListFragment extends BaseFragment implements ProductListMvp,
 
     @Override
     public void removedCartItem(View v, int position) {
+        RelativeLayout relLayout = (RelativeLayout) mRecyclerView.getParent();
+        TextView count1 = relLayout.findViewById(R.id.item_count1);
+        if (count1 != null) {
+            int oldCount = Integer.valueOf(count1.getText().toString());
+            count1.setText(oldCount - 1 + "");
+        }
         mCartProducts.remove(position);
     }
 
