@@ -40,13 +40,13 @@
                 android:textColor="@android:color/black"
                 android:layout_height="wrap_content" />
 
-            <TextView
+            <!--<TextView
                 android:id="@+id/item_price"
                 android:layout_width="match_parent"
                 android:padding="5dp"
                 android:textSize="15sp"
                 android:textColor="@color/colorGreen"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content" />-->
         </LinearLayout>
     </LinearLayout>
 

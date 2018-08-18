@@ -13,11 +13,9 @@ import android.widget.TextView;
 import com.bakery.R;
 import com.bakery.data.SessionStore;
 import com.bakery.data.network.models.ProductResponse;
-import com.bakery.decorators.ItemDecorationGridColumns;
 import com.bakery.ui.BaseFragment;
-import com.bakery.ui.adapters.ProductListAdapter;
-import com.bakery.ui.listeners.OnItemClickListener;
-import com.bakery.ui.listeners.OnProductClickListener;
+import com.bakery.ui.adapters.RelatedProductListAdapter;
+import com.bakery.ui.listeners.OnRelatedProductClickListener;
 import com.bakery.utils.AppConstants;
 import com.bakery.utils.ProductImageUtils;
 
@@ -27,7 +25,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class ProductDetailFragment extends BaseFragment implements ProductDetailMvp, OnProductClickListener {
+public class ProductDetailFragment extends BaseFragment implements ProductDetailMvp, OnRelatedProductClickListener {
 
     @BindView(R.id.product_img_large)
     ImageView imageView;
@@ -49,7 +47,7 @@ public class ProductDetailFragment extends BaseFragment implements ProductDetail
     ProductDetailMvpPresenter<ProductDetailMvp> mvpPresenter;
 
     @BindView(R.id.recycler_view)
-    RecyclerView mRecyclerView;
+    RecyclerView mRelatedProductRecyclerView;
 
     @BindView(R.id.progress_bar)
     ProgressBar progressBar;
@@ -57,7 +55,7 @@ public class ProductDetailFragment extends BaseFragment implements ProductDetail
     @BindView(R.id.item_quantity)
     TextView quantity;
 
-    ProductListAdapter productListAdapter = null;
+    RelatedProductListAdapter productListAdapter = null;
 
     public ProductDetailFragment() {
 
@@ -132,10 +130,9 @@ public class ProductDetailFragment extends BaseFragment implements ProductDetail
     }
 
     public void initializeRecyclerViewAdapter() {
-        productListAdapter = new ProductListAdapter(getContext(), this, R.layout.item_product_horizontal);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
-        mRecyclerView.setAdapter(productListAdapter);
-        mRecyclerView.addItemDecoration(new ItemDecorationGridColumns(10, 2));
+        productListAdapter = new RelatedProductListAdapter(getContext(), this);
+        mRelatedProductRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+        mRelatedProductRecyclerView.setAdapter(productListAdapter);
         /*mRecyclerView.addOnScrollListener(new EndlessRecyclerOnScrollListener() {
             @Override
             public void onLoadMore() {
@@ -177,17 +174,7 @@ public class ProductDetailFragment extends BaseFragment implements ProductDetail
     }
 
     @Override
-    public void onAddCartClick(View v, int position, String quantity) {
-
-    }
-
-    @Override
-    public void onCompareClick(View v, int position) {
-
-    }
-
-    @Override
-    public void onOpenProductOverview(View v, int position) {
+    public void onProductClick(View v, int position) {
 
     }
 }
