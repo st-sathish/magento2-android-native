@@ -43,8 +43,6 @@ public class CartApiImpl implements CartApi {
 
     @Override
     public Observable<Boolean> deleteItem(Integer itemId) {
-        Map<String, Integer> params = new WeakHashMap<>();
-        params.put("", itemId);
         return Rx2AndroidNetworking.delete(ApiEndpoints.API_DELETE_CART_ITEM)
                 .addHeaders(ApiEndpoints.HEADER_AUTHORIZATION, "Bearer "+ SessionStore.accessToken)
                 .addPathParameter("itemId", String.valueOf(itemId))
