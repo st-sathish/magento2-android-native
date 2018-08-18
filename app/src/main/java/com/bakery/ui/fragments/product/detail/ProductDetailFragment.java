@@ -85,12 +85,12 @@ public class ProductDetailFragment extends BaseFragment implements ProductDetail
     }
 
     @OnClick(R.id.add_item)
-    public void addItem() {
+    public void addItemQuantity() {
         mvpPresenter.increaseQuantity(quantity.getText().toString());
     }
 
     @OnClick(R.id.remove_item)
-    public void removeItem() {
+    public void removeItemQuantity() {
         mvpPresenter.decreaseQuantity(quantity.getText().toString());
     }
 
@@ -183,6 +183,11 @@ public class ProductDetailFragment extends BaseFragment implements ProductDetail
 
     @Override
     public void onCompareClick(View v, int position) {
+
+    }
+
+    @Override
+    public void onOpenProductOverview(View v, int position) {
 
     }
 }

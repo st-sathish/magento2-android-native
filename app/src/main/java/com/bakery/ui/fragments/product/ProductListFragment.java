@@ -2,6 +2,7 @@ package com.bakery.ui.fragments.product;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -15,23 +16,27 @@ import android.widget.TextView;
 
 import com.bakery.R;
 import com.bakery.data.SessionStore;
+import com.bakery.data.db.domain.CartOverview;
+import com.bakery.data.network.models.CartRequest;
 import com.bakery.data.network.models.ProductResponse;
 import com.bakery.decorators.ItemDecorationGridColumns;
 import com.bakery.ui.BaseFragment;
 import com.bakery.ui.adapters.CartProductListAdapter;
 import com.bakery.ui.adapters.ProductListAdapter;
+import com.bakery.ui.fragments.cart.CartFragment;
 import com.bakery.ui.landingpage.LandingPageActivity;
 import com.bakery.ui.listeners.EndlessRecyclerOnScrollListener;
 import com.bakery.ui.listeners.OnItemClickListener;
 import com.bakery.ui.listeners.OnProductClickListener;
 import com.bakery.utils.AppConstants;
+import com.bakery.utils.ProductUtils;
 
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class ProductListFragment extends BaseFragment implements ProductListMvp, OnProductClickListener, CartProductListAdapter.OnCartProductListener {
+public class ProductListFragment extends BaseFragment implements ProductListMvp, OnProductClickListener {
 
     ProductListMvpPresenter<ProductListMvp> mPresenter = new ProductListPresenter<>();
 
@@ -42,11 +47,6 @@ public class ProductListFragment extends BaseFragment implements ProductListMvp,
 
     @BindView(R.id.progress_bar)
     ProgressBar progressBar;
-
-    @BindView(R.id.cart_recycler_view)
-    RecyclerView mCartRecyclerView;
-
-    CartProductListAdapter mCartProducts = null;
 
     public ProductListFragment() {
 
@@ -66,7 +66,6 @@ public class ProductListFragment extends BaseFragment implements ProductListMvp,
         setUnBinder(ButterKnife.bind(this, view));
         mPresenter.onAttach(this);
         initializeRecyclerViewAdapter();
-        initializeCartRecyclerView();
         return view;
     }
 
@@ -74,6 +73,11 @@ public class ProductListFragment extends BaseFragment implements ProductListMvp,
     public void stopEndlessLoading() {
         loadMoreRecord = false;
         progressBar.setVisibility(View.INVISIBLE);
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
     }
 
     @Override
@@ -104,29 +108,6 @@ public class ProductListFragment extends BaseFragment implements ProductListMvp,
         });
     }
 
-    public void initializeCartRecyclerView() {
-        mCartProducts = new CartProductListAdapter(getActivity(), this);
-        mCartRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, true));
-        mCartRecyclerView.setItemAnimator(new DefaultItemAnimator());
-        mCartRecyclerView.setAdapter(mCartProducts);
-    }
-
-    @Override
-    public void removedCartItem(View v, int position) {
-        RelativeLayout relLayout = (RelativeLayout) mRecyclerView.getParent();
-        TextView count1 = relLayout.findViewById(R.id.item_count1);
-        if (count1 != null) {
-            int oldCount = Integer.valueOf(count1.getText().toString());
-            count1.setText(oldCount - 1 + "");
-        }
-        mCartProducts.remove(position);
-    }
-
-    @Override
-    public ProductResponse getItem(int position) {
-        return mCartProducts.getItem(position);
-    }
-
     @Override
     public void onCompareClick(View v, int position) {
         //SessionStore.productDetail = productListAdapter.getItem(position);
@@ -135,13 +116,14 @@ public class ProductListFragment extends BaseFragment implements ProductListMvp,
 
     @Override
     public void onAddCartClick(View v, int position, String quantity) {
-        mCartProducts.refresh(productListAdapter.getItem(position));
-        RelativeLayout relLayout = (RelativeLayout) mRecyclerView.getParent();
-        TextView count1 = relLayout.findViewById(R.id.item_count1);
-        if (count1 != null) {
-            int oldCount = Integer.valueOf(count1.getText().toString());
-            count1.setText(oldCount + Integer.valueOf(quantity) + "");
-        }
+        addToCart(productListAdapter.getItem(position), quantity);
+    }
+
+    @Override
+    public void onOpenProductOverview(View v, int position) {
+        String pName = productListAdapter.getItem(position).getName();
+        SessionStore.productDetail = productListAdapter.getItem(position);
+        switchFragment(LandingPageActivity.FRAGMENT_DETAILS_PRODUCT, pName, true);
     }
 
     @Override

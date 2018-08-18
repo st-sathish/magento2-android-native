@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.bakery.R;
+import com.bakery.data.network.models.CartResponse;
 import com.bakery.data.network.models.ProductResponse;
 import com.bakery.utils.ProductImageUtils;
 
@@ -32,8 +33,13 @@ public class CartProductListAdapter extends RecyclerView.Adapter<CartProductList
         this.mOnCartProductListener = mOnCartProductListener;
     }
 
-    public void refresh(ProductResponse productDetail) {
-        mProductDetails.add(productDetail);
+    public void refresh(ProductResponse productResponse) {
+        mProductDetails.add(productResponse);
+        notifyDataSetChanged();
+    }
+
+    public void refreshAll(List<ProductResponse> productResponse) {
+        mProductDetails.addAll(productResponse);
         notifyDataSetChanged();
     }
 
@@ -66,7 +72,6 @@ public class CartProductListAdapter extends RecyclerView.Adapter<CartProductList
 
     public interface OnCartProductListener {
         void removedCartItem(View v, int position);
-        ProductResponse getItem(int position);
     }
 
     class CartProductViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -103,7 +108,7 @@ public class CartProductListAdapter extends RecyclerView.Adapter<CartProductList
                         }
                     };
                     AlertDialog.Builder builder = new AlertDialog.Builder(v.getRootView().getContext());
-                    builder.setMessage("Do you want to remove " + mOnCartProductListener.getItem(getAdapterPosition()).getName() + " from cart?")
+                    builder.setMessage("Do you want to remove " + mProductDetails.get(getAdapterPosition()).getName() + " from cart?")
                             .setPositiveButton("Yes", dialogClickListener)
                             .setNegativeButton("No", dialogClickListener)
                             .setTitle("Ramvel Traders")

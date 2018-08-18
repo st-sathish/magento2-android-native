@@ -6,11 +6,14 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.view.View;
 import android.support.v7.widget.Toolbar;
 
 import com.bakery.R;
+import com.bakery.data.network.models.ProductResponse;
 import com.bakery.presenter.MvpView;
+import com.bakery.ui.fragments.cart.CartFragment;
 import com.bakery.ui.landingpage.LandingPageActivity;
 import com.bakery.ui.landingpage.LandingPageMvpView;
 import com.bakery.utils.AppConstants;
@@ -183,6 +186,21 @@ public abstract class BaseFragment extends Fragment implements MvpView {
         LandingPageMvpView landingPageMvpView = (LandingPageActivity) getActivity();
         if(null != landingPageMvpView) {
             landingPageMvpView.doIncrementCartCount(count);
+        }
+    }
+
+    /**
+     * CartFragment always associated with product
+     * @param response
+     *      item details
+     * @param quantity
+     *      no of quantity to add to cart
+     */
+    public void addToCart(ProductResponse response, String quantity) {
+        FragmentManager fm = getChildFragmentManager();
+        CartFragment cartFragment = (CartFragment) fm.findFragmentById(R.id.cart_fragment);
+        if(cartFragment != null) {
+            cartFragment.addToCart(response, quantity);
         }
     }
 }

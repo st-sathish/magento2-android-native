@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/cart_overview"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="horizontal"
+    android:baselineAligned="false"
+    android:weightSum="4">
+
+    <HorizontalScrollView
+        android:id="@+id/bottom_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="3.4"
+        android:background="@color/colorGreen">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/cart_recycler_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/colorGreen" />
+
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:orientation="vertical"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/colorGreen"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:id="@+id/bottom_cart"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+            android:background="@drawable/cart"
+            android:gravity="center_vertical"
+            android:scaleType="fitXY" />
+
+        <TextView
+            android:id="@+id/item_count1"
+            android:layout_alignRight="@id/bottom_cart"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/round_text_cart_item"
+            android:gravity="center"
+            android:text="@string/cart_default_value"
+            android:textColor="@color/white" />
+
+    </RelativeLayout>
+
+</LinearLayout>

@@ -4,7 +4,9 @@ import com.bakery.data.SessionStore;
 import com.bakery.data.db.domain.Cart;
 import com.bakery.data.db.domain.CartOverview;
 import com.bakery.data.network.ApiEndpoints;
+import com.bakery.data.network.models.CartListResponse;
 import com.bakery.data.network.models.CartRequest;
+import com.bakery.data.network.models.CartResponse;
 import com.rx2androidnetworking.Rx2AndroidNetworking;
 
 import io.reactivex.Observable;
@@ -12,20 +14,20 @@ import io.reactivex.Observable;
 public class CartApiImpl implements CartApi {
 
     @Override
-    public Observable<CartOverview> getItems() {
+    public Observable<CartListResponse> getItems() {
         return Rx2AndroidNetworking.get(ApiEndpoints.API_GET_AND_CREATE_EMPTY_CART)
                 .addHeaders(ApiEndpoints.HEADER_AUTHORIZATION, "Bearer "+ SessionStore.accessToken)
                 .build()
-                .getObjectObservable(CartOverview.class);
+                .getObjectObservable(CartListResponse.class);
     }
 
     @Override
-    public Observable<Cart> addItem(CartRequest request) {
+    public Observable<CartResponse> addItem(CartRequest request) {
         return Rx2AndroidNetworking.post(ApiEndpoints.API_POST_ADD_CART)
                 .addHeaders(ApiEndpoints.HEADER_AUTHORIZATION, "Bearer "+ SessionStore.accessToken)
                 .addApplicationJsonBody(request)
                 .build()
-                .getObjectObservable(Cart.class);
+                .getObjectObservable(CartResponse.class);
     }
 
     @Override

@@ -1,16 +1,16 @@
 package com.bakery.data.network.cart;
 
-import com.bakery.data.db.domain.Cart;
-import com.bakery.data.db.domain.CartOverview;
+import com.bakery.data.network.models.CartListResponse;
 import com.bakery.data.network.models.CartRequest;
+import com.bakery.data.network.models.CartResponse;
 
 import io.reactivex.Observable;
 
 public interface CartApi {
 
-    Observable<CartOverview> getItems();
+    Observable<CartListResponse> getItems();
 
-    Observable<Cart> addItem(CartRequest request);
+    Observable<CartResponse> addItem(CartRequest request);
 
     Observable<String> createEmpty();
 

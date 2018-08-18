@@ -3,8 +3,6 @@ package com.bakery.ui.fragments.product;
 import com.androidnetworking.error.ANError;
 import com.bakery.data.SessionStore;
 import com.bakery.data.network.models.ProductListResponse;
-import com.bakery.data.network.product.ProductApi;
-import com.bakery.data.network.product.ProductApiImpl;
 import com.bakery.presenter.BasePresenter;
 import com.bakery.utils.AppConstants;
 
@@ -25,8 +23,6 @@ public class ProductListPresenter<V extends ProductListMvp> extends BasePresente
 
     @Override
     public void pickProducts() {
-        //flatMapProduct();
-        //mkCategorySkuListApi();
         getProductList();
     }
 
@@ -120,53 +116,6 @@ public class ProductListPresenter<V extends ProductListMvp> extends BasePresente
 //                    @Override
 //                    public void onComplete() {
 //                        loadNextPage();
-//                    }
-//                });
-//    }
-//
-//    private void getProductsBySku(List<StockKeepingUnitResponse> skus) {
-//        final List<ProductResponse> productDetails = new ArrayList<>();
-//
-//        Observable.fromIterable(skus)
-//                .flatMap(new Function<StockKeepingUnitResponse, ObservableSource<ProductResponse>>() {
-//                    @Override
-//                    public ObservableSource<ProductResponse> apply(StockKeepingUnitResponse apiStockKeepingUnit) throws Exception {
-//                        return getProductDetailsObservable(apiStockKeepingUnit.getSku());
-//                    }
-//                })
-//                .subscribeOn(Schedulers.io())
-//                .observeOn(AndroidSchedulers.mainThread())
-//                .subscribe(new Observer<ProductResponse>() {
-//
-//                    @Override
-//                    public void onError(Throwable e) {
-//                        if (!isViewAttached()) {
-//                            return;
-//                        }
-//
-//                        getMvpView().hideLoading();
-//
-//                        // handle the login error here
-//                        if (e instanceof ANError) {
-//                            ANError anError = (ANError) e;
-//                            handleApiError(anError);
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onSubscribe(Disposable d) {
-//
-//                    }
-//
-//                    @Override
-//                    public void onNext(ProductResponse productResponse) {
-//                       productDetails.add(productResponse);
-//                    }
-//
-//                    @Override
-//                    public void onComplete() {
-//                        getMvpView().hideLoading();
-//                        getMvpView().update(productDetails);
 //                    }
 //                });
 //    }

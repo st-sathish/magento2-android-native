@@ -2,11 +2,10 @@ package com.bakery.ui.fragments.product.detail;
 
 import com.androidnetworking.error.ANError;
 import com.bakery.data.SessionStore;
-import com.bakery.data.db.domain.Cart;
 import com.bakery.data.network.models.CartRequest;
 import com.bakery.data.network.models.ProductResponse;
 import com.bakery.presenter.BasePresenter;
-import com.bakery.ui.cart.CartPresenter;
+import com.bakery.ui.fragments.cart.CartPresenter;
 import com.bakery.utils.ProductUtils;
 
 import java.util.ArrayList;
@@ -20,7 +19,7 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 
-public class ProductDetailPresenter <V extends ProductDetailMvp> extends BasePresenter<V> implements ProductDetailMvpPresenter<V>, CartPresenter.OnAddItemCartCallback {
+public class ProductDetailPresenter <V extends ProductDetailMvp> extends BasePresenter<V> implements ProductDetailMvpPresenter<V>{
 
     private CartPresenter mCartPresenter;
 
@@ -96,7 +95,7 @@ public class ProductDetailPresenter <V extends ProductDetailMvp> extends BasePre
     public void addCart(final String quantity, final String sku) {
         final Integer qty = Integer.parseInt(quantity);
         getMvpView().showLoading();
-        if(SessionStore.quoteId == 0) {
+        /*if(SessionStore.quoteId == 0) {
             mCartPresenter.createEmptyCart(new CartPresenter.EmptyCartCallback() {
                 @Override
                 public void onEmptyCartCallback() {
@@ -107,7 +106,7 @@ public class ProductDetailPresenter <V extends ProductDetailMvp> extends BasePre
         } else {
             CartRequest cartRequest = new CartRequest(new CartRequest.CartItem(SessionStore.quoteId, sku, qty));
             mCartPresenter.addCart(cartRequest, this);
-        }
+        }*/
     }
 
     @Override
@@ -120,9 +119,4 @@ public class ProductDetailPresenter <V extends ProductDetailMvp> extends BasePre
         getMvpView().updateQuantity(ProductUtils.deceaseItemQuantity(quantity));
     }
 
-    @Override
-    public void onCartItemAdded() {
-        getMvpView().switchProductListFragment(1);
-        getMvpView().hideLoading();
-    }
 }

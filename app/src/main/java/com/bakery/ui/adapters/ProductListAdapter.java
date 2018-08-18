@@ -9,7 +9,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bakery.R;
+import com.bakery.data.SessionStore;
 import com.bakery.data.network.models.ProductResponse;
+import com.bakery.ui.landingpage.LandingPageActivity;
 import com.bakery.ui.listeners.OnProductClickListener;
 import com.bakery.utils.ProductImageUtils;
 import com.bakery.utils.ProductUtils;
@@ -96,6 +98,7 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
             super(v);
             ButterKnife.bind(this, v);
             v.setOnClickListener(this);
+            imageView.setOnClickListener(this);
             addItem.setOnClickListener(this);
             removeItem.setOnClickListener(this);
             itemCart.setOnClickListener(this);
@@ -118,6 +121,9 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
                 /*case R.id.item_compare:
                     mListener.onCompareClick(v, getAdapterPosition());
                     break;*/
+                case R.id.item_thumb:
+                    mListener.onOpenProductOverview(v, getAdapterPosition());
+                    break;
             }
         }
     }
