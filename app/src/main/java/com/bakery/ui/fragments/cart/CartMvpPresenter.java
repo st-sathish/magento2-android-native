@@ -9,7 +9,7 @@ public interface CartMvpPresenter <V extends CartMvpView> extends MvpPresenter<V
 
     void addCart(CartRequest request);
 
-    void removeCart(String itemId);
+    void removeCart(Integer itemId);
 
     void getProductsBySku(String sku);
 }

@@ -34,5 +34,5 @@ public interface DataManager {
 
     Observable<String> createEmptyCart();
 
-    Observable<Boolean> deleteCartItem(String itemId);
+    Observable<Boolean> deleteCartItem(Integer itemId);
 }

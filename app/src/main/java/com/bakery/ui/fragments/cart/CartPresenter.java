@@ -173,7 +173,7 @@ public class CartPresenter <V extends CartMvpView> extends BasePresenter<V> impl
     }
 
     @Override
-    public void removeCart(String itemId) {
+    public void removeCart(Integer itemId) {
         getDataManager().deleteCartItem(itemId)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

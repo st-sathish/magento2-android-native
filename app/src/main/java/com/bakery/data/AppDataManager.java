@@ -60,7 +60,7 @@ public class AppDataManager implements DataManager {
     }
 
     @Override
-    public Observable<Boolean> deleteCartItem(String itemId) {
+    public Observable<Boolean> deleteCartItem(Integer itemId) {
         return mApiHelper.getCartApi().deleteItem(itemId);
     }
 

@@ -9,6 +9,9 @@ import com.bakery.data.network.models.CartRequest;
 import com.bakery.data.network.models.CartResponse;
 import com.rx2androidnetworking.Rx2AndroidNetworking;
 
+import java.util.Map;
+import java.util.WeakHashMap;
+
 import io.reactivex.Observable;
 
 public class CartApiImpl implements CartApi {
@@ -39,10 +42,12 @@ public class CartApiImpl implements CartApi {
     }
 
     @Override
-    public Observable<Boolean> deleteItem(String itemId) {
+    public Observable<Boolean> deleteItem(Integer itemId) {
+        Map<String, Integer> params = new WeakHashMap<>();
+        params.put("", itemId);
         return Rx2AndroidNetworking.delete(ApiEndpoints.API_DELETE_CART_ITEM)
                 .addHeaders(ApiEndpoints.HEADER_AUTHORIZATION, "Bearer "+ SessionStore.accessToken)
-                .addPathParameter("itemId", itemId)
+                .addPathParameter("itemId", String.valueOf(itemId))
                 .build()
                 .getObjectObservable(Boolean.class);
     }

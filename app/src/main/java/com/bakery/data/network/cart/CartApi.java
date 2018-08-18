@@ -14,5 +14,5 @@ public interface CartApi {
 
     Observable<String> createEmpty();
 
-    Observable<Boolean> deleteItem(String itemId);
+    Observable<Boolean> deleteItem(Integer itemId);
 }

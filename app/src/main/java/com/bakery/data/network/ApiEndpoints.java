@@ -32,7 +32,7 @@ public final class ApiEndpoints {
     public static final String API_GET_AND_CREATE_EMPTY_CART = API_URL +"/carts/mine";
 
     /** Delete cart item */
-    public static final String API_DELETE_CART_ITEM = API_URL +"/carts/mine/items/:itemId";
+    public static final String API_DELETE_CART_ITEM = API_URL +"/carts/mine/items/{itemId}";
 
     public static final String HEADER_AUTHORIZATION = "Authorization";
 }
