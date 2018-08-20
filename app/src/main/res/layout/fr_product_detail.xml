@@ -302,7 +302,7 @@
                     </HorizontalScrollView>
                     <fragment
                         android:layout_width="match_parent"
-                        android:id="@+id/cart_fragment_detail_page"
+                        android:id="@+id/cart_fragment"
 
                         android:name="com.bakery.ui.fragments.cart.CartFragment"
                         android:layout_height="80dp" />
