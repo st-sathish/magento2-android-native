@@ -137,6 +137,7 @@ public class CartPresenter <V extends CartMvpView> extends BasePresenter<V> impl
     }
 
     private void addItemToCart(CartRequest request) {
+        getMvpView().showLoading();
         request.getCartItem().setQuoteId(SessionStore.quoteId);
         getDataManager().addItemCart(request)
                 .subscribeOn(Schedulers.io())
@@ -167,7 +168,7 @@ public class CartPresenter <V extends CartMvpView> extends BasePresenter<V> impl
 
                     @Override
                     public void onComplete() {
-
+                        getMvpView().hideLoading();
                     }
                 });
     }
