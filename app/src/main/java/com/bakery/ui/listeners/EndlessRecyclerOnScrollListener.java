@@ -21,8 +21,8 @@ public abstract class EndlessRecyclerOnScrollListener extends RecyclerView.OnScr
 
         int visibleItemCount = recyclerView.getChildCount();
         int totalItemCount = recyclerView.getLayoutManager().getItemCount();
-        // int firstVisibleItem = ((LinearLayoutManager) recyclerView.getLayoutManager()).findFirstVisibleItemPosition();
-        int firstVisibleItem = ((GridLayoutManager) recyclerView.getLayoutManager()).findFirstVisibleItemPosition();
+         int firstVisibleItem = ((LinearLayoutManager) recyclerView.getLayoutManager()).findFirstVisibleItemPosition();
+        //int firstVisibleItem = ((GridLayoutManager) recyclerView.getLayoutManager()).findFirstVisibleItemPosition();
 
         if (mLoading) {
             if (totalItemCount > mPreviousTotal) {
