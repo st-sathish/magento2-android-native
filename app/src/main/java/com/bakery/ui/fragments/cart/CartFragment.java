@@ -17,11 +17,13 @@ import com.bakery.data.network.models.CartResponse;
 import com.bakery.data.network.models.ProductResponse;
 import com.bakery.ui.BaseFragment;
 import com.bakery.ui.adapters.CartProductListAdapter;
+import com.bakery.ui.landingpage.LandingPageActivity;
 
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class CartFragment extends BaseFragment implements CartMvpView, CartProductListAdapter.OnCartProductListener {
 
@@ -58,6 +60,11 @@ public class CartFragment extends BaseFragment implements CartMvpView, CartProdu
         CartRequest.CartItem cartItem = new CartRequest.CartItem(SessionStore.quoteId, response.getSku(), q);
         CartRequest request = new CartRequest(cartItem);
         mPresenter.addCart(request);
+    }
+
+    @OnClick(R.id.bottom_cart)
+    public void onCartClick() {
+        switchFragment(LandingPageActivity.FRAGMENT_ADDRESS, "Billing Address", true);
     }
 
     public void initializeCartRecyclerView() {

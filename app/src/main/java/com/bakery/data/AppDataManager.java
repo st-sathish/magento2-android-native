@@ -7,6 +7,7 @@ import com.bakery.data.network.AppApiHelper;
 import com.bakery.data.network.models.CartListResponse;
 import com.bakery.data.network.models.CartRequest;
 import com.bakery.data.network.models.CartResponse;
+import com.bakery.data.network.models.OrderRequest;
 import com.bakery.data.network.models.ProductListResponse;
 import com.bakery.data.network.models.ProductResponse;
 
@@ -62,6 +63,11 @@ public class AppDataManager implements DataManager {
     @Override
     public Observable<Boolean> deleteCartItem(Integer itemId) {
         return mApiHelper.getCartApi().deleteItem(itemId);
+    }
+
+    @Override
+    public Observable<String> placeOrder(OrderRequest order) {
+        return mApiHelper.getOrderApi().placeOrder(order);
     }
 
     @Override

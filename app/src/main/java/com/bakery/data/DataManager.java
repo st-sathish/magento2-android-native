@@ -5,6 +5,7 @@ import com.bakery.data.db.domain.CartOverview;
 import com.bakery.data.network.models.CartListResponse;
 import com.bakery.data.network.models.CartRequest;
 import com.bakery.data.network.models.CartResponse;
+import com.bakery.data.network.models.OrderRequest;
 import com.bakery.data.network.models.ProductListResponse;
 import com.bakery.data.network.models.ProductResponse;
 
@@ -35,4 +36,7 @@ public interface DataManager {
     Observable<String> createEmptyCart();
 
     Observable<Boolean> deleteCartItem(Integer itemId);
+
+    Observable<String> placeOrder(OrderRequest order);
+
 }
