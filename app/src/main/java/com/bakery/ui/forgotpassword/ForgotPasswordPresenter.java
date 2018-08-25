@@ -39,15 +39,18 @@ public class ForgotPasswordPresenter<V extends ForgotPasswordMvpView> extends Ba
         securityApi.forgotPassword(body)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<String>() {
+                .subscribe(new Observer<Boolean>() {
                     @Override
                     public void onSubscribe(Disposable d) {
 
                     }
 
                     @Override
-                    public void onNext(String response) {
+                    public void onNext(Boolean response) {
                         getMvpView().hideLoading();
+                        if(response) {
+                            getMvpView().onForgotPasswordSuccessEmail();
+                        }
                     }
 
                     @Override
@@ -67,7 +70,7 @@ public class ForgotPasswordPresenter<V extends ForgotPasswordMvpView> extends Ba
 
                     @Override
                     public void onComplete() {
-                        getMvpView().hideLoading();
+
                    }
                 });
     }

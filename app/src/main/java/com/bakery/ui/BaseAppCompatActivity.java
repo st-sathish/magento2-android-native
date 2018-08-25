@@ -60,9 +60,9 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity implements
     @Override
     public void showMessage(String message) {
         if (message != null) {
-            Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, message, Toast.LENGTH_LONG).show();
         } else {
-            Toast.makeText(this, getString(R.string.general_error), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.general_error), Toast.LENGTH_LONG).show();
         }
     }
 

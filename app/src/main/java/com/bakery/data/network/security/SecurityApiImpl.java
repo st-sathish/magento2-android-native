@@ -1,5 +1,6 @@
 package com.bakery.data.network.security;
 
+import com.bakery.data.SessionStore;
 import com.bakery.data.network.ApiEndpoints;
 import com.rx2androidnetworking.Rx2AndroidNetworking;
 
@@ -31,12 +32,13 @@ public class SecurityApiImpl implements SecurityApi {
     }
 
     @Override
-    public Observable<String> forgotPassword(Map<String, String> body) {
+    public Observable<Boolean> forgotPassword(Map<String, String> body) {
         return Rx2AndroidNetworking
-                .post(ApiEndpoints.RESET_PWD_API)
+                .put(ApiEndpoints.RESET_PWD_API)
+                .addHeaders(ApiEndpoints.HEADER_AUTHORIZATION, "Bearer "+ SessionStore.accessToken)
                 .addApplicationJsonBody(body)
                 .build()
-                .getObjectObservable(String.class);
+                .getObjectObservable(Boolean.class);
     }
 
 }

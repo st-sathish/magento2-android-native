@@ -24,7 +24,7 @@ public interface SecurityApi {
      * @return
      *      Observable
      */
-    Observable<String> forgotPassword(Map<String, String> body);
+    Observable<Boolean> forgotPassword(Map<String, String> body);
 
     /**
      * Signup

@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bakery.ui.BaseAppCompatActivity;
+import com.bakery.ui.login.LoginActivity;
 import com.bakery.ui.login.LoginMvpPresenter;
 import com.bakery.ui.login.LoginMvpView;
 import com.bakery.ui.otp.received.OtpReceiveActivity;
@@ -70,7 +71,6 @@ public class ForgotPasswordActivity extends BaseAppCompatActivity implements For
     @OnClick(R.id.button_continue)
     public void onContinueButtonClick(View v) {
         forgotPasswordPresenter.onResetPasswordClick(mEmailEditText.getText().toString());
-        showMessage("If an account exists for " + mEmailEditText.getText().toString() + ", an email will be sent with further instructions.");
     }
 
     @Override
@@ -79,4 +79,11 @@ public class ForgotPasswordActivity extends BaseAppCompatActivity implements For
         super.onDestroy();
     }
 
+    @Override
+    public void onForgotPasswordSuccessEmail() {
+        showMessage("An email is sent to " + mEmailEditText.getText().toString() + ", with further instructions for password reset.");
+        Intent intent=new Intent(ForgotPasswordActivity.this, LoginActivity.class);
+        startActivity(intent);
+        finish();
+    }
 }

@@ -10,4 +10,6 @@ public interface ForgotPasswordMvpView extends MvpView {
 
     void onContinueButtonClick(View v);
 
+    void onForgotPasswordSuccessEmail();
+
 }
