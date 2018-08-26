@@ -64,7 +64,8 @@ public class CartFragment extends BaseFragment implements CartMvpView, CartProdu
 
     @OnClick(R.id.bottom_cart)
     public void onCartClick() {
-        switchFragment(LandingPageActivity.FRAGMENT_ADDRESS, "Billing Address", true);
+        switchFragment(LandingPageActivity.FRAGMENT_CART_DETAILS, "My Cart", true);
+       // switchFragment(LandingPageActivity.FRAGMENT_ADDRESS, "Billing Address", true);
     }
 
     public void initializeCartRecyclerView() {

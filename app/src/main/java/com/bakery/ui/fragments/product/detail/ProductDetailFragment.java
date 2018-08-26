@@ -136,15 +136,6 @@ public class ProductDetailFragment extends BaseFragment implements ProductDetail
         productListAdapter = new RelatedProductListAdapter(getContext(), this);
         mRelatedProductRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         mRelatedProductRecyclerView.setAdapter(productListAdapter);
-        /*mRecyclerView.addOnScrollListener(new EndlessRecyclerOnScrollListener() {
-            @Override
-            public void onLoadMore() {
-                if(loadMoreRecord) {
-                    mPresenter.loadNextPage();
-                    progressBar.setVisibility(View.VISIBLE);
-                }
-            }
-        });*/
         // load related products
         mvpPresenter.getProductRelatedLinks(mProductDetail.getProductLinks());
     }
