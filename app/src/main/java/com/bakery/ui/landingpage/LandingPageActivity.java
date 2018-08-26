@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.bakery.R;
 import com.bakery.ui.BaseAppCompatActivity;
 import com.bakery.ui.fragments.address.AddressFragment;
-import com.bakery.ui.fragments.cartdetails.CartDetailsFragment;
+import com.bakery.ui.fragments.mycart.MyCartFragment;
 import com.bakery.ui.fragments.category.ExpCategoryFragment;
 import com.bakery.ui.fragments.drawer.FragmentDrawer;
 import com.bakery.ui.fragments.comingsoon.ComingSoonFragment;
@@ -30,7 +30,7 @@ public class LandingPageActivity extends BaseAppCompatActivity implements Fragme
     public static final int FRAGMENT_DETAIL_LIST_PRODUCT = 4;
     public static final int FRAGMENT_DETAILS_PRODUCT = 5;
     public static final int FRAGMENT_ADDRESS = 6;
-    public static final int FRAGMENT_CART_DETAILS = 7;
+    public static final int FRAGMENT_MY_CART = 7;
 
     private FragmentDrawer drawerFragment;
     private LandingPageMvpPresenter<LandingPageMvpView> mPresenter = null;
@@ -85,9 +85,9 @@ public class LandingPageActivity extends BaseAppCompatActivity implements Fragme
                 title = "";
                 fragment = AddressFragment.newInstance(title);
                 break;
-            case FRAGMENT_CART_DETAILS:
+            case FRAGMENT_MY_CART:
                 title = "";
-                fragment = CartDetailsFragment.newInstance(title);
+                fragment = MyCartFragment.newInstance(title);
                 break;
             case FRAGMENT_DEFAULT:
             default:
