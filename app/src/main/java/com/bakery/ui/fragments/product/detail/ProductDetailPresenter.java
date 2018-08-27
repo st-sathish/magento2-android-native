@@ -53,7 +53,7 @@ public class ProductDetailPresenter <V extends ProductDetailMvp> extends BasePre
                     @Override
                     public ObservableSource<ProductResponse> apply(ProductResponse.ProductLink link) {
                         System.out.print(link.getSku());
-                        return getDataManager().getProductBySku(link.getSku());
+                        return getDataManager().getProductBySku(link.getLinkedProductSku());
                     }
                 })
                 .subscribeOn(Schedulers.io())

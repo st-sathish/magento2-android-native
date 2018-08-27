@@ -52,6 +52,8 @@ public class RelatedProductListAdapter extends RecyclerView.Adapter<RelatedProdu
     public void onBindViewHolder(RelatedProductListAdapter.RelatedProductViewHolder itemHolder, int position) {
         ProductResponse productDetail = mProductDetails.get(position);
         itemHolder.name.setText(productDetail.getName());
+        String strPrice = mContext.getResources().getString(R.string.Rs)+" " +String.valueOf(productDetail.getPrice());
+        itemHolder.price.setText(strPrice);
         ProductImageUtils.loadImage(mContext, itemHolder.imageView, productDetail);
     }
 
@@ -67,6 +69,9 @@ public class RelatedProductListAdapter extends RecyclerView.Adapter<RelatedProdu
 
         @BindView(R.id.item_name)
         TextView name;
+
+        @BindView(R.id.item_price)
+        TextView price;
 
         public RelatedProductViewHolder(View v) {
             super(v);
