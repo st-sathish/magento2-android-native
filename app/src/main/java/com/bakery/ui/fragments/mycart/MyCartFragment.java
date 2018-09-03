@@ -17,6 +17,7 @@ import com.bakery.decorators.ItemDecorationGridColumns;
 import com.bakery.ui.BaseFragment;
 import com.bakery.ui.adapters.CartDetailListAdapter;
 import com.bakery.ui.adapters.CartProductListAdapter;
+import com.bakery.ui.landingpage.LandingPageActivity;
 import com.bakery.utils.AppConstants;
 
 import java.util.List;
@@ -68,6 +69,8 @@ public class MyCartFragment extends BaseFragment implements MyCartMvpView {
     @Override
     public void update(CartListResponse cartListResponses) {
         cartDetailListAdapter.update(cartListResponses.getItems());
+        LandingPageActivity activity = (LandingPageActivity)getActivity();
+        activity.updateCartCount(cartListResponses.getItemsQty() + "");
     }
 
     @Override
