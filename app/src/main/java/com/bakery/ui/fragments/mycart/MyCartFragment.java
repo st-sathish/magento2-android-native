@@ -66,7 +66,12 @@ public class MyCartFragment extends BaseFragment implements MyCartMvpView {
         super.onCreate(savedInstanceState);
     }
     @Override
-    public void update(List<CartListResponse> cartListResponses) {
+    public void updateAll(List<CartListResponse> cartListResponses) {
+        cartDetailListAdapter.updateAll(cartListResponses);
+    }
+
+    @Override
+    public void update(CartListResponse cartListResponses) {
         cartDetailListAdapter.update(cartListResponses);
     }
 

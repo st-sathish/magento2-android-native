@@ -43,8 +43,13 @@ public class CartDetailListAdapter extends RecyclerView.Adapter<CartDetailListAd
         return new CartDetailListAdapter.CartDetailViewHolder(view);
     }
 
-    public void update(List<CartListResponse> productDetails) {
+    public void updateAll(List<CartListResponse> productDetails) {
         mProductDetails.addAll(productDetails);
+        notifyDataSetChanged();
+    }
+
+    public void update(CartListResponse productDetails) {
+        mProductDetails.add(productDetails);
         notifyDataSetChanged();
     }
 

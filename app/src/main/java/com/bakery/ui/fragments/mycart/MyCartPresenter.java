@@ -29,7 +29,8 @@ public class MyCartPresenter<V extends MyCartMvpView> extends BasePresenter<V> i
 
                     @Override
                     public void onNext(CartListResponse cartListResponse) {
-                        iterateCartList(cartListResponse.getItems());
+                        getMvpView().update(cartListResponse);
+                        //iterateCartList(cartListResponse.getItems());
                     }
 
                     @Override
@@ -75,7 +76,7 @@ public class MyCartPresenter<V extends MyCartMvpView> extends BasePresenter<V> i
 
                     @Override
                     public void onNext(ProductResponse productResponse) {
-                        //getMvpView().getProductCallback(productResponse);
+                        getMvpView().getProductCallback(productResponse);
                     }
 
                     @Override
