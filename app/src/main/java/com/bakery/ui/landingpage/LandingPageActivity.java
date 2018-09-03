@@ -21,6 +21,7 @@ import com.bakery.ui.fragments.product.detail.ProductDetailFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class LandingPageActivity extends BaseAppCompatActivity implements FragmentDrawer.FragmentDrawerListener, LandingPageMvpView  {
 
@@ -109,6 +110,12 @@ public class LandingPageActivity extends BaseAppCompatActivity implements Fragme
             ft.addToBackStack(backStateName);
         ft.commit();
     }
+
+    @OnClick(R.id.item_counter)
+    public void onCartClick() {
+        displayView(LandingPageActivity.FRAGMENT_MY_CART, "My Cart", true);
+    }
+
 
     @Override
     public void onBackPressed() {

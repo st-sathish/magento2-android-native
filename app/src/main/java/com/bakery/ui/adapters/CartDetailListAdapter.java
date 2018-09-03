@@ -53,6 +53,7 @@ public class CartDetailListAdapter extends RecyclerView.Adapter<CartDetailListAd
         itemHolder.name.setText(productDetail.getName());
         String price = mContext.getResources().getString(R.string.Rs)+" " +String.valueOf(productDetail.getPrice());
         itemHolder.price.setText(price);
+        itemHolder.quantity.setText(productDetail.getQty().toString());
         ProductImageUtils.loadImage(mContext, itemHolder.imageView, "dummy");
     }
 

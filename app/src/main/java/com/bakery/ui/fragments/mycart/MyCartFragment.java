@@ -73,7 +73,7 @@ public class MyCartFragment extends BaseFragment implements MyCartMvpView {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mPresenter.getCartItems();
+        //mPresenter.getCartItems();
     }
 
     public void initializeRecyclerViewAdapter() {

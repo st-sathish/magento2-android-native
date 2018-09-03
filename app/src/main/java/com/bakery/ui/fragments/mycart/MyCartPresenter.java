@@ -18,6 +18,7 @@ import io.reactivex.schedulers.Schedulers;
 public class MyCartPresenter<V extends MyCartMvpView> extends BasePresenter<V> implements MyCartMvpPresenter<V> {
     @Override
     public void getCartItems() {
+        getMvpView().showLoading();
         getDataManager().getCartItems()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -48,7 +49,7 @@ public class MyCartPresenter<V extends MyCartMvpView> extends BasePresenter<V> i
 
                     @Override
                     public void onComplete() {
-
+                        getMvpView().hideLoading();
                     }
                 });
     }
