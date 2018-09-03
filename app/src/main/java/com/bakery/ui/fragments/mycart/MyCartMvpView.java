@@ -7,7 +7,6 @@ import com.bakery.presenter.MvpView;
 import java.util.List;
 
 public interface MyCartMvpView extends MvpView {
-    void updateAll(List<CartListResponse> cartListResponses);
 
     void update(CartListResponse cartListResponses);
 

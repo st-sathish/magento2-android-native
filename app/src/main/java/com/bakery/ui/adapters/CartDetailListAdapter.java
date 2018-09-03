@@ -9,8 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bakery.R;
-import com.bakery.data.network.models.CartListResponse;
-import com.bakery.ui.listeners.OnProductClickListener;
+import com.bakery.data.network.models.CartResponse;
 import com.bakery.utils.ProductImageUtils;
 
 import java.util.ArrayList;
@@ -20,7 +19,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class CartDetailListAdapter extends RecyclerView.Adapter<CartDetailListAdapter.CartDetailViewHolder> {
-    private List<CartListResponse> mProductDetails = new ArrayList<>();
+    private List<CartResponse> mProductDetails = new ArrayList<>();
 
     private Context mContext;
 
@@ -32,7 +31,7 @@ public class CartDetailListAdapter extends RecyclerView.Adapter<CartDetailListAd
     }
 
 
-    public CartListResponse getItem(int position) {
+    public CartResponse getItem(int position) {
         return mProductDetails.get(position);
     }
 
@@ -43,21 +42,16 @@ public class CartDetailListAdapter extends RecyclerView.Adapter<CartDetailListAd
         return new CartDetailListAdapter.CartDetailViewHolder(view);
     }
 
-    public void updateAll(List<CartListResponse> productDetails) {
+    public void update(List<CartResponse> productDetails) {
         mProductDetails.addAll(productDetails);
-        notifyDataSetChanged();
-    }
-
-    public void update(CartListResponse productDetails) {
-        mProductDetails.add(productDetails);
         notifyDataSetChanged();
     }
 
     @Override
     public void onBindViewHolder(CartDetailListAdapter.CartDetailViewHolder itemHolder, int position) {
-        CartListResponse productDetail = mProductDetails.get(position);
-        itemHolder.name.setText(productDetail.getItems().get(position).getName());
-        String price = mContext.getResources().getString(R.string.Rs)+" " +String.valueOf(productDetail.getItems().get(position).getPrice());
+        CartResponse productDetail = mProductDetails.get(position);
+        itemHolder.name.setText(productDetail.getName());
+        String price = mContext.getResources().getString(R.string.Rs)+" " +String.valueOf(productDetail.getPrice());
         itemHolder.price.setText(price);
         ProductImageUtils.loadImage(mContext, itemHolder.imageView, "dummy");
     }
