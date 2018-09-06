@@ -7,8 +7,13 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bakery.R;
+import com.bakery.data.SessionStore;
+import com.bakery.data.network.models.CartRequest;
+import com.bakery.data.network.models.CartResponse;
+import com.bakery.data.network.models.ProductResponse;
 import com.bakery.ui.BaseAppCompatActivity;
 import com.bakery.ui.fragments.address.AddressFragment;
 import com.bakery.ui.fragments.mycart.MyCartFragment;
@@ -18,6 +23,8 @@ import com.bakery.ui.fragments.comingsoon.ComingSoonFragment;
 import com.bakery.ui.fragments.home.HomeFragment;
 import com.bakery.ui.fragments.product.ProductListFragment;
 import com.bakery.ui.fragments.product.detail.ProductDetailFragment;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -134,6 +141,23 @@ public class LandingPageActivity extends BaseAppCompatActivity implements Fragme
     public void doIncrementCartCount(Integer count) {
         count +=1;
         updateCartCount(String.valueOf(count));
+    }
+
+    @Override
+    public void addCartToMyAccount(ProductResponse response, String quantity) {
+        Toast.makeText(this, "Adding to My Cart", Toast.LENGTH_SHORT).show();
+        Integer q = Integer.parseInt(quantity);
+        CartRequest.CartItem cartItem = new CartRequest.CartItem(SessionStore.quoteId, response.getSku(), q);
+        CartRequest request = new CartRequest(cartItem);
+        mPresenter.addCart(request);
+    }
+
+    @Override
+    public void cartAddedCallback(CartResponse cartResponse) {
+        Integer count = Integer.parseInt(itemCount.getText().toString());
+        itemCount.setText((count > 0)
+                ? String.valueOf(count + cartResponse.getQty())
+                : String.valueOf(cartResponse.getQty()));
     }
 
     @Override

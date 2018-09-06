@@ -197,10 +197,14 @@ public abstract class BaseFragment extends Fragment implements MvpView {
      *      no of quantity to add to cart
      */
     public void addToCart(ProductResponse response, String quantity) {
-        FragmentManager fm = getChildFragmentManager();
-        CartFragment cartFragment = (CartFragment) fm.findFragmentById(R.id.cart_fragment);
-        if(cartFragment != null) {
-            cartFragment.addToCart(response, quantity);
+//        FragmentManager fm = getChildFragmentManager();
+//        CartFragment cartFragment = (CartFragment) fm.findFragmentById(R.id.cart_fragment);
+//        if(cartFragment != null) {
+//            cartFragment.addToCart(response, quantity);
+//        }
+        LandingPageMvpView landingPageMvpView = (LandingPageActivity) getActivity();
+        if(null != landingPageMvpView) {
+            landingPageMvpView.addCartToMyAccount(response, quantity);
         }
     }
 }
