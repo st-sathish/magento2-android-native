@@ -124,13 +124,13 @@ public class LandingPageActivity extends BaseAppCompatActivity implements Fragme
     }
 
 
-    @Override
-    public void onBackPressed() {
-        if (getFragmentManager().getBackStackEntryCount() == 0) {
-            return;
-        }
-        getFragmentManager().popBackStack();
-    }
+//    @Override
+//    public void onBackPressed() {
+//        if (getFragmentManager().getBackStackEntryCount() == 0) {
+//            return;
+//        }
+//        getFragmentManager().popBackStack();
+//    }
 
     @Override
     public void doIncrementCartCount(Integer count) {
@@ -142,7 +142,7 @@ public class LandingPageActivity extends BaseAppCompatActivity implements Fragme
     public void updateCartBadge(int qty) {
         Integer count = Integer.parseInt(itemCount.getText().toString());
         count += qty;
-        itemCount.setText(count);
+        itemCount.setText(String.valueOf(count));
     }
 
     @Override

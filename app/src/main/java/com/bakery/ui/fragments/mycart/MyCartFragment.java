@@ -70,7 +70,9 @@ public class MyCartFragment extends BaseFragment implements MyCartMvpView {
     public void update(CartListResponse cartListResponses) {
         cartDetailListAdapter.update(cartListResponses.getItems());
         LandingPageActivity activity = (LandingPageActivity)getActivity();
-        activity.updateCartCount(cartListResponses.getItemsQty() + "");
+        if (activity != null) {
+            activity.updateCartBadge(cartListResponses.getItemsQty());
+        }
     }
 
     @Override
