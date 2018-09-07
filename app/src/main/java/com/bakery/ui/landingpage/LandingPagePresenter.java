@@ -2,6 +2,7 @@ package com.bakery.ui.landingpage;
 
 import com.androidnetworking.error.ANError;
 import com.bakery.data.SessionStore;
+import com.bakery.data.network.models.CartListResponse;
 import com.bakery.data.network.models.CartRequest;
 import com.bakery.data.network.models.CartResponse;
 import com.bakery.presenter.BasePresenter;
@@ -15,7 +16,38 @@ public class LandingPagePresenter <V extends LandingPageMvpView> extends BasePre
 
     @Override
     public void getCartList() {
+        getDataManager().getCartItems()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<CartListResponse>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
 
+                    }
+
+                    @Override
+                    public void onNext(CartListResponse cartListResponse) {
+                        getMvpView().updateCartBadge(cartListResponse.getItemsQty());
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        if (!isViewAttached()) {
+                            return;
+                        }
+
+                        // handle the login error here
+                        if (e instanceof ANError) {
+                            ANError anError = (ANError) e;
+                            handleApiError(anError);
+                        }
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
     }
 
     @Override

@@ -133,14 +133,16 @@ public class LandingPageActivity extends BaseAppCompatActivity implements Fragme
     }
 
     @Override
-    public void updateCartCount(String count) {
-        itemCount.setText(count);
+    public void doIncrementCartCount(Integer count) {
+        count +=1;
+        updateCartBadge(count);
     }
 
     @Override
-    public void doIncrementCartCount(Integer count) {
-        count +=1;
-        updateCartCount(String.valueOf(count));
+    public void updateCartBadge(int qty) {
+        Integer count = Integer.parseInt(itemCount.getText().toString());
+        count += qty;
+        itemCount.setText(count);
     }
 
     @Override
@@ -154,10 +156,7 @@ public class LandingPageActivity extends BaseAppCompatActivity implements Fragme
 
     @Override
     public void cartAddedCallback(CartResponse cartResponse) {
-        Integer count = Integer.parseInt(itemCount.getText().toString());
-        itemCount.setText((count > 0)
-                ? String.valueOf(count + cartResponse.getQty())
-                : String.valueOf(cartResponse.getQty()));
+        updateCartBadge(cartResponse.getQty());
     }
 
     @Override
