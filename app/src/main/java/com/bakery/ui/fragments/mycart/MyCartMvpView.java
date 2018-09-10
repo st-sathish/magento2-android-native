@@ -11,4 +11,6 @@ public interface MyCartMvpView extends MvpView {
     void update(CartListResponse cartListResponses);
 
     void getProductCallback(ProductResponse productResponse);
+
+    void removeCartCallback(Boolean b);
 }

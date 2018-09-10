@@ -77,7 +77,7 @@ public class MyCartPresenter<V extends MyCartMvpView> extends BasePresenter<V> i
 
                     @Override
                     public void onNext(ProductResponse productResponse) {
-                        getMvpView().getProductCallback(productResponse);
+                       // getMvpView().getProductCallback(productResponse);
                     }
 
                     @Override
@@ -92,6 +92,42 @@ public class MyCartPresenter<V extends MyCartMvpView> extends BasePresenter<V> i
                 });
     }
 
+    @Override
+    public void removeCart(Integer itemId) {
+        getMvpView().showLoading();
+        getDataManager().deleteCartItem(itemId)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<Boolean>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(Boolean b) {
+                        getMvpView().removeCartCallback(b);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        if (!isViewAttached()) {
+                            return;
+                        }
+
+                        // handle the login error here
+                        if (e instanceof ANError) {
+                            ANError anError = (ANError) e;
+                            handleApiError(anError);
+                        }
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        getMvpView().hideLoading();
+                    }
+                });
+    }
 
 
 }

@@ -9,23 +9,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.bakery.R;
 import com.bakery.data.network.models.CartListResponse;
+import com.bakery.data.network.models.CartResponse;
 import com.bakery.data.network.models.ProductResponse;
 import com.bakery.decorators.ItemDecorationGridColumns;
 import com.bakery.ui.BaseFragment;
 import com.bakery.ui.adapters.CartDetailListAdapter;
-import com.bakery.ui.adapters.CartProductListAdapter;
 import com.bakery.ui.landingpage.LandingPageActivity;
 import com.bakery.utils.AppConstants;
-
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MyCartFragment extends BaseFragment implements MyCartMvpView {
+public class MyCartFragment extends BaseFragment implements MyCartMvpView, CartDetailListAdapter.OnCartProductListener {
 
     MyCartMvpPresenter<MyCartMvpView> mPresenter = new MyCartPresenter<>();
 
@@ -33,8 +32,7 @@ public class MyCartFragment extends BaseFragment implements MyCartMvpView {
     RecyclerView mRecyclerView;
 
     CartDetailListAdapter cartDetailListAdapter = null;
-
-    CartProductListAdapter mCartProducts = null;
+    int currentPosition = -1;
 
     @BindView(R.id.progress_bar)
     ProgressBar progressBar;
@@ -71,7 +69,7 @@ public class MyCartFragment extends BaseFragment implements MyCartMvpView {
         cartDetailListAdapter.update(cartListResponses.getItems());
         LandingPageActivity activity = (LandingPageActivity)getActivity();
         if (activity != null) {
-            activity.updateCartBadge(cartListResponses.getItemsQty());
+            //activity.updateCartBadge(cartListResponses.getItemsQty());
         }
     }
 
@@ -82,7 +80,7 @@ public class MyCartFragment extends BaseFragment implements MyCartMvpView {
     }
 
     public void initializeRecyclerViewAdapter() {
-        cartDetailListAdapter = new CartDetailListAdapter(getActivity(), R.layout.cart_details);
+        cartDetailListAdapter = new CartDetailListAdapter(getActivity(), R.layout.cart_details, this);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mRecyclerView.setAdapter(cartDetailListAdapter);
@@ -90,7 +88,36 @@ public class MyCartFragment extends BaseFragment implements MyCartMvpView {
     }
 
     public void getProductCallback(ProductResponse productResponse) {
-        mCartProducts.refresh(productResponse);
+        //cartDetailListAdapter.refresh(productResponse);
+    }
+
+    @Override
+    public void removedCartItem(View v, int position) {
+        CartResponse response = cartDetailListAdapter.getItem(position);
+        mPresenter.removeCart(response.getItemId());
+        this.currentPosition = position;
+/*
+        cartDetailListAdapter.remove(position);
+        LandingPageActivity activity = (LandingPageActivity)getActivity();
+        if (activity != null) {
+            activity.updateCartBadge(0 - response.getQty());
+        }
+*/
+    }
+
+    @Override
+    public void removeCartCallback(Boolean success) {
+        if (success) {
+            cartDetailListAdapter.remove(currentPosition);
+            CartResponse response = cartDetailListAdapter.getItem(currentPosition);
+            LandingPageActivity activity = (LandingPageActivity)getActivity();
+            if (activity != null) {
+                activity.updateCartBadge(0 - response.getQty());
+            }
+            Toast.makeText(getActivity(), "Successfully Removed", Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(getActivity(), "Failed to Remove. Try again later.", Toast.LENGTH_LONG).show();
+        }
     }
 
 }

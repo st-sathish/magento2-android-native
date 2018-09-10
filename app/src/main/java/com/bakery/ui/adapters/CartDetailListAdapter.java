@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -25,9 +26,12 @@ public class CartDetailListAdapter extends RecyclerView.Adapter<CartDetailListAd
 
     private int mLayout;
 
-    public CartDetailListAdapter(Context context, int layout) {
+    private OnCartProductListener mOnCartProductListener;
+
+    public CartDetailListAdapter(Context context, int layout, OnCartProductListener mOnCartProductListener) {
         mContext = context;
         this.mLayout = layout;
+        this.mOnCartProductListener = mOnCartProductListener;
     }
 
 
@@ -62,7 +66,16 @@ public class CartDetailListAdapter extends RecyclerView.Adapter<CartDetailListAd
         return mProductDetails != null ? mProductDetails.size() : 0;
     }
 
-    class CartDetailViewHolder extends RecyclerView.ViewHolder  {
+    public void remove(int position) {
+        mProductDetails.remove(position);
+        notifyDataSetChanged();
+    }
+
+    public interface OnCartProductListener {
+        void removedCartItem(View v, int position);
+    }
+
+    class CartDetailViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener  {
 
         @BindView(R.id.item_thumb)
         ImageView imageView;
@@ -76,12 +89,25 @@ public class CartDetailListAdapter extends RecyclerView.Adapter<CartDetailListAd
         @BindView(R.id.item_quantity)
         TextView quantity;
 
+        @BindView(R.id.item_remove_cart_product)
+        Button itemRemoveCartProduct;
+
+
 
         public CartDetailViewHolder(View v) {
             super(v);
             ButterKnife.bind(this, v);
+            v.setOnClickListener(this);
+            itemRemoveCartProduct.setOnClickListener(this);
+            v.setTag(this);
         }
 
+        @Override
+        public void onClick(View view) {
+            switch (view.getId()) {
+                case R.id.item_remove_cart_product : mOnCartProductListener.removedCartItem(view, getAdapterPosition());
+            }
+        }
     }
 }
 
