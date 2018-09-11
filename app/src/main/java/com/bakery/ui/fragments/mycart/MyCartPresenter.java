@@ -1,7 +1,9 @@
 package com.bakery.ui.fragments.mycart;
 
 import com.androidnetworking.error.ANError;
+import com.bakery.data.SessionStore;
 import com.bakery.data.network.models.CartListResponse;
+import com.bakery.data.network.models.CartRequest;
 import com.bakery.data.network.models.CartResponse;
 import com.bakery.data.network.models.ProductResponse;
 import com.bakery.presenter.BasePresenter;
@@ -107,6 +109,42 @@ public class MyCartPresenter<V extends MyCartMvpView> extends BasePresenter<V> i
                     @Override
                     public void onNext(Boolean b) {
                         getMvpView().removeCartCallback(b);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        if (!isViewAttached()) {
+                            return;
+                        }
+
+                        // handle the login error here
+                        if (e instanceof ANError) {
+                            ANError anError = (ANError) e;
+                            handleApiError(anError);
+                        }
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        getMvpView().hideLoading();
+                    }
+                });
+    }
+
+    public void addItemToCart(CartRequest request) {
+        getMvpView().showLoading();
+        getDataManager().addItemCart(request)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<CartResponse>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(CartResponse cartResponse) {
+                        //getMvpView().addCartCallback(cartResponse);
                     }
 
                     @Override

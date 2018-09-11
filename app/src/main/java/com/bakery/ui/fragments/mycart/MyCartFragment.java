@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.bakery.R;
 import com.bakery.data.network.models.CartListResponse;
+import com.bakery.data.network.models.CartRequest;
 import com.bakery.data.network.models.CartResponse;
 import com.bakery.data.network.models.ProductResponse;
 import com.bakery.decorators.ItemDecorationGridColumns;
@@ -105,6 +106,7 @@ public class MyCartFragment extends BaseFragment implements MyCartMvpView, CartD
 */
     }
 
+
     @Override
     public void removeCartCallback(Boolean success) {
         if (success) {
@@ -120,4 +122,13 @@ public class MyCartFragment extends BaseFragment implements MyCartMvpView, CartD
         }
     }
 
+    @Override
+    public void updateCartItem(String quantity, int position) {
+        CartResponse response = cartDetailListAdapter.getItem(position);
+        Integer q = Integer.parseInt(quantity);
+        CartRequest.CartItem cartItem = new CartRequest.CartItem(Integer.parseInt(response.getQuoteId()), response.getSku(), q);
+        CartRequest request = new CartRequest(cartItem);
+        mPresenter.addItemToCart(request);
+
+    }
 }

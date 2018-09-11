@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -58,7 +59,7 @@ public class CartDetailListAdapter extends RecyclerView.Adapter<CartDetailListAd
         String price = mContext.getResources().getString(R.string.Rs)+" " +String.valueOf(productDetail.getPrice());
         itemHolder.price.setText(price);
         itemHolder.quantity.setText(productDetail.getQty().toString());
-        ProductImageUtils.loadImage(mContext, itemHolder.imageView, "dummy");
+        //ProductImageUtils.loadImage(mContext, itemHolder.imageView, "dummy");
     }
 
     @Override
@@ -73,6 +74,7 @@ public class CartDetailListAdapter extends RecyclerView.Adapter<CartDetailListAd
 
     public interface OnCartProductListener {
         void removedCartItem(View v, int position);
+        void updateCartItem(String quantity, int position);
     }
 
     class CartDetailViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener  {
@@ -87,11 +89,13 @@ public class CartDetailListAdapter extends RecyclerView.Adapter<CartDetailListAd
         TextView price;
 
         @BindView(R.id.item_quantity)
-        TextView quantity;
+        EditText quantity;
 
         @BindView(R.id.item_remove_cart_product)
         Button itemRemoveCartProduct;
 
+        @BindView(R.id.item_update_cart_product)
+        Button itemUpdateCartProduct;
 
 
         public CartDetailViewHolder(View v) {
@@ -99,13 +103,18 @@ public class CartDetailListAdapter extends RecyclerView.Adapter<CartDetailListAd
             ButterKnife.bind(this, v);
             v.setOnClickListener(this);
             itemRemoveCartProduct.setOnClickListener(this);
-            v.setTag(this);
+            itemUpdateCartProduct.setOnClickListener(this);
+            v.setTag(this); //By calling setTag, all buttons can use the same listener
         }
 
         @Override
         public void onClick(View view) {
             switch (view.getId()) {
-                case R.id.item_remove_cart_product : mOnCartProductListener.removedCartItem(view, getAdapterPosition());
+                case R.id.item_remove_cart_product :
+                    mOnCartProductListener.removedCartItem(view, getAdapterPosition());
+                    break;
+                case R.id.item_update_cart_product :
+                    mOnCartProductListener.updateCartItem(quantity.getText().toString(), getAdapterPosition());
             }
         }
     }
