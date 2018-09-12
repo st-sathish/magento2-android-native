@@ -3,6 +3,8 @@ package com.bakery.data.network.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 public class OrderRequest {
 
     @Expose
@@ -36,7 +38,11 @@ public class OrderRequest {
         private String method;
 
         public String getMethod() {
-            return "banktransfer";
+            return method;
+        }
+
+        public void setMethod(String method) {
+            this.method = method;
         }
     }
 
@@ -47,16 +53,25 @@ public class OrderRequest {
         private String email;
 
         @Expose
-        @SerializedName("state")
-        private String state;
+        @SerializedName("region")
+        private String region;
 
         @Expose
-        @SerializedName("country")
+        @SerializedName("region_id")
+        private Integer region_id;
+
+        @Expose
+        @SerializedName("region_code")
+        private String region_code;
+
+
+        @Expose
+        @SerializedName("country_id")
         private String country;
 
         @Expose
         @SerializedName("street")
-        private String street;
+        private List<String> street;
 
         @Expose
         @SerializedName("postcode")
@@ -87,12 +102,28 @@ public class OrderRequest {
             this.email = email;
         }
 
-        public String getState() {
-            return state;
+        public String getRegion() {
+            return region;
         }
 
-        public void setState(String state) {
-            this.state = state;
+        public void setRegion(String region) {
+            this.region = region;
+        }
+
+        public Integer getRegion_id() {
+            return region_id;
+        }
+
+        public void setRegion_id(Integer region_id) {
+            this.region_id = region_id;
+        }
+
+        public String getRegion_code() {
+            return region_code;
+        }
+
+        public void setRegion_code(String region_code) {
+            this.region_code = region_code;
         }
 
         public String getCountry() {
@@ -103,11 +134,11 @@ public class OrderRequest {
             this.country = country;
         }
 
-        public String getStreet() {
+        public List<String> getStreet() {
             return street;
         }
 
-        public void setStreet(String street) {
+        public void setStreet(List<String> street) {
             this.street = street;
         }
 

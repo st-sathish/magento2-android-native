@@ -24,6 +24,7 @@ import com.bakery.utils.AppConstants;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class MyCartFragment extends BaseFragment implements MyCartMvpView, CartDetailListAdapter.OnCartProductListener {
 
@@ -78,6 +79,11 @@ public class MyCartFragment extends BaseFragment implements MyCartMvpView, CartD
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         //mPresenter.getCartItems();
+    }
+
+    @OnClick(R.id.goto_address)
+    public void onClick() {
+        switchFragment(LandingPageActivity.FRAGMENT_ADDRESS, "Billing Address", true);
     }
 
     public void initializeRecyclerViewAdapter() {

@@ -4,7 +4,7 @@ import com.bakery.presenter.MvpView;
 
 public interface AddressMvp extends MvpView {
 
-
+    void orderCallback();
 
 
 }

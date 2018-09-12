@@ -28,19 +28,11 @@ import io.reactivex.schedulers.Schedulers;
 public class AddressPresenter<V extends AddressMvp> extends BasePresenter<V> implements AddressMvpPresenter<V>{
 
     @Override
-    public void placeOrder(String email) {
+    public void placeOrder(OrderRequest order) {
 
-            if (email == null || email.isEmpty()) {
-                getMvpView().onError(R.string.empty_email);
-                return;
-            }
-            if(!ValidationUtils.isEmailValid(email)) {
-                getMvpView().onError(R.string.invalid_email);
-                return;
-            }
             getMvpView().showLoading();
-            OrderRequest body = new OrderRequest();
-            getDataManager().placeOrder(body)
+
+            getDataManager().placeOrder(order)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(new Observer<String>() {
@@ -72,7 +64,7 @@ public class AddressPresenter<V extends AddressMvp> extends BasePresenter<V> imp
                         @Override
                         public void onComplete() {
                             getMvpView().hideLoading();
-                            //getMvpView().openLandingPageActivity();
+                            getMvpView().orderCallback();
                         }
                     });
 

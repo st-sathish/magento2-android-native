@@ -124,7 +124,7 @@
                         android:id="@+id/email"
                         android:ems="15"
                         android:inputType="text"
-                        android:maxLength="15"
+                        android:maxLength="150"
                         android:textSize="15dp"
                         android:hint="Email"
                         android:textColorHint="@color/grey"

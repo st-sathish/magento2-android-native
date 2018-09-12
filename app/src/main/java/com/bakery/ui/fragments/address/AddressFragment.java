@@ -5,10 +5,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.bakery.R;
+import com.bakery.data.network.models.OrderRequest;
 import com.bakery.ui.BaseFragment;
 import com.bakery.utils.AppConstants;
+import com.bakery.utils.ValidationUtils;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -65,12 +71,87 @@ public class AddressFragment extends BaseFragment implements AddressMvp {
 
     @OnClick(R.id.button_place_order)
     public void placeOrder() {
-        mvpPresenter.placeOrder("sankar@gmail.com");
+
+        String firstNameValue = firstName.getText().toString();
+        if (firstNameValue.isEmpty()) {
+            onError(R.string.empty_first_name);
+            return;
+        }
+        String lastNameValue = lastName.getText().toString();
+        if (lastNameValue.isEmpty()) {
+            onError(R.string.empty_last_name);
+            return;
+        }
+        String phoneValue = phone.getText().toString();
+        if (phoneValue.isEmpty()) {
+            onError(R.string.empty_telephone);
+            return;
+        }
+        String emailValue = email.getText().toString();
+        if (emailValue == null || emailValue.isEmpty()) {
+            onError(R.string.empty_email);
+            return;
+        }
+        if(!ValidationUtils.isEmailValid(emailValue)) {
+            onError(R.string.invalid_email);
+            return;
+        }
+        String streetValue = street.getText().toString();
+        if (streetValue.isEmpty()) {
+            onError(R.string.empty_street);
+            return;
+        }
+        String cityValue = city.getText().toString();
+        if (cityValue.isEmpty()) {
+            onError(R.string.empty_city);
+            return;
+        }
+        String stateValue = state.getText().toString();
+        if (stateValue.isEmpty()) {
+            onError(R.string.empty_state);
+            return;
+        }
+        String zipcodeValue = zipcode.getText().toString();
+        if (zipcodeValue.isEmpty()) {
+            onError(R.string.empty_post_code);
+            return;
+        }
+        String countryValue = country.getText().toString();
+        if (countryValue.isEmpty()) {
+            onError(R.string.empty_country);
+            return;
+        }
+
+        OrderRequest order = new OrderRequest();
+        OrderRequest.PaymentMethod payment = new OrderRequest.PaymentMethod();
+        payment.setMethod("banktransfer");
+        order.setPaymentMethod(payment);
+        OrderRequest.BillingAddress bill = new OrderRequest.BillingAddress();
+        bill.setEmail(emailValue);
+        bill.setCity(cityValue);
+        bill.setCountry(countryValue);
+        bill.setFirstName(firstNameValue);
+        bill.setLastName(lastNameValue);
+        bill.setPostcode(Integer.parseInt(zipcodeValue));
+        bill.setPhone_number(phoneValue);
+        bill.setRegion(stateValue);
+        bill.setRegion_code(stateValue);
+        bill.setRegion_id(0);
+        ArrayList<String> places = new ArrayList<String>();
+        places.add(streetValue);
+        bill.setStreet(places);
+        order.setBillingAddress(bill);
+        mvpPresenter.placeOrder(order);
     }
 
     @Override
     public void onDestroy() {
         mvpPresenter.onDetach();
         super.onDestroy();
+    }
+
+    @Override
+    public void orderCallback() {
+        Toast.makeText(getActivity(), "Order is placed.", Toast.LENGTH_LONG).show();
     }
 }

@@ -48,6 +48,12 @@
     <string name="invalid_email">Invalid Email</string>
     <string name="empty_first_name">First Name is Empty</string>
     <string name="empty_last_name">Last Name is empty</string>
+    <string name="empty_city">City is empty</string>
+    <string name="empty_post_code">Pin code is empty</string>
+    <string name="empty_telephone">Phone number is empty</string>
+    <string name="empty_country">Country is empty</string>
+    <string name="empty_state">State is empty</string>
+    <string name="empty_street">Street is empty</string>
 
     <!--App Message-->
     <string name="api_retry_error">Please retry!</string>
