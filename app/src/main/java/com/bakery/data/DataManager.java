@@ -2,6 +2,7 @@ package com.bakery.data;
 
 import com.bakery.data.db.domain.Cart;
 import com.bakery.data.db.domain.CartOverview;
+import com.bakery.data.network.models.AddressModel;
 import com.bakery.data.network.models.CartListResponse;
 import com.bakery.data.network.models.CartRequest;
 import com.bakery.data.network.models.CartResponse;
@@ -38,5 +39,7 @@ public interface DataManager {
     Observable<Boolean> deleteCartItem(Integer itemId);
 
     Observable<String> placeOrder(OrderRequest order);
+
+    Observable<JSONObject> setAddress(AddressModel address);
 
 }

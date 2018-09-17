@@ -4,6 +4,7 @@ import com.bakery.data.db.domain.Cart;
 import com.bakery.data.db.domain.CartOverview;
 import com.bakery.data.network.ApiHelper;
 import com.bakery.data.network.AppApiHelper;
+import com.bakery.data.network.models.AddressModel;
 import com.bakery.data.network.models.CartListResponse;
 import com.bakery.data.network.models.CartRequest;
 import com.bakery.data.network.models.CartResponse;
@@ -68,6 +69,11 @@ public class AppDataManager implements DataManager {
     @Override
     public Observable<String> placeOrder(OrderRequest order) {
         return mApiHelper.getOrderApi().placeOrder(order);
+    }
+
+    @Override
+    public Observable<JSONObject> setAddress(AddressModel address) {
+        return mApiHelper.getOrderApi().setAddress(address);
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.bakery.ui.fragments.address;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,8 +9,12 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.bakery.R;
+import com.bakery.data.network.models.AddressModel;
 import com.bakery.data.network.models.OrderRequest;
 import com.bakery.ui.BaseFragment;
+import com.bakery.ui.forgotpassword.ForgotPasswordActivity;
+import com.bakery.ui.landingpage.LandingPageActivity;
+import com.bakery.ui.otp.verify.OtpVerifyActivity;
 import com.bakery.utils.AppConstants;
 import com.bakery.utils.ValidationUtils;
 
@@ -122,6 +127,7 @@ public class AddressFragment extends BaseFragment implements AddressMvp {
             return;
         }
 
+/*
         OrderRequest order = new OrderRequest();
         OrderRequest.PaymentMethod payment = new OrderRequest.PaymentMethod();
         payment.setMethod("banktransfer");
@@ -141,7 +147,30 @@ public class AddressFragment extends BaseFragment implements AddressMvp {
         places.add(streetValue);
         bill.setStreet(places);
         order.setBillingAddress(bill);
-        mvpPresenter.placeOrder(order);
+*/
+
+        AddressModel addressModel = new AddressModel();
+        AddressModel.AddressInformation info = new AddressModel.AddressInformation();
+        AddressModel.AddressInformation.Address address = new AddressModel.AddressInformation.Address();
+        address.setEmail(emailValue);
+        address.setCity(cityValue);
+        address.setCountry(countryValue);
+        address.setFirstName(firstNameValue);
+        address.setLastName(lastNameValue);
+        address.setPostcode(Integer.parseInt(zipcodeValue));
+        address.setPhone_number(phoneValue);
+        address.setRegion(stateValue);
+        address.setRegion_code(stateValue);
+        address.setRegion_id(0);
+        ArrayList<String> places = new ArrayList<String>();
+        places.add(streetValue);
+        address.setStreet(places);
+        info.setBillingAddress(address);
+        info.setShippingAddress(address);
+        addressModel.setAddresses(info);
+        mvpPresenter.setAddress(addressModel);
+
+        //mvpPresenter.placeOrder(order);
     }
 
     @Override
@@ -151,7 +180,45 @@ public class AddressFragment extends BaseFragment implements AddressMvp {
     }
 
     @Override
+    public void addressCallback() {
+
+        String firstNameValue = firstName.getText().toString();
+        String lastNameValue = lastName.getText().toString();
+        String phoneValue = phone.getText().toString();
+        String emailValue = email.getText().toString();
+        String streetValue = street.getText().toString();
+        String cityValue = city.getText().toString();
+        String stateValue = state.getText().toString();
+        String zipcodeValue = zipcode.getText().toString();
+        String countryValue = country.getText().toString();
+
+        OrderRequest order = new OrderRequest();
+        OrderRequest.PaymentMethod payment = new OrderRequest.PaymentMethod();
+        payment.setMethod("banktransfer");
+        order.setPaymentMethod(payment);
+        OrderRequest.BillingAddress bill = new OrderRequest.BillingAddress();
+        bill.setEmail(emailValue);
+        bill.setCity(cityValue);
+        bill.setCountry(countryValue);
+        bill.setFirstName(firstNameValue);
+        bill.setLastName(lastNameValue);
+        bill.setPostcode(Integer.parseInt(zipcodeValue));
+        bill.setPhone_number(phoneValue);
+        bill.setRegion(stateValue);
+        bill.setRegion_code(stateValue);
+        bill.setRegion_id(0);
+        ArrayList<String> places = new ArrayList<String>();
+        places.add(streetValue);
+        bill.setStreet(places);
+        order.setBillingAddress(bill);
+
+        mvpPresenter.placeOrder(order);
+
+    }
+
+    @Override
     public void orderCallback() {
         Toast.makeText(getActivity(), "Order is placed.", Toast.LENGTH_LONG).show();
     }
+
 }

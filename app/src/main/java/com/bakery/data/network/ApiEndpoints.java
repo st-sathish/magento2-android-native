@@ -34,6 +34,9 @@ public final class ApiEndpoints {
     /** Delete cart item */
     public static final String API_DELETE_CART_ITEM = API_URL +"/carts/mine/items/{itemId}";
 
+    /** Set shipping and billing information */
+    public static final String API_SET_BILLING_SHIPPING_ADDRESS = API_URL + "/carts/mine/shipping-information";
+
     /** Place Order */
     public static final String API_PLACE_ORDER = API_URL +"/carts/mine/payment-information";
 
