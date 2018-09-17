@@ -219,6 +219,7 @@ public class AddressFragment extends BaseFragment implements AddressMvp {
     @Override
     public void orderCallback() {
         Toast.makeText(getActivity(), "Order is placed.", Toast.LENGTH_LONG).show();
+        getActivity().recreate();
     }
 
 }
