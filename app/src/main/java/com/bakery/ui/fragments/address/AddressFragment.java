@@ -2,6 +2,7 @@ package com.bakery.ui.fragments.address;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.bakery.R;
+import com.bakery.data.network.models.Address;
 import com.bakery.data.network.models.AddressModel;
 import com.bakery.data.network.models.OrderRequest;
 import com.bakery.ui.BaseFragment;
@@ -72,6 +74,21 @@ public class AddressFragment extends BaseFragment implements AddressMvp {
         setUnBinder(ButterKnife.bind(this, view));
         mvpPresenter.onAttach(this);
         return view;
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        Address address = ((LandingPageActivity)this.getActivity()).getAddress();
+        if (address != null) {
+            firstName.setText(address.getFirstName());
+            lastName.setText(address.getLastName());
+            city.setText(address.getCity());
+            country.setText(address.getCountry());
+            phone.setText(address.getTelephone());
+            zipcode.setText(address.getPostcode());
+            street.setText(address.getStreet().toString());
+        }
     }
 
     @OnClick(R.id.button_place_order)

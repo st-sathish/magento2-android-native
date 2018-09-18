@@ -41,6 +41,33 @@ public class CartListResponse {
     @SerializedName("items_qty")
     private Integer itemsQty = 0;
 
+    @Expose
+    @SerializedName("customer")
+    private Customer customer;
+
+    public class Customer {
+
+        @Expose
+        @SerializedName("addresses")
+        private List<Address> addresses;
+
+        public List<Address> getAddresses() {
+            return addresses;
+        }
+
+        public void setAddresses(List<Address> addresses) {
+            this.addresses = addresses;
+        }
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
     public Integer getId() {
         return id;
     }

@@ -33,6 +33,9 @@ public class MyCartPresenter<V extends MyCartMvpView> extends BasePresenter<V> i
                     @Override
                     public void onNext(CartListResponse cartListResponse) {
                         getMvpView().update(cartListResponse);
+                        if (cartListResponse.getCustomer().getAddresses().size() > 0) {
+                            getMvpView().updateAddress(cartListResponse.getCustomer().getAddresses().get(0));
+                        }
                         //iterateCartList(cartListResponse.getItems());
                     }
 

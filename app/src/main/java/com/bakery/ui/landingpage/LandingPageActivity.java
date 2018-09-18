@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.bakery.R;
 import com.bakery.data.SessionStore;
+import com.bakery.data.network.models.Address;
 import com.bakery.data.network.models.CartRequest;
 import com.bakery.data.network.models.CartResponse;
 import com.bakery.data.network.models.ProductResponse;
@@ -45,6 +46,8 @@ public class LandingPageActivity extends BaseAppCompatActivity implements Fragme
 
     @BindView(R.id.item_count)
     TextView itemCount;
+
+    Address address = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -146,6 +149,11 @@ public class LandingPageActivity extends BaseAppCompatActivity implements Fragme
     }
 
     @Override
+    public void updateAddress(Address address) {
+        this.address = address;
+    }
+
+    @Override
     public void addCartToMyAccount(ProductResponse response, String quantity) {
         Toast.makeText(this, "Adding to My Cart", Toast.LENGTH_SHORT).show();
         Integer q = Integer.parseInt(quantity);
@@ -163,5 +171,10 @@ public class LandingPageActivity extends BaseAppCompatActivity implements Fragme
     protected void onDestroy() {
         mPresenter.onDetach();
         super.onDestroy();
+    }
+
+    @Override
+    public Address getAddress() {
+        return address;
     }
 }

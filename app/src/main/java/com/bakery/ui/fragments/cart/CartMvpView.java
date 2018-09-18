@@ -1,5 +1,6 @@
 package com.bakery.ui.fragments.cart;
 
+import com.bakery.data.network.models.Address;
 import com.bakery.data.network.models.CartListResponse;
 import com.bakery.data.network.models.CartResponse;
 import com.bakery.data.network.models.ProductResponse;
@@ -18,4 +19,5 @@ public interface CartMvpView extends MvpView {
     void getProductCallback(ProductResponse productResponse);
 
     void updateBadge(Integer qty);
+
 }

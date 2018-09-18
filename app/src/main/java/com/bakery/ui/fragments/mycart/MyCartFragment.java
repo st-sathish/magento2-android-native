@@ -12,6 +12,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.bakery.R;
+import com.bakery.data.network.models.Address;
 import com.bakery.data.network.models.CartListResponse;
 import com.bakery.data.network.models.CartRequest;
 import com.bakery.data.network.models.CartResponse;
@@ -38,7 +39,11 @@ public class MyCartFragment extends BaseFragment implements MyCartMvpView, CartD
 
     @BindView(R.id.progress_bar)
     ProgressBar progressBar;
-    
+
+
+    Address address = null;
+
+
     public MyCartFragment() {
 
     }
@@ -63,6 +68,16 @@ public class MyCartFragment extends BaseFragment implements MyCartMvpView, CartD
     }
 
     @Override
+    public void updateAddress(Address address) {
+        this.address = address;
+        LandingPageActivity activity = (LandingPageActivity)getActivity();
+        if (activity != null && this.address != null) {
+            activity.updateAddress(this.address);
+        }
+    }
+
+
+    @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
@@ -70,8 +85,8 @@ public class MyCartFragment extends BaseFragment implements MyCartMvpView, CartD
     public void update(CartListResponse cartListResponses) {
         cartDetailListAdapter.update(cartListResponses.getItems());
         LandingPageActivity activity = (LandingPageActivity)getActivity();
-        if (activity != null) {
-            //activity.updateCartBadge(cartListResponses.getItemsQty());
+        if (activity != null && this.address != null) {
+            activity.updateAddress(this.address);
         }
     }
 
