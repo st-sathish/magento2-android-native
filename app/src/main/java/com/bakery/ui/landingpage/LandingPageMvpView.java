@@ -18,4 +18,6 @@ public interface LandingPageMvpView extends MvpView {
     void updateAddress(Address address);
 
     Address getAddress();
+
+    String getCount();
 }

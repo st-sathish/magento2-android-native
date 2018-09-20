@@ -98,7 +98,12 @@ public class MyCartFragment extends BaseFragment implements MyCartMvpView, CartD
 
     @OnClick(R.id.goto_address)
     public void onClick() {
-        switchFragment(LandingPageActivity.FRAGMENT_ADDRESS, "Billing Address", true);
+        LandingPageActivity activity = (LandingPageActivity)getActivity();
+        if(activity.getCount().equals("0") ){
+            Toast.makeText(getActivity(), "There are no items in your cart. Add 1 or more items before continuing...", Toast.LENGTH_LONG).show();
+        } else {
+            switchFragment(LandingPageActivity.FRAGMENT_ADDRESS, "Billing Address", true);
+        }
     }
 
     public void initializeRecyclerViewAdapter() {
@@ -131,12 +136,12 @@ public class MyCartFragment extends BaseFragment implements MyCartMvpView, CartD
     @Override
     public void removeCartCallback(Boolean success) {
         if (success) {
-            cartDetailListAdapter.remove(currentPosition);
             CartResponse response = cartDetailListAdapter.getItem(currentPosition);
             LandingPageActivity activity = (LandingPageActivity)getActivity();
             if (activity != null) {
                 activity.updateCartBadge(0 - response.getQty());
             }
+            cartDetailListAdapter.remove(currentPosition);
             Toast.makeText(getActivity(), "Successfully Removed", Toast.LENGTH_LONG).show();
         } else {
             Toast.makeText(getActivity(), "Failed to Remove. Try again later.", Toast.LENGTH_LONG).show();

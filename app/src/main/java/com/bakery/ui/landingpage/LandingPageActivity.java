@@ -159,6 +159,7 @@ public class LandingPageActivity extends BaseAppCompatActivity implements Fragme
         Integer q = Integer.parseInt(quantity);
         CartRequest.CartItem cartItem = new CartRequest.CartItem(SessionStore.quoteId, response.getSku(), q);
         CartRequest request = new CartRequest(cartItem);
+        System.out.println("quote id : " + SessionStore.quoteId);
         mPresenter.addCart(request);
     }
 
@@ -176,5 +177,10 @@ public class LandingPageActivity extends BaseAppCompatActivity implements Fragme
     @Override
     public Address getAddress() {
         return address;
+    }
+
+    @Override
+    public String getCount() {
+        return itemCount.getText().toString();
     }
 }
