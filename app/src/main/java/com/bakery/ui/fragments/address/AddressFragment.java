@@ -1,6 +1,5 @@
 package com.bakery.ui.fragments.address;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -10,18 +9,16 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.bakery.R;
+import com.bakery.data.SessionStore;
 import com.bakery.data.network.models.Address;
 import com.bakery.data.network.models.AddressModel;
 import com.bakery.data.network.models.OrderRequest;
 import com.bakery.ui.BaseFragment;
-import com.bakery.ui.forgotpassword.ForgotPasswordActivity;
 import com.bakery.ui.landingpage.LandingPageActivity;
-import com.bakery.ui.otp.verify.OtpVerifyActivity;
 import com.bakery.utils.AppConstants;
 import com.bakery.utils.ValidationUtils;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -236,6 +233,7 @@ public class AddressFragment extends BaseFragment implements AddressMvp {
     @Override
     public void orderCallback() {
         Toast.makeText(getActivity(), "Order is placed.", Toast.LENGTH_LONG).show();
+        SessionStore.quoteId = 0;
         getActivity().recreate();
     }
 

@@ -39,6 +39,9 @@ public class LandingPagePresenter <V extends LandingPageMvpView> extends BasePre
                         // handle the login error here
                         if (e instanceof ANError) {
                             ANError anError = (ANError) e;
+                            if(anError.getErrorCode() == 404 || anError.getErrorCode() == 401) {
+                                return;
+                            }
                             handleApiError(anError);
                         }
                     }
