@@ -29,6 +29,7 @@
     <color name="textColorPrimary">#FFFFFF</color>
     <color name="windowBackground">#FFFFFF</color>
     <color name="foreground_material_light">#4fc04b</color>
+    <color name="bg_color">#e8edf3</color>
 
     <color name="navigationBarColor">#000000</color>
     <color name="black_effective">#2a2a2a</color>

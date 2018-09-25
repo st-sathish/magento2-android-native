@@ -15,8 +15,12 @@ import com.bakery.data.network.models.AddressModel;
 import com.bakery.data.network.models.OrderRequest;
 import com.bakery.ui.BaseFragment;
 import com.bakery.ui.landingpage.LandingPageActivity;
+import com.bakery.ui.views.BillingAddressView;
+import com.bakery.ui.views.HeadingView;
+import com.bakery.ui.views.ShippingAddressView;
 import com.bakery.utils.AppConstants;
 import com.bakery.utils.ValidationUtils;
+import com.mindorks.placeholderview.ExpandablePlaceHolderView;
 
 import java.util.ArrayList;
 
@@ -27,7 +31,10 @@ import butterknife.OnClick;
 public class AddressFragment extends BaseFragment implements AddressMvp {
 
 
-    @BindView(R.id.first_name)
+    @BindView(R.id.expandableView)
+    ExpandablePlaceHolderView expandablePlaceHolderView;
+
+    /*@BindView(R.id.first_name)
     EditText firstName;
 
     @BindView(R.id.last_name)
@@ -52,7 +59,7 @@ public class AddressFragment extends BaseFragment implements AddressMvp {
     EditText zipcode;
 
     @BindView(R.id.country)
-    EditText country;
+    EditText country;*/
 
     AddressPresenter mvpPresenter;
 
@@ -66,17 +73,24 @@ public class AddressFragment extends BaseFragment implements AddressMvp {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.billing_address, container, false);
-        mvpPresenter = new AddressPresenter<>();
+        View view = inflater.inflate(R.layout.fr_address, container, false);
+        //mvpPresenter = new AddressPresenter<>();
         setUnBinder(ButterKnife.bind(this, view));
-        mvpPresenter.onAttach(this);
+        //mvpPresenter.onAttach(this);
         return view;
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        Address address = ((LandingPageActivity)this.getActivity()).getAddress();
+        expandablePlaceHolderView
+                .addView(new HeadingView(getBaseActivity().getApplicationContext(), "Billing Address"))
+                .addView(new BillingAddressView(getBaseActivity().getApplicationContext()));
+
+        expandablePlaceHolderView
+                .addView(new HeadingView(getBaseActivity().getApplicationContext(), "Shipping Address"))
+                .addView(new ShippingAddressView(getBaseActivity().getApplicationContext()));
+        /*Address address = ((LandingPageActivity)this.getActivity()).getAddress();
         if (address != null) {
             firstName.setText(address.getFirstName());
             lastName.setText(address.getLastName());
@@ -85,13 +99,13 @@ public class AddressFragment extends BaseFragment implements AddressMvp {
             phone.setText(address.getTelephone());
             zipcode.setText(address.getPostcode());
             street.setText(address.getStreet().toString());
-        }
+        }*/
     }
 
-    @OnClick(R.id.button_place_order)
+    //@OnClick(R.id.button_place_order)
     public void placeOrder() {
 
-        String firstNameValue = firstName.getText().toString();
+        /*String firstNameValue = firstName.getText().toString();
         if (firstNameValue.isEmpty()) {
             onError(R.string.empty_first_name);
             return;
@@ -139,7 +153,7 @@ public class AddressFragment extends BaseFragment implements AddressMvp {
         if (countryValue.isEmpty()) {
             onError(R.string.empty_country);
             return;
-        }
+        }*/
 
 /*
         OrderRequest order = new OrderRequest();
@@ -163,7 +177,7 @@ public class AddressFragment extends BaseFragment implements AddressMvp {
         order.setBillingAddress(bill);
 */
 
-        AddressModel addressModel = new AddressModel();
+        /*AddressModel addressModel = new AddressModel();
         AddressModel.AddressInformation info = new AddressModel.AddressInformation();
         AddressModel.AddressInformation.Address address = new AddressModel.AddressInformation.Address();
         address.setEmail(emailValue);
@@ -182,21 +196,21 @@ public class AddressFragment extends BaseFragment implements AddressMvp {
         info.setBillingAddress(address);
         info.setShippingAddress(address);
         addressModel.setAddresses(info);
-        mvpPresenter.setAddress(addressModel);
+        mvpPresenter.setAddress(addressModel);*/
 
         //mvpPresenter.placeOrder(order);
     }
 
     @Override
     public void onDestroy() {
-        mvpPresenter.onDetach();
+        //mvpPresenter.onDetach();
         super.onDestroy();
     }
 
     @Override
     public void addressCallback() {
 
-        String firstNameValue = firstName.getText().toString();
+        /*String firstNameValue = firstName.getText().toString();
         String lastNameValue = lastName.getText().toString();
         String phoneValue = phone.getText().toString();
         String emailValue = email.getText().toString();
@@ -226,7 +240,7 @@ public class AddressFragment extends BaseFragment implements AddressMvp {
         bill.setStreet(places);
         order.setBillingAddress(bill);
 
-        mvpPresenter.placeOrder(order);
+        mvpPresenter.placeOrder(order);*/
 
     }
 
@@ -234,7 +248,8 @@ public class AddressFragment extends BaseFragment implements AddressMvp {
     public void orderCallback() {
         Toast.makeText(getActivity(), "Order is placed.", Toast.LENGTH_LONG).show();
         SessionStore.quoteId = 0;
-        getActivity().recreate();
+        //getActivity().recreate();
+        switchFragment(LandingPageActivity.FRAGMENT_HOME, "Home", false);
     }
 
 }

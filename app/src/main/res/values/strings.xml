@@ -79,4 +79,9 @@
     <string name="default_item_value">1</string>
     <string name="checkout">Checkout</string>
     <string name="cart_default_value">0</string>
+
+    <!-- billing address -->
+    <string name="hint_first_name">First Name</string>
+    <string name="hint_last_name">Last Name</string>
+    <string name="hint_arrow">Collapse/Expand arrow</string>
 </resources>
