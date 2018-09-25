@@ -170,5 +170,40 @@ public class MyCartPresenter<V extends MyCartMvpView> extends BasePresenter<V> i
                 });
     }
 
+    public void updateItemToCart(CartRequest request, String itemId) {
+        getMvpView().showLoading();
+        getDataManager().updateItemCart(request, itemId)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<CartResponse>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(CartResponse cartResponse) {
+                        //getMvpView().addCartCallback(cartResponse);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        if (!isViewAttached()) {
+                            return;
+                        }
+
+                        // handle the login error here
+                        if (e instanceof ANError) {
+                            ANError anError = (ANError) e;
+                            handleApiError(anError);
+                        }
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        getMvpView().hideLoading();
+                    }
+                });
+    }
 
 }

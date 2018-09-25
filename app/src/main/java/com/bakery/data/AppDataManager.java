@@ -57,6 +57,11 @@ public class AppDataManager implements DataManager {
     }
 
     @Override
+    public Observable<CartResponse> updateItemCart(CartRequest request, String itemId) {
+        return mApiHelper.getCartApi().updateItem(request, itemId);
+    }
+
+    @Override
     public Observable<String> createEmptyCart() {
         return mApiHelper.getCartApi().createEmpty();
     }

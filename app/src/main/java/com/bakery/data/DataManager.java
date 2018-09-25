@@ -34,6 +34,8 @@ public interface DataManager {
 
     Observable<CartResponse> addItemCart(CartRequest request);
 
+    Observable<CartResponse> updateItemCart(CartRequest request, String itemId);
+
     Observable<String> createEmptyCart();
 
     Observable<Boolean> deleteCartItem(Integer itemId);

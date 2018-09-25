@@ -10,4 +10,6 @@ public interface MyCartMvpPresenter<V extends MyCartMvpView> extends MvpPresente
     void removeCart(Integer itemId);
 
     void addItemToCart(CartRequest request);
+
+    void updateItemToCart(CartRequest request, String itemId);
 }

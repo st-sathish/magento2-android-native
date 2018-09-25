@@ -28,6 +28,9 @@ public final class ApiEndpoints {
     /** Add product to the cart */
     public static final String API_POST_ADD_CART = API_URL + "/carts/mine/items";
 
+    /** Update product quantity in the cart */
+    public static final String API_PUT_UPDATE_CART = API_URL + "/carts/mine/items/{itemId}";
+
     /** get and post cart items */
     public static final String API_GET_AND_CREATE_EMPTY_CART = API_URL +"/carts/mine";
 

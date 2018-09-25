@@ -154,7 +154,7 @@ public class MyCartFragment extends BaseFragment implements MyCartMvpView, CartD
         Integer q = Integer.parseInt(quantity);
         CartRequest.CartItem cartItem = new CartRequest.CartItem(Integer.parseInt(response.getQuoteId()), response.getSku(), q);
         CartRequest request = new CartRequest(cartItem);
-        mPresenter.addItemToCart(request);
+        mPresenter.updateItemToCart(request, response.getItemId().toString());
 
     }
 }

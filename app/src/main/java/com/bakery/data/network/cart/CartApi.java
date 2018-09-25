@@ -12,6 +12,8 @@ public interface CartApi {
 
     Observable<CartResponse> addItem(CartRequest request);
 
+    Observable<CartResponse> updateItem(CartRequest request, String itemId);
+
     Observable<String> createEmpty();
 
     Observable<Boolean> deleteItem(Integer itemId);
