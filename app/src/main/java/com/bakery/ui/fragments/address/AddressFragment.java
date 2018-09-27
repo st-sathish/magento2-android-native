@@ -269,7 +269,7 @@ public class AddressFragment extends BaseFragment implements AddressMvp {
         Toast.makeText(getActivity(), "Order is placed.", Toast.LENGTH_LONG).show();
         SessionStore.quoteId = 0;
         getActivity().recreate();
-        //switchFragment(LandingPageActivity.FRAGMENT_HOME, "Home", false);
+        //switchFragment(LandingPageActivity.FRAGMENT_HOME, "Home", false); //Commented out because, this does not show the crucial top bar - app_bar_main1.xml
     }
 
 }
