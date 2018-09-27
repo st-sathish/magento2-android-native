@@ -10,7 +10,6 @@ import android.widget.Toast;
 
 import com.bakery.R;
 import com.bakery.data.SessionStore;
-import com.bakery.data.network.models.Address;
 import com.bakery.data.network.models.AddressModel;
 import com.bakery.data.network.models.OrderRequest;
 import com.bakery.ui.BaseFragment;
@@ -74,9 +73,9 @@ public class AddressFragment extends BaseFragment implements AddressMvp {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fr_address, container, false);
-        //mvpPresenter = new AddressPresenter<>();
+        mvpPresenter = new AddressPresenter<>();
         setUnBinder(ButterKnife.bind(this, view));
-        //mvpPresenter.onAttach(this);
+        mvpPresenter.onAttach(this);
         return view;
     }
 
@@ -90,6 +89,8 @@ public class AddressFragment extends BaseFragment implements AddressMvp {
         expandablePlaceHolderView
                 .addView(new HeadingView(getBaseActivity().getApplicationContext(), "Shipping Address"))
                 .addView(new ShippingAddressView(getBaseActivity().getApplicationContext()));
+
+
         /*Address address = ((LandingPageActivity)this.getActivity()).getAddress();
         if (address != null) {
             firstName.setText(address.getFirstName());
@@ -102,24 +103,28 @@ public class AddressFragment extends BaseFragment implements AddressMvp {
         }*/
     }
 
-    //@OnClick(R.id.button_place_order)
+    @OnClick(R.id.button_place_order)
     public void placeOrder() {
 
-        /*String firstNameValue = firstName.getText().toString();
+        EditText firstName = expandablePlaceHolderView.findViewById(R.id.first_name);
+        String firstNameValue = firstName.getText().toString();
         if (firstNameValue.isEmpty()) {
             onError(R.string.empty_first_name);
             return;
         }
+        EditText lastName = expandablePlaceHolderView.findViewById(R.id.last_name);
         String lastNameValue = lastName.getText().toString();
         if (lastNameValue.isEmpty()) {
             onError(R.string.empty_last_name);
             return;
         }
+        EditText phone = expandablePlaceHolderView.findViewById(R.id.phone_number);
         String phoneValue = phone.getText().toString();
         if (phoneValue.isEmpty()) {
             onError(R.string.empty_telephone);
             return;
         }
+        EditText email = expandablePlaceHolderView.findViewById(R.id.email);
         String emailValue = email.getText().toString();
         if (emailValue == null || emailValue.isEmpty()) {
             onError(R.string.empty_email);
@@ -129,33 +134,38 @@ public class AddressFragment extends BaseFragment implements AddressMvp {
             onError(R.string.invalid_email);
             return;
         }
+        EditText street = expandablePlaceHolderView.findViewById(R.id.street_address);
         String streetValue = street.getText().toString();
         if (streetValue.isEmpty()) {
             onError(R.string.empty_street);
             return;
         }
+        EditText city = expandablePlaceHolderView.findViewById(R.id.city);
         String cityValue = city.getText().toString();
         if (cityValue.isEmpty()) {
             onError(R.string.empty_city);
             return;
         }
+        EditText state = expandablePlaceHolderView.findViewById(R.id.state);
         String stateValue = state.getText().toString();
         if (stateValue.isEmpty()) {
             onError(R.string.empty_state);
             return;
         }
+        EditText zipcode = expandablePlaceHolderView.findViewById(R.id.postal_code);
         String zipcodeValue = zipcode.getText().toString();
         if (zipcodeValue.isEmpty()) {
             onError(R.string.empty_post_code);
             return;
         }
+        EditText country = expandablePlaceHolderView.findViewById(R.id.country);
         String countryValue = country.getText().toString();
         if (countryValue.isEmpty()) {
             onError(R.string.empty_country);
             return;
-        }*/
+        }
 
-/*
+
         OrderRequest order = new OrderRequest();
         OrderRequest.PaymentMethod payment = new OrderRequest.PaymentMethod();
         payment.setMethod("banktransfer");
@@ -175,9 +185,9 @@ public class AddressFragment extends BaseFragment implements AddressMvp {
         places.add(streetValue);
         bill.setStreet(places);
         order.setBillingAddress(bill);
-*/
 
-        /*AddressModel addressModel = new AddressModel();
+
+        AddressModel addressModel = new AddressModel();
         AddressModel.AddressInformation info = new AddressModel.AddressInformation();
         AddressModel.AddressInformation.Address address = new AddressModel.AddressInformation.Address();
         address.setEmail(emailValue);
@@ -190,13 +200,13 @@ public class AddressFragment extends BaseFragment implements AddressMvp {
         address.setRegion(stateValue);
         address.setRegion_code(stateValue);
         address.setRegion_id(0);
-        ArrayList<String> places = new ArrayList<String>();
+        places.clear();
         places.add(streetValue);
         address.setStreet(places);
         info.setBillingAddress(address);
         info.setShippingAddress(address);
         addressModel.setAddresses(info);
-        mvpPresenter.setAddress(addressModel);*/
+        mvpPresenter.setAddress(addressModel);
 
         //mvpPresenter.placeOrder(order);
     }
@@ -210,7 +220,17 @@ public class AddressFragment extends BaseFragment implements AddressMvp {
     @Override
     public void addressCallback() {
 
-        /*String firstNameValue = firstName.getText().toString();
+        EditText firstName = expandablePlaceHolderView.findViewById(R.id.first_name);
+        EditText lastName = expandablePlaceHolderView.findViewById(R.id.last_name);
+        EditText phone = expandablePlaceHolderView.findViewById(R.id.phone_number);
+        EditText email = expandablePlaceHolderView.findViewById(R.id.email);
+        EditText street = expandablePlaceHolderView.findViewById(R.id.street_address);
+        EditText city = expandablePlaceHolderView.findViewById(R.id.city);
+        EditText state = expandablePlaceHolderView.findViewById(R.id.state);
+        EditText zipcode = expandablePlaceHolderView.findViewById(R.id.postal_code);
+        EditText country = expandablePlaceHolderView.findViewById(R.id.country);
+
+        String firstNameValue = firstName.getText().toString();
         String lastNameValue = lastName.getText().toString();
         String phoneValue = phone.getText().toString();
         String emailValue = email.getText().toString();
@@ -240,7 +260,7 @@ public class AddressFragment extends BaseFragment implements AddressMvp {
         bill.setStreet(places);
         order.setBillingAddress(bill);
 
-        mvpPresenter.placeOrder(order);*/
+        mvpPresenter.placeOrder(order);
 
     }
 
@@ -248,8 +268,8 @@ public class AddressFragment extends BaseFragment implements AddressMvp {
     public void orderCallback() {
         Toast.makeText(getActivity(), "Order is placed.", Toast.LENGTH_LONG).show();
         SessionStore.quoteId = 0;
-        //getActivity().recreate();
-        switchFragment(LandingPageActivity.FRAGMENT_HOME, "Home", false);
+        getActivity().recreate();
+        //switchFragment(LandingPageActivity.FRAGMENT_HOME, "Home", false);
     }
 
 }

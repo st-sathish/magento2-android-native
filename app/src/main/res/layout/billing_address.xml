@@ -19,6 +19,7 @@
         android:inputType="text"
         android:textSize="15sp"
         android:hint="@string/hint_first_name"
+        android:textColorHint="@color/grey"
         android:layout_margin="5dp" />
 
     <EditText
@@ -29,6 +30,91 @@
         android:inputType="text"
         android:textSize="15sp"
         android:hint="@string/hint_last_name"
+        android:textColorHint="@color/grey"
+        android:layout_margin="5dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/phone_number"
+        android:ems="15"
+        android:inputType="number"
+        android:maxLength="15"
+        android:textSize="15dp"
+        android:hint=" Phone Number"
+        android:textColorHint="@color/grey"
+        android:layout_margin="5dp"  />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/email"
+        android:ems="15"
+        android:inputType="text"
+        android:maxLength="150"
+        android:textSize="15dp"
+        android:hint="Email"
+        android:textColorHint="@color/grey"
+        android:layout_margin="5dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/street_address"
+        android:ems="15"
+        android:gravity="left|top"
+        android:inputType="text"
+        android:maxLength="15"
+        android:textSize="15dp"
+        android:hint=" Street Address"
+        android:textColorHint="@color/grey"
+        android:layout_margin="5dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/city"
+        android:ems="15"
+        android:inputType="text"
+        android:maxLength="15"
+        android:textSize="15dp"
+        android:hint=" City"
+        android:textColorHint="@color/grey"
+        android:layout_margin="5dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/state"
+        android:ems="15"
+        android:inputType="text"
+        android:maxLength="15"
+        android:textSize="15dp"
+        android:hint=" State/Province"
+        android:textColorHint="@color/grey"
+        android:layout_margin="5dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/postal_code"
+        android:ems="15"
+        android:inputType="number"
+        android:maxLength="15"
+        android:textSize="15dp"
+        android:hint=" Zip/Postal Code"
+        android:textColorHint="@color/grey"
+        android:layout_margin="5dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/country"
+        android:ems="15"
+        android:inputType="text"
+        android:maxLength="15"
+        android:textSize="15dp"
+        android:hint=" Country"
         android:textColorHint="@color/grey"
         android:layout_margin="5dp" />
 

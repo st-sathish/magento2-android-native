@@ -25,6 +25,27 @@ public class BillingAddressView {
     @View(R.id.last_name)
     private EditText lastNameEditTxt;
 
+    @View(R.id.phone_number)
+    private EditText phoneEditTxt;
+
+    @View(R.id.email)
+    private EditText emailEditTxt;
+
+    @View(R.id.street_address)
+    private EditText streetEditTxt;
+
+    @View(R.id.city)
+    private EditText cityEditTxt;
+
+    @View(R.id.state)
+    private EditText stateEditTxt;
+
+    @View(R.id.postal_code)
+    private EditText zipEditTxt;
+
+    @View(R.id.country)
+    private EditText countryEditTxt;
+
     private Context mContext;
 
     public BillingAddressView(Context context) {
@@ -35,5 +56,12 @@ public class BillingAddressView {
     private void onResolved() {
         firstNameEditTxt.setText("hello");
         lastNameEditTxt.setText("test");
+        phoneEditTxt.setText("1241");
+        emailEditTxt.setText("test@mail.com");
+        streetEditTxt.setText("street10");
+        cityEditTxt.setText("Bangalore");
+        stateEditTxt.setText("KA");
+        zipEditTxt.setText("560001");
+        countryEditTxt.setText("IN");
     }
 }
