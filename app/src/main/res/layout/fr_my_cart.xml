@@ -3,30 +3,40 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:weightSum="10"
     android:orientation="vertical">
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Continue"
-        android:layout_gravity="center"
-        android:id="@+id/goto_address"
-        />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="0dp"
+        android:layout_weight = "8.5" />
 
+    <RelativeLayout
+        android:layout_weight = "1.5"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginEnd="10dp">
 
-    <ProgressBar
-        android:layout_width="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:id="@+id/progress_bar"
-        android:visibility="invisible"
-        android:indeterminateTint="@color/colorGreen"
-        android:layout_height="wrap_content" />
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:id="@+id/progress_bar"
+            android:visibility="invisible"
+            android:indeterminateTint="@color/colorGreen"
+            android:layout_height="wrap_content" />
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="@string/btn_continue"
+            android:textColor="@color/white"
+            android:layout_margin="20dp"
+            android:background="@color/colorGreen"
+            android:layout_gravity="center"
+            android:id="@+id/goto_address" />
+
+    </RelativeLayout>
 
 </LinearLayout>

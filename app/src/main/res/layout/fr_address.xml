@@ -6,21 +6,28 @@
     android:background="@color/bg_color"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <com.mindorks.placeholderview.ExpandablePlaceHolderView
-        android:id="@+id/expandableView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scrollbars="vertical"/>
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <com.mindorks.placeholderview.ExpandablePlaceHolderView
+            android:id="@+id/expandableView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="vertical"/>
+
+    </ScrollView>
 
     <Button
         android:id="@+id/button_place_order"
-        android:layout_width="200dp"
+        android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_gravity="center"
-        android:text="Place Order"
-        android:textSize="15dp"
+        android:text="@string/btn_place_order"
+        android:textSize="15sp"
+        android:layout_margin="20dp"
         android:textColor="@android:color/white"
-        android:background="@drawable/button_selecter"/>
+        android:background="@color/colorGreen"/>
 
 
 </LinearLayout>
