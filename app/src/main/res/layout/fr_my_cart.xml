@@ -12,8 +12,22 @@
         android:layout_height="0dp"
         android:layout_weight = "8.5" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_weight = "1.0"
+        android:layout_height="0dp"
+        android:layout_gravity="bottom|center_horizontal">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/btn_continue"
+            android:textColor="@color/white"
+            android:background="@color/colorGreen"
+            android:id="@+id/goto_address" />
+    </LinearLayout>
+
     <RelativeLayout
-        android:layout_weight = "1.5"
+        android:layout_weight = "0.5"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginRight="0dp"
@@ -27,16 +41,8 @@
             android:indeterminateTint="@color/colorGreen"
             android:layout_height="wrap_content" />
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:text="@string/btn_continue"
-            android:textColor="@color/white"
-            android:layout_margin="20dp"
-            android:background="@color/colorGreen"
-            android:layout_gravity="center"
-            android:id="@+id/goto_address" />
 
     </RelativeLayout>
+
 
 </LinearLayout>
