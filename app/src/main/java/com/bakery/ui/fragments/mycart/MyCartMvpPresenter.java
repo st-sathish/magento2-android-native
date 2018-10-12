@@ -1,6 +1,7 @@
 package com.bakery.ui.fragments.mycart;
 
 import com.bakery.data.network.models.CartRequest;
+import com.bakery.data.network.models.CartRequest2;
 import com.bakery.presenter.MvpPresenter;
 
 public interface MyCartMvpPresenter<V extends MyCartMvpView> extends MvpPresenter<V> {
@@ -11,5 +12,6 @@ public interface MyCartMvpPresenter<V extends MyCartMvpView> extends MvpPresente
 
     void addItemToCart(CartRequest request);
 
-    void updateItemToCart(CartRequest request, String itemId);
+    void updateItemToCart(CartRequest2 request, String itemId);
+
 }

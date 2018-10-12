@@ -6,6 +6,7 @@ import com.bakery.data.db.domain.CartOverview;
 import com.bakery.data.network.ApiEndpoints;
 import com.bakery.data.network.models.CartListResponse;
 import com.bakery.data.network.models.CartRequest;
+import com.bakery.data.network.models.CartRequest2;
 import com.bakery.data.network.models.CartResponse;
 import com.rx2androidnetworking.Rx2AndroidNetworking;
 
@@ -34,7 +35,7 @@ public class CartApiImpl implements CartApi {
     }
 
     @Override
-    public Observable<CartResponse> updateItem(CartRequest request, String itemId) {
+    public Observable<CartResponse> updateItem(CartRequest2 request, String itemId) {
         return Rx2AndroidNetworking.put(ApiEndpoints.API_PUT_UPDATE_CART)
                 .addHeaders(ApiEndpoints.HEADER_AUTHORIZATION, "Bearer "+ SessionStore.accessToken)
                 .addPathParameter("itemId", String.valueOf(itemId))

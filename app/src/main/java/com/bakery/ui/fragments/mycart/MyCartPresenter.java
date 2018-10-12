@@ -4,6 +4,7 @@ import com.androidnetworking.error.ANError;
 import com.bakery.data.SessionStore;
 import com.bakery.data.network.models.CartListResponse;
 import com.bakery.data.network.models.CartRequest;
+import com.bakery.data.network.models.CartRequest2;
 import com.bakery.data.network.models.CartResponse;
 import com.bakery.data.network.models.ProductResponse;
 import com.bakery.presenter.BasePresenter;
@@ -170,7 +171,7 @@ public class MyCartPresenter<V extends MyCartMvpView> extends BasePresenter<V> i
                 });
     }
 
-    public void updateItemToCart(CartRequest request, String itemId) {
+    public void updateItemToCart(CartRequest2 request, String itemId) {
         getMvpView().showLoading();
         getDataManager().updateItemCart(request, itemId)
                 .subscribeOn(Schedulers.io())

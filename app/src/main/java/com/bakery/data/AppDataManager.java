@@ -7,6 +7,7 @@ import com.bakery.data.network.AppApiHelper;
 import com.bakery.data.network.models.AddressModel;
 import com.bakery.data.network.models.CartListResponse;
 import com.bakery.data.network.models.CartRequest;
+import com.bakery.data.network.models.CartRequest2;
 import com.bakery.data.network.models.CartResponse;
 import com.bakery.data.network.models.OrderRequest;
 import com.bakery.data.network.models.ProductListResponse;
@@ -57,7 +58,7 @@ public class AppDataManager implements DataManager {
     }
 
     @Override
-    public Observable<CartResponse> updateItemCart(CartRequest request, String itemId) {
+    public Observable<CartResponse> updateItemCart(CartRequest2 request, String itemId) {
         return mApiHelper.getCartApi().updateItem(request, itemId);
     }
 

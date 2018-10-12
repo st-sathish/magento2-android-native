@@ -15,6 +15,7 @@ import com.bakery.R;
 import com.bakery.data.network.models.Address;
 import com.bakery.data.network.models.CartListResponse;
 import com.bakery.data.network.models.CartRequest;
+import com.bakery.data.network.models.CartRequest2;
 import com.bakery.data.network.models.CartResponse;
 import com.bakery.data.network.models.ProductResponse;
 import com.bakery.decorators.ItemDecorationGridColumns;
@@ -152,8 +153,8 @@ public class MyCartFragment extends BaseFragment implements MyCartMvpView, CartD
     public void updateCartItem(String quantity, int position) {
         CartResponse response = cartDetailListAdapter.getItem(position);
         Integer q = Integer.parseInt(quantity);
-        CartRequest.CartItem cartItem = new CartRequest.CartItem(Integer.parseInt(response.getQuoteId()), response.getSku(), q);
-        CartRequest request = new CartRequest(cartItem);
+        CartRequest2.CartItem cartItem = new CartRequest2.CartItem(Integer.parseInt(response.getQuoteId()),  response.getItemId(), q);
+        CartRequest2 request = new CartRequest2(cartItem);
         mPresenter.updateItemToCart(request, response.getItemId().toString());
 
     }
