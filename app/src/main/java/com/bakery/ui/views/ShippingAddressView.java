@@ -1,6 +1,6 @@
 package com.bakery.ui.views;
 
-import android.content.Context;
+/*import android.content.Context;
 import android.widget.EditText;
 
 import com.bakery.R;
@@ -8,12 +8,12 @@ import com.mindorks.placeholderview.annotations.Layout;
 import com.mindorks.placeholderview.annotations.Resolve;
 import com.mindorks.placeholderview.annotations.View;
 import com.mindorks.placeholderview.annotations.expand.ChildPosition;
-import com.mindorks.placeholderview.annotations.expand.ParentPosition;
+import com.mindorks.placeholderview.annotations.expand.ParentPosition;*/
 
-@Layout(R.layout.shipping_address)
+//@Layout(R.layout.shipping_address)
 public class ShippingAddressView {
 
-    @ParentPosition
+    /*@ParentPosition
     private int mParentPosition;
 
     @ChildPosition
@@ -63,5 +63,5 @@ public class ShippingAddressView {
         stateEditTxt.setText("KA");
         zipEditTxt.setText("560001");
         countryEditTxt.setText("IN");
-    }
+    }*/
 }

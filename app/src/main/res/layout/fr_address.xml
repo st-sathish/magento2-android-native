@@ -6,7 +6,7 @@
     android:background="@color/bg_color"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <ScrollView
+    <!--<ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
@@ -16,8 +16,29 @@
             android:layout_height="wrap_content"
             android:scrollbars="vertical"/>
 
-    </ScrollView>
+    </ScrollView>-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_marginTop="?android:attr/actionBarSize"
+        android:layout_height="80dp">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="@string/app_name"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/shipping_address_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_gravity="bottom"
+            android:text="@string/btn_change"
+            android:textSize="15sp"
+            android:layout_margin="20dp"
+            android:textColor="@android:color/white"
+            android:background="@color/colorGreen"/>
+    </LinearLayout>
     <Button
         android:id="@+id/button_place_order"
         android:layout_width="match_parent"

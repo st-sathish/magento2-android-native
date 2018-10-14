@@ -6,7 +6,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bakery.R;
-import com.mindorks.placeholderview.annotations.Layout;
+/*import com.mindorks.placeholderview.annotations.Layout;
 import com.mindorks.placeholderview.annotations.Resolve;
 import com.mindorks.placeholderview.annotations.View;
 import com.mindorks.placeholderview.annotations.expand.Collapse;
@@ -14,14 +14,14 @@ import com.mindorks.placeholderview.annotations.expand.Expand;
 import com.mindorks.placeholderview.annotations.expand.Parent;
 import com.mindorks.placeholderview.annotations.expand.ParentPosition;
 import com.mindorks.placeholderview.annotations.expand.SingleTop;
-import com.mindorks.placeholderview.annotations.expand.Toggle;
+import com.mindorks.placeholderview.annotations.expand.Toggle;*/
 
-@Parent
+/*@Parent
 @SingleTop
-@Layout(R.layout.address_heading)
+@Layout(R.layout.address_heading)*/
 public class HeadingView {
 
-    @View(R.id.headingTxt)
+    /*@View(R.id.headingTxt)
     private TextView headingTxt;
 
     @View(R.id.toggleIcon)
@@ -55,5 +55,5 @@ public class HeadingView {
     @Collapse
     private void onCollapse(){
         toggleIcon.setImageDrawable(mContext.getResources().getDrawable(R.drawable.ic_keyboard_arrow_up_white_24dp));
-    }
+    }*/
 }

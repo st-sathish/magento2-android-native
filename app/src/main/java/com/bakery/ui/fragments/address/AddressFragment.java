@@ -19,7 +19,7 @@ import com.bakery.ui.views.HeadingView;
 import com.bakery.ui.views.ShippingAddressView;
 import com.bakery.utils.AppConstants;
 import com.bakery.utils.ValidationUtils;
-import com.mindorks.placeholderview.ExpandablePlaceHolderView;
+/*import com.mindorks.placeholderview.ExpandablePlaceHolderView;*/
 
 import java.util.ArrayList;
 
@@ -30,8 +30,8 @@ import butterknife.OnClick;
 public class AddressFragment extends BaseFragment implements AddressMvp {
 
 
-    @BindView(R.id.expandableView)
-    ExpandablePlaceHolderView expandablePlaceHolderView;
+    //@BindView(R.id.expandableView)
+    //ExpandablePlaceHolderView expandablePlaceHolderView;
 
     /*@BindView(R.id.first_name)
     EditText firstName;
@@ -62,11 +62,15 @@ public class AddressFragment extends BaseFragment implements AddressMvp {
 
     AddressPresenter mvpPresenter;
 
+    /*BillingAddressView mBillingAddressView;
+
+    ShippingAddressView mShippingAddressView;*/
+
     public static AddressFragment newInstance(String title) {
         AddressFragment addressFragment = new AddressFragment();
         Bundle bundle = new Bundle();
         bundle.putString(AppConstants.INTENT_PARAM_ONE, title);
-        addressFragment.setArguments(bundle);
+        //addressFragment.setArguments(bundle);
         return addressFragment;
     }
 
@@ -82,13 +86,15 @@ public class AddressFragment extends BaseFragment implements AddressMvp {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+       /* mBillingAddressView = new BillingAddressView(getBaseActivity().getApplicationContext());
         expandablePlaceHolderView
                 .addView(new HeadingView(getBaseActivity().getApplicationContext(), "Billing Address"))
-                .addView(new BillingAddressView(getBaseActivity().getApplicationContext()));
+                .addView(mBillingAddressView);
 
+        mShippingAddressView = new ShippingAddressView(getBaseActivity().getApplicationContext());
         expandablePlaceHolderView
                 .addView(new HeadingView(getBaseActivity().getApplicationContext(), "Shipping Address"))
-                .addView(new ShippingAddressView(getBaseActivity().getApplicationContext()));
+                .addView(mShippingAddressView);*/
 
 
         /*Address address = ((LandingPageActivity)this.getActivity()).getAddress();
@@ -106,7 +112,7 @@ public class AddressFragment extends BaseFragment implements AddressMvp {
     @OnClick(R.id.button_place_order)
     public void placeOrder() {
 
-        EditText firstName = expandablePlaceHolderView.findViewById(R.id.first_name);
+        /*EditText firstName = expandablePlaceHolderView.findViewById(R.id.first_name);
         String firstNameValue = firstName.getText().toString();
         if (firstNameValue.isEmpty()) {
             onError(R.string.empty_first_name);
@@ -206,7 +212,7 @@ public class AddressFragment extends BaseFragment implements AddressMvp {
         info.setBillingAddress(address);
         info.setShippingAddress(address);
         addressModel.setAddresses(info);
-        mvpPresenter.setAddress(addressModel);
+        mvpPresenter.setAddress(addressModel);*/
 
         //mvpPresenter.placeOrder(order);
     }
@@ -220,7 +226,7 @@ public class AddressFragment extends BaseFragment implements AddressMvp {
     @Override
     public void addressCallback() {
 
-        EditText firstName = expandablePlaceHolderView.findViewById(R.id.first_name);
+        /*EditText firstName = expandablePlaceHolderView.findViewById(R.id.first_name);
         EditText lastName = expandablePlaceHolderView.findViewById(R.id.last_name);
         EditText phone = expandablePlaceHolderView.findViewById(R.id.phone_number);
         EditText email = expandablePlaceHolderView.findViewById(R.id.email);
@@ -260,15 +266,15 @@ public class AddressFragment extends BaseFragment implements AddressMvp {
         bill.setStreet(places);
         order.setBillingAddress(bill);
 
-        mvpPresenter.placeOrder(order);
+        mvpPresenter.placeOrder(order);*/
 
     }
 
     @Override
     public void orderCallback() {
-        Toast.makeText(getActivity(), "Order is placed.", Toast.LENGTH_LONG).show();
-        SessionStore.quoteId = 0;
-        getActivity().recreate();
+        //Toast.makeText(getActivity(), "Order is placed.", Toast.LENGTH_LONG).show();
+        //SessionStore.quoteId = 0;
+        //getActivity().recreate();
         //switchFragment(LandingPageActivity.FRAGMENT_HOME, "Home", false); //Commented out because, this does not show the crucial top bar - app_bar_main1.xml
     }
 

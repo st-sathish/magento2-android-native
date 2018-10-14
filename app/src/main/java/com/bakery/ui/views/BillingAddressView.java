@@ -4,16 +4,16 @@ import android.content.Context;
 import android.widget.EditText;
 
 import com.bakery.R;
-import com.mindorks.placeholderview.annotations.Layout;
+/*import com.mindorks.placeholderview.annotations.Layout;
 import com.mindorks.placeholderview.annotations.Resolve;
 import com.mindorks.placeholderview.annotations.View;
 import com.mindorks.placeholderview.annotations.expand.ChildPosition;
-import com.mindorks.placeholderview.annotations.expand.ParentPosition;
+import com.mindorks.placeholderview.annotations.expand.ParentPosition;*/
 
-@Layout(R.layout.billing_address)
+//@Layout(R.layout.billing_address)
 public class BillingAddressView {
 
-    @ParentPosition
+    /*@ParentPosition
     private int mParentPosition;
 
     @ChildPosition
@@ -64,4 +64,40 @@ public class BillingAddressView {
         zipEditTxt.setText("560001");
         countryEditTxt.setText("IN");
     }
+
+    public EditText getFirstNameEditTxt() {
+        return firstNameEditTxt;
+    }
+
+    public EditText getLastNameEditTxt() {
+        return lastNameEditTxt;
+    }
+
+    public EditText getPhoneEditTxt() {
+        return phoneEditTxt;
+    }
+
+    public EditText getEmailEditTxt() {
+        return emailEditTxt;
+    }
+
+    public EditText getStreetEditTxt() {
+        return streetEditTxt;
+    }
+
+    public EditText getCityEditTxt() {
+        return cityEditTxt;
+    }
+
+    public EditText getStateEditTxt() {
+        return stateEditTxt;
+    }
+
+    public EditText getZipEditTxt() {
+        return zipEditTxt;
+    }
+
+    public EditText getCountryEditTxt() {
+        return countryEditTxt;
+    }*/
 }
