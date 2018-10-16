@@ -53,6 +53,7 @@
                         android:layout_height="32dp"
                         android:gravity="center_vertical|center_horizontal"
                         android:text="@string/default_item_value"
+                        android:inputType="number"
                         android:textColor="@android:color/background_dark"
                         android:background="@color/white"
                         android:textSize="20sp"
