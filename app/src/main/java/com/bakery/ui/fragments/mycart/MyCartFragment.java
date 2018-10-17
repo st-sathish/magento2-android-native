@@ -103,7 +103,7 @@ public class MyCartFragment extends BaseFragment implements MyCartMvpView, CartD
         if(activity.getCount().equals("0") ){
             Toast.makeText(getActivity(), "There are no items in your cart. Add 1 or more items before continuing...", Toast.LENGTH_LONG).show();
         } else {
-            switchFragment(LandingPageActivity.FRAGMENT_ADDRESS, "Billing Address", true);
+            switchFragment(LandingPageActivity.FRAGMENT_SHIPPING_ADDRESS, "Billing Address", true);
         }
     }
 

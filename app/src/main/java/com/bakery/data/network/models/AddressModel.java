@@ -14,7 +14,7 @@ public class AddressModel {
     public static class AddressInformation {
 
         @Expose
-        @SerializedName("shipping_address")
+        @SerializedName("fr_shipping_address")
         private Address shippingAddress;
 
         @Expose

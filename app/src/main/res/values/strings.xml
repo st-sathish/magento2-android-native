@@ -87,4 +87,5 @@
     <string name="btn_place_order">Place Order</string>
     <string name="btn_continue">Continue</string>
     <string name="btn_change">Change</string>
+    <string name="lbl_shipping_address">Shipping Address</string>
 </resources>

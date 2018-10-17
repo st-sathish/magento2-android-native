@@ -17,6 +17,7 @@ import com.bakery.data.network.models.CartResponse;
 import com.bakery.data.network.models.ProductResponse;
 import com.bakery.ui.BaseAppCompatActivity;
 import com.bakery.ui.fragments.address.AddressFragment;
+import com.bakery.ui.fragments.address.ShippingAddressFragment;
 import com.bakery.ui.fragments.mycart.MyCartFragment;
 import com.bakery.ui.fragments.category.ExpCategoryFragment;
 import com.bakery.ui.fragments.drawer.FragmentDrawer;
@@ -38,7 +39,7 @@ public class LandingPageActivity extends BaseAppCompatActivity implements Fragme
     public static final int FRAGMENT_EXP_CATEGORY = 3;
     public static final int FRAGMENT_DETAIL_LIST_PRODUCT = 4;
     public static final int FRAGMENT_DETAILS_PRODUCT = 5;
-    public static final int FRAGMENT_ADDRESS = 6;
+    public static final int FRAGMENT_SHIPPING_ADDRESS = 6;
     public static final int FRAGMENT_MY_CART = 7;
 
     private FragmentDrawer drawerFragment;
@@ -92,9 +93,9 @@ public class LandingPageActivity extends BaseAppCompatActivity implements Fragme
                 title = "";
                 fragment = ProductDetailFragment.newInstance(title);
                 break;
-            case FRAGMENT_ADDRESS:
+            case FRAGMENT_SHIPPING_ADDRESS:
                 title = "";
-                fragment = AddressFragment.newInstance(title);
+                fragment = ShippingAddressFragment.newInstance(title);
                 break;
             case FRAGMENT_MY_CART:
                 title = "";

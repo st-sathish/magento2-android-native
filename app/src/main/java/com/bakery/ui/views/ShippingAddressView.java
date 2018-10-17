@@ -10,7 +10,7 @@ import com.mindorks.placeholderview.annotations.View;
 import com.mindorks.placeholderview.annotations.expand.ChildPosition;
 import com.mindorks.placeholderview.annotations.expand.ParentPosition;*/
 
-//@Layout(R.layout.shipping_address)
+//@Layout(R.layout.fr_shipping_address)
 public class ShippingAddressView {
 
     /*@ParentPosition
