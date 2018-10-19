@@ -62,8 +62,10 @@
             <TextView
                 android:id="@+id/item_price"
                 android:layout_width="match_parent"
-                android:layout_height="20dp"
+                android:layout_height="wrap_content"
                 android:ellipsize="marquee"
+                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
                 android:focusable="true"
                 android:layout_below="@+id/item_name"
                 android:focusableInTouchMode="true"
@@ -71,16 +73,21 @@
                 android:marqueeRepeatLimit="marquee_forever"
                 android:scrollHorizontally="true"
                 android:singleLine="true"
+                android:paddingTop="5dp"
+                android:text="@string/app_name"
                 android:textColor="@android:color/background_dark"
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_below="@id/item_price"
                 android:background="@color/colorGreen"
                 android:weightSum="4"
+                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="15dp"
                 android:baselineAligned="false"
                 android:orientation="horizontal">
 
@@ -88,8 +95,6 @@
                     android:layout_width="0dp"
                     android:orientation="horizontal"
                     android:layout_weight="2.5"
-                    android:paddingStart="5dp"
-                    android:paddingEnd="5dp"
                     android:gravity="center_vertical"
                     android:layout_height="match_parent">
 
@@ -108,7 +113,7 @@
                         android:id="@+id/item_quantity"
                         android:layout_width="44dp"
                         android:layout_height="44dp"
-                        android:background="@color/white"
+                        android:background="@drawable/border_top_bottom"
                         android:gravity="center"
                         android:text="@string/default_item_value"
                         android:textColor="@android:color/background_dark"
@@ -148,8 +153,7 @@
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"
                         android:contentDescription="@string/placeholder_text"
-                        android:src="@drawable/ic_favourite_white"
-                        android:background="@color/colorGreen"/>
+                        android:src="@drawable/ic_favourite_white" />
 
                 </LinearLayout>
 
