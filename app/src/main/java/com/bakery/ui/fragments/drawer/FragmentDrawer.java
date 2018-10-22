@@ -67,6 +67,7 @@ public class FragmentDrawer extends BaseFragment implements View.OnClickListener
         setUnBinder(ButterKnife.bind(this, view));
         adapter = new SectionedRecyclerViewAdapter();
         recyclerView.setAdapter(adapter);
+        recyclerView.addItemDecoration(new SimpleDividerItemDecoration(getActivity()));
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.addOnItemTouchListener(new RecyclerTouchListener(
                 getActivity(), recyclerView, new ClickListener() {

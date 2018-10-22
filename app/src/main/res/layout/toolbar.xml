@@ -6,6 +6,92 @@
     android:minHeight="?android:attr/actionBarSize"
     android:background="@color/colorGreen">
 
+    <!--<LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="4"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/logo_visible"
+                android:layout_width="50dp"
+                android:contentDescription="@string/app_name"
+                android:background="@drawable/logo_white_icon"
+                android:layout_height="50dp" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_gravity="end"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="4"
+                android:baselineAligned="false"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:orientation="horizontal"
+                    android:layout_weight="3"
+                    android:layout_gravity="end"
+                    android:gravity="end"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="5dp"
+                        android:contentDescription="@string/app_name"
+                        android:layout_marginStart="5dp"
+                        android:background="@drawable/notification_white"
+                        android:scaleType="centerCrop" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:orientation="horizontal"
+                    android:layout_weight="1"
+                    android:layout_gravity="end"
+                    android:gravity="end"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginStart="5dp"
+                        android:contentDescription="@string/app_name"
+                        android:background="@drawable/purchase"
+                        android:scaleType="centerCrop" />
+
+                    <TextView
+                        android:id="@+id/item_count"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="top|end"
+                        android:background="@drawable/round_text_cart_item"
+                        android:gravity="center"
+                        android:text="@string/cart_default_value"
+                        android:textColor="@color/white" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>-->
     <LinearLayout
         android:layout_width="100dp"
         android:layout_height="match_parent"
@@ -55,18 +141,18 @@
             <FrameLayout
                 android:id="@+id/item_counter"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true">
 
                 <ImageView
-                    android:layout_width="50dp"
+                    android:layout_width="40dp"
                     android:layout_height="80dp"
                     android:layout_marginLeft="5dp"
                     android:layout_marginStart="5dp"
                     android:background="@drawable/purchase"
-                    android:scaleType="fitXY" />
+                    android:scaleType="centerCrop" />
 
                 <TextView
                     android:id="@+id/item_count"
