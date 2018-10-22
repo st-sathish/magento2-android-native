@@ -7,7 +7,7 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content" />
 
     <ProgressBar
         android:layout_width="wrap_content"
@@ -15,6 +15,7 @@
         android:layout_centerVertical="true"
         android:id="@+id/progress_bar"
         android:visibility="invisible"
+        android:layout_below="@+id/recycler_view"
         android:indeterminateTint="@color/colorGreen"
         android:layout_height="wrap_content" />
 
