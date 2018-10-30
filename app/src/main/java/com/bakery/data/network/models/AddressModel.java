@@ -14,7 +14,7 @@ public class AddressModel {
     public static class AddressInformation {
 
         @Expose
-        @SerializedName("fr_shipping_address")
+        @SerializedName("shipping_address")
         private Address shippingAddress;
 
         @Expose
@@ -59,7 +59,7 @@ public class AddressModel {
 
             @Expose
             @SerializedName("postcode")
-            private Integer postcode;
+            private String postcode;
 
             @Expose
             @SerializedName("city")
@@ -126,11 +126,11 @@ public class AddressModel {
                 this.street = street;
             }
 
-            public Integer getPostcode() {
+            public String getPostcode() {
                 return postcode;
             }
 
-            public void setPostcode(Integer postcode) {
+            public void setPostcode(String postcode) {
                 this.postcode = postcode;
             }
 
